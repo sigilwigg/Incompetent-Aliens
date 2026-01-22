@@ -13,6 +13,7 @@ public class MatchPosition : MonoBehaviour
         m_targetPosition = m_targetTransform.position;
 
         m_currentPosition = Vector3.Lerp(transform.position, m_targetPosition, Time.deltaTime * m_matchSpeed);
+
         transform.position = m_currentPosition;
     }
 }
