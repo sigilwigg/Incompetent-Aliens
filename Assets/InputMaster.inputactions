@@ -1,19 +1,11 @@
 {
+    "version": 1,
     "name": "InputMaster",
     "maps": [
         {
             "name": "Player",
             "id": "8d5c65ba-760a-4d57-a26b-9a3e4a6e611f",
             "actions": [
-                {
-                    "name": "Look",
-                    "type": "PassThrough",
-                    "id": "a784cb9f-d14e-4ec3-9bfc-b3f1a2b9de68",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
                 {
                     "name": "Move",
                     "type": "PassThrough",
@@ -24,36 +16,16 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Jump",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "fa39bf73-8f4f-428f-907f-bea064a4a543",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "CameraZoom",
-                    "type": "PassThrough",
-                    "id": "50a40684-0c95-4507-ad40-541434743fbb",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "ee2d6391-13d8-467c-bc73-3fbe9308061b",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "2D Vector",
                     "id": "baf96464-ed15-4256-b58d-89f827f2a6c9",
@@ -116,18 +88,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e7b20cb8-916a-4132-8405-51eb1caf0a5d",
-                    "path": "<Mouse>/scroll/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraZoom",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
