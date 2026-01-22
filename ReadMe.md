@@ -34,6 +34,8 @@
     // sub-sub-label or note
 
 ### Class explinatons
+**note:** I hate this. However, it's helpful for team clarity. It's also good for submitting code to teachers.
+
 ''
 
     /*
