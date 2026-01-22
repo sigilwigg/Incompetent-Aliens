@@ -20,12 +20,12 @@ namespace SceneManagement
 {
     public class SceneLoader : MonoBehaviour
     {
-        public Animator transitionAnimator;
-        public float transitionTime = 1f;
+        public Animator m_transitionAnimator;
+        public float m_transitionTime = 1f;
 
         public void TransitionToScene(string sceneName)
         {
-            StartCoroutine(Transition(sceneName, transitionTime));
+            StartCoroutine(Transition(sceneName, m_transitionTime));
         }
 
         IEnumerator Transition(
@@ -34,7 +34,7 @@ namespace SceneManagement
             )
         {
             // ----- play animation -----
-            transitionAnimator.SetTrigger("Start");
+            m_transitionAnimator.SetTrigger("Start");
 
             // ----- wait -----
             yield return new WaitForSeconds(secondsToWait);

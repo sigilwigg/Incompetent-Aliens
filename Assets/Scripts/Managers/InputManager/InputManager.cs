@@ -14,18 +14,18 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    private InputMaster input;
+    private InputMaster m_input;
 
     void Awake()
     {
-        input = new InputMaster();
+        m_input = new InputMaster();
 
-        input.Player.Interact.performed += InteractPerformed;
+        m_input.Player.Interact.performed += InteractPerformed;
     }
 
     public Vector2 GetMovementInput()
     {
-        return input.Player.Move.ReadValue<Vector2>();
+        return m_input.Player.Move.ReadValue<Vector2>();
     }
 
     void InteractPerformed(InputAction.CallbackContext context)
@@ -36,11 +36,11 @@ public class InputManager : MonoBehaviour
 
     void OnEnable()
     {
-        input.Enable();
+        m_input.Enable();
     }
 
     void OnDisable()
     {
-        input.Disable();
+        m_input.Disable();
     }
 }
