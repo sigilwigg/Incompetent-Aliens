@@ -19,6 +19,23 @@
         - AudioManager
         - etc.
 
+## Code Format
+
+- all *member* fields begin with "m_"
+- all booleans start with either "can" or "is"
+    - m_canMove = true;
+    - m_isMoving = false;
+- all boolean returning methods follow the avbove rule:
+    - Player.IsMoving()
+    - if (m_isPlayerInView) { Attack() };
+- Please try to avoid abreviations.
+    - abreviations are confusing.
+    - not everyone thinks the same way or has the same elgish speaking level
+    - long, clear names are preferrable:
+        - Player.m_movement.RunToTargetLocation( targetLocation.position );
+        - Eenmy.IsPlayerNearbyAndLookingAtMe( player, nearbyDistance);
+- be organized. be thoughtful. be kind.
+
 ## Code Commenting
 
 ### In code:
