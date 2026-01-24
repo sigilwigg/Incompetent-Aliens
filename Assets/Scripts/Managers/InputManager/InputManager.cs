@@ -1,4 +1,5 @@
 using NUnit.Framework.Interfaces;
+using Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,11 +16,12 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     private InputMaster m_input;
+    private Controller m_playerController;
 
     void Awake()
     {
         m_input = new InputMaster();
-
+        m_playerController = GameObject.FindWithTag("Player").GetComponent<Controller>();
         m_input.Player.Interact.performed += InteractPerformed;
     }
 
@@ -32,6 +34,7 @@ public class InputManager : MonoBehaviour
     {
         Debug.Log("interact performed");
         // TODO: call player controller interact
+        m_playerController.Interact();
     }
 
     void OnEnable()
