@@ -4,6 +4,11 @@ using UnityEditor.PackageManager;
 using UnityEngine;
 
 
+/*
+ * Controls the Interact function of the player. When the player is in range of an interactable object, a prompt will appear and they will be able to press SPACE to interact with the object 
+ * 
+ * CheckForInteractable => Uses an overlap sphere to gather all the potential interactable objects in range of the player, before choosing the closest one and giving the player the option to interact with it
+*/
 namespace Player
 {
     public class Interact : MonoBehaviour
@@ -32,19 +37,24 @@ namespace Player
 
         private void CheckForInteractable()
         {
+
+            // ----- Reset interactable available bool and available interactable object -----
             m_playerController.m_isInteractableObjectAvailable = false;
             m_playerController.m_availableInteractableObject = null;
 
+            // ----- Used to determine the closest interactable Game Object
             Collider nearestInteractable = null;
             float nearestDistance = float.MaxValue;
             float distance;
 
-
+            //----- Overlap Sphere Check -----
             Collider[] interactableColliders = Physics.OverlapSphere(gameObject.transform.position, m_interactRange, m_interactableLayerMask);
             foreach (var interactable in interactableColliders)
             {
+                //Get the distance between each interactable and the player
                 distance = Vector3.Distance(gameObject.transform.position, interactable.gameObject.transform.position);
 
+                //Determines the closest interactable to the player
                 if (distance < nearestDistance)
                 {
                     nearestDistance = distance;
@@ -52,7 +62,8 @@ namespace Player
                 }
             }
 
-            if (nearestInteractable != null)
+            // Set the nearest Interactable to the current available interactable 
+            if (nearestInteractable != null) 
             {
                 m_playerController.m_availableInteractableObject = nearestInteractable.gameObject.GetComponent<Interactables.Interactable>();
                 m_playerController.m_isInteractableObjectAvailable = true;
