@@ -9,7 +9,8 @@ namespace Player
         public bool m_canMove;
 
         public bool m_isInteractableObjectAvailable = false;
-        public Interactable m_availableInteractableObject;
+        public Interactables.Interactable m_availableInteractableObject;
+        public GameObject m_currentlyHeldItem;
 
         private void Awake()
         {

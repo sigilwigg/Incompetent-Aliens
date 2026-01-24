@@ -483,11 +483,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1717316209}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71982bf8e5af3ca46b7cd9a0228ad274, type: 3}
+  m_Script: {fileID: 11500000, guid: 64d7e8f6945787b45beb434e8c5b8be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_interactableText: Sphere
+  m_interactableText: Pick Up
   m_interactableRadius: 5
+  m_itemName: Sphere
 --- !u!1 &1744839080
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,6 +866,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7026141624604925451, guid: 7e3d45d248bbb7449bb439cc602a7dda, type: 3}
+      propertyPath: m_interactRange
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7324986503841025892, guid: 7e3d45d248bbb7449bb439cc602a7dda, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -34,7 +34,15 @@ public class InputManager : MonoBehaviour
     {
         Debug.Log("interact performed");
         // TODO: call player controller interact
-        m_playerController.Interact();
+        if (m_playerController.m_currentlyHeldItem != null)
+        {
+            m_playerController.m_currentlyHeldItem = null;
+        }
+        else
+        {
+            m_playerController.Interact();
+        }
+
     }
 
     void OnEnable()

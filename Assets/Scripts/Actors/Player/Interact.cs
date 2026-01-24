@@ -54,7 +54,7 @@ namespace Player
 
             if (nearestInteractable != null)
             {
-                m_playerController.m_availableInteractableObject = nearestInteractable.gameObject.GetComponent<Interactable>();
+                m_playerController.m_availableInteractableObject = nearestInteractable.gameObject.GetComponent<Interactables.Interactable>();
                 m_playerController.m_isInteractableObjectAvailable = true;
                 m_interactPrompt.enabled = true;
                 m_promptText.text = m_playerController.m_availableInteractableObject.m_interactableText;
