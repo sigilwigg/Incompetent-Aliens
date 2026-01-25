@@ -1,3 +1,4 @@
+using Interactables;
 using Player;
 using TMPro;
 using UnityEditor.PackageManager;
@@ -7,7 +8,9 @@ using UnityEngine;
 /*
  * Controls the Interact function of the player. When the player is in range of an interactable object, a prompt will appear and they will be able to press SPACE to interact with the object 
  * 
- * CheckForInteractable => Uses an overlap sphere to gather all the potential interactable objects in range of the player, before choosing the closest one and giving the player the option to interact with it
+ * CheckForInteractable() => Uses an overlap sphere to gather all the potential interactable objects in range of the player, before choosing the closest one and giving the player the option to interact with it
+ * 
+ * 
 */
 namespace Player
 {
@@ -63,7 +66,7 @@ namespace Player
             }
 
             // Set the nearest Interactable to the current available interactable 
-            if (nearestInteractable != null) 
+            if (nearestInteractable != null && m_playerController.m_currentlyHeldItem == null)
             {
                 m_playerController.m_availableInteractableObject = nearestInteractable.gameObject.GetComponent<Interactables.Interactable>();
                 m_playerController.m_isInteractableObjectAvailable = true;

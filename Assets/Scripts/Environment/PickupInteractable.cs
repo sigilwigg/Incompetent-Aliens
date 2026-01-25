@@ -5,22 +5,34 @@ namespace Interactables
 {
     public class PickupInteractable : Interactable
     {
-        private Controller playerController;
+        private Controller m_playerController;
+        private HeldItemTransform m_heldItemTransform;
 
         [SerializeField]
         private string m_itemName;
 
         private void Start()
         {
-            playerController = GameObject.FindWithTag("Player").GetComponent<Controller>();
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+            m_playerController = player.GetComponent<Controller>();
+            m_heldItemTransform = player.GetComponentInChildren<HeldItemTransform>();
         }
 
         public override void Interact()
         {
             base.Interact();
 
-            playerController.m_currentlyHeldItem = gameObject;
+            m_playerController.m_currentlyHeldItem = gameObject;
+            PositionItem();
             
+        }
+
+        
+        private void PositionItem()
+        {
+            transform.parent = m_heldItemTransform.transform;
+            transform.position = m_heldItemTransform.transform.position;
         }
     }
 

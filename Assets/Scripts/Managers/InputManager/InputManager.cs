@@ -36,7 +36,7 @@ public class InputManager : MonoBehaviour
         // TODO: call player controller interact
         if (m_playerController.m_currentlyHeldItem != null)
         {
-            m_playerController.m_currentlyHeldItem = null;
+            m_playerController.DropItem();
         }
         else
         {
