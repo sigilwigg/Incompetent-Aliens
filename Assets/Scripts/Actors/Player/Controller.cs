@@ -7,36 +7,48 @@ namespace Player
     {
         private Player.Movement m_movement;
 
-        public bool m_canMove;
+        [Header("Core")]
+        public Transform m_rotationTransform;
 
+        [Header("Statuses")]
+        public bool m_canMove;
+        public float m_rotation;
+
+        [Header("Interact")]
         public bool m_isInteractableObjectAvailable = false;
         public Interactables.Interactable m_availableInteractableObject;
         public GameObject m_currentlyHeldItem;
+        public Transform m_heldItemsPosition;
+        public Transform m_interactableCheckOrigin;
+        
 
         private void Awake()
         {
             m_movement = GetComponentInChildren<Player.Movement>();
         }
-         
-        // ----- INTERACTABLES -----
+
+        private void Update()
+        {
+            m_rotationTransform.rotation = Quaternion.Euler(0, 180 + m_rotation, 0);
+        }
+
+        // =========== INTERACTABLES ===========
         public void Interact()
         {
             if (m_isInteractableObjectAvailable)
             {
-                Debug.Log("Successfully Interacted!");
                 m_availableInteractableObject.Interact();
             }
         }
 
-        //Called when the player inputs the Interact key when holding an item
+        // Called when the player inputs the Interact key when holding an item
         public void DropItem() 
         {
-            PickupInteractable itemToDrop = m_currentlyHeldItem.GetComponent<Interactables.PickupInteractable>();
+            Pickupable itemToDrop = m_currentlyHeldItem.GetComponent<Interactables.Pickupable>();
 
+            if (itemToDrop != null) itemToDrop.m_collider.enabled = true;
             itemToDrop.gameObject.transform.parent = null;
-
             m_currentlyHeldItem = null;
-
         }
     }
 }

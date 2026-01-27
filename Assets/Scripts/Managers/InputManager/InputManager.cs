@@ -32,8 +32,6 @@ public class InputManager : MonoBehaviour
 
     void InteractPerformed(InputAction.CallbackContext context)
     {
-        Debug.Log("interact performed");
-        // TODO: call player controller interact
         if (m_playerController.m_currentlyHeldItem != null)
         {
             m_playerController.DropItem();

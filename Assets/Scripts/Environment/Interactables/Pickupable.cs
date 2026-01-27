@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Interactables
 {
-    public class PickupInteractable : Interactable
+    public class Pickupable : Interactable
     {
         private Controller m_playerController;
-        private HeldItemTransform m_heldItemTransform;
+        public Collider m_collider;
 
         [SerializeField]
         private string m_itemName;
@@ -16,7 +16,7 @@ namespace Interactables
             GameObject player = GameObject.FindGameObjectWithTag("Player");
 
             m_playerController = player.GetComponent<Controller>();
-            m_heldItemTransform = player.GetComponentInChildren<HeldItemTransform>();
+            m_collider = GetComponent<Collider>();
         }
 
         public override void Interact()
@@ -24,15 +24,14 @@ namespace Interactables
             base.Interact();
 
             m_playerController.m_currentlyHeldItem = gameObject;
+            m_collider.enabled = false;
             PositionItem();
-            
         }
 
-        
         private void PositionItem()
         {
-            transform.parent = m_heldItemTransform.transform;
-            transform.position = m_heldItemTransform.transform.position;
+            transform.parent = m_playerController.m_heldItemsPosition.transform;
+            transform.position = m_playerController.m_heldItemsPosition.transform.position;
         }
     }
 

@@ -498,6 +498,83 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90f872d50a4b2246a7c24233e2fdb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BillboardSprite
+--- !u!1 &2548528648865310273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7595651885790493224}
+  m_Layer: 0
+  m_Name: InteractOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7595651885790493224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2548528648865310273}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5691587727117072002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2595717485515881817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6428058560866030336}
+  - component: {fileID: 3045616812676180565}
+  m_Layer: 0
+  m_Name: HeldItemPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6428058560866030336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2595717485515881817}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7324986503841025892}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3045616812676180565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2595717485515881817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af14d1b41652ee4997bb722719d1b67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_targetTransform: {fileID: 7595651885790493224}
+  m_matchSpeed: 30
 --- !u!1 &5381833068888664116
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,8 +585,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7147915927220249512}
   - component: {fileID: 6075041021904727466}
-  - component: {fileID: 3040288733584469043}
   - component: {fileID: 7026141624604925451}
+  - component: {fileID: 3040288733584469043}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -532,6 +609,7 @@ Transform:
   m_Children:
   - {fileID: 593652129518116286}
   - {fileID: 8365116942196619400}
+  - {fileID: 5691587727117072002}
   m_Father: {fileID: 7324986503841025892}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6075041021904727466
@@ -548,6 +626,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player.Movement
   m_moveSpeed: 12
   m_moveAcceleration: 5
+  m_rotation: 0
+--- !u!114 &7026141624604925451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5381833068888664116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9503ef3d6129364db64ba967f4b57d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_interactPrompt: {fileID: 759583343546141696}
+  m_promptText: {fileID: 5932092256703662427}
+  m_interactRange: 0.5
 --- !u!143 &3040288733584469043
 CharacterController:
   m_ObjectHideFlags: 0
@@ -573,21 +667,38 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7026141624604925451
-MonoBehaviour:
+--- !u!1 &5775078969111518197
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5381833068888664116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9503ef3d6129364db64ba967f4b57d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_interactPrompt: {fileID: 759583343546141696}
-  m_promptText: {fileID: 5932092256703662427}
-  m_interactRange: 3
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5691587727117072002}
+  m_Layer: 0
+  m_Name: Rotation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5691587727117072002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5775078969111518197}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7595651885790493224}
+  m_Father: {fileID: 7147915927220249512}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7624941636027991345
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,6 +996,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6428058560866030336}
   - {fileID: 989547565007715295}
   - {fileID: 4370518288249147026}
   - {fileID: 7147915927220249512}
@@ -902,6 +1014,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b2ab4f04a3df504684235e52137b721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.Controller
+  m_rotationTransform: {fileID: 5691587727117072002}
   m_canMove: 1
+  m_rotation: 0
   m_isInteractableObjectAvailable: 0
   m_availableInteractableObject: {fileID: 0}
+  m_currentlyHeldItem: {fileID: 0}
+  m_heldItemsPosition: {fileID: 6428058560866030336}
+  m_interactableCheckOrigin: {fileID: 7595651885790493224}

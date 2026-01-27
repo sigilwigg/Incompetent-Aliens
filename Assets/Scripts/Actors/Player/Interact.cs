@@ -25,7 +25,7 @@ namespace Player
         private TextMeshProUGUI m_promptText;
 
         [SerializeField]
-        private int m_interactRange;
+        private float m_interactRange;
 
         private void Awake()
         {
@@ -45,13 +45,18 @@ namespace Player
             m_playerController.m_isInteractableObjectAvailable = false;
             m_playerController.m_availableInteractableObject = null;
 
-            // ----- Used to determine the closest interactable Game Object
+            // ----- Used to determine the closest interactable Game Object -----
             Collider nearestInteractable = null;
             float nearestDistance = float.MaxValue;
             float distance;
 
             //----- Overlap Sphere Check -----
-            Collider[] interactableColliders = Physics.OverlapSphere(gameObject.transform.position, m_interactRange, m_interactableLayerMask);
+            Collider[] interactableColliders = Physics.OverlapSphere(
+                m_playerController.m_interactableCheckOrigin.position,
+                m_interactRange,
+                m_interactableLayerMask
+            );
+
             foreach (var interactable in interactableColliders)
             {
                 //Get the distance between each interactable and the player
