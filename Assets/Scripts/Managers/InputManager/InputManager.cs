@@ -16,13 +16,18 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     private InputMaster m_input;
-    private Controller m_playerController;
+    public Controller m_playerController;
 
     void Awake()
     {
         m_input = new InputMaster();
-        m_playerController = GameObject.FindWithTag("Player").GetComponent<Controller>();
         m_input.Player.Interact.performed += InteractPerformed;
+        m_input.Player.Stack.performed += StackPerformed;
+    }
+
+    private void Start()
+    {
+        m_playerController = GameObject.FindWithTag("Player").GetComponent<Controller>();
     }
 
     public Vector2 GetMovementInput()
@@ -39,6 +44,19 @@ public class InputManager : MonoBehaviour
         else
         {
             m_playerController.Interact();
+        }
+    }
+
+    void StackPerformed(InputAction.CallbackContext context)
+    {
+        if (m_playerController.m_isStacked == true)
+        {
+            // TODO:
+        }
+        else
+        {
+            Debug.Log("stacking");
+            m_playerController.Stack();
         }
 
     }

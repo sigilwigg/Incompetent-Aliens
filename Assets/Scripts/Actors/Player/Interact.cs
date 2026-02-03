@@ -18,6 +18,7 @@ namespace Player
 {
         private Controller m_playerController;
         private LayerMask m_interactableLayerMask;
+        private LayerMask m_stackableLayerMask;
 
         [SerializeField]
         private Canvas m_interactPrompt;
@@ -31,11 +32,20 @@ namespace Player
         {
             m_playerController = GetComponentInParent<Controller>();
             m_interactableLayerMask = LayerMask.GetMask("Interactable");
+            m_stackableLayerMask = LayerMask.GetMask("Players");
         }
 
         private void Update()
         {
             CheckForInteractable();
+
+            if (
+                m_playerController.m_isInteractableObjectAvailable == false
+                && m_playerController.m_isStacked == false
+            )
+            {
+                CheckForStackable();
+            }
         }
 
         private void CheckForInteractable()
@@ -83,7 +93,53 @@ namespace Player
                 m_interactPrompt.enabled = false;
             }
         }
-           
+
+        private void CheckForStackable()
+        {
+
+            // ----- Reset interactable available bool and available interactable object -----
+            m_playerController.m_isStackablePlayerAvailable = false;
+            m_playerController.m_availableStackablePlayer = null;
+
+            // ----- Used to determine the closest interactable Game Object -----
+            Collider nearestStackable = null;
+            float nearestDistance = float.MaxValue;
+            float distance;
+
+            //----- Overlap Sphere Check -----
+            Collider[] stackableColliders = Physics.OverlapSphere(
+                m_playerController.m_interactableCheckOrigin.position,
+                m_interactRange,
+                m_stackableLayerMask
+            );
+
+            foreach (var stackable in stackableColliders)
+            {
+                //Get the distance between each stackable and the player
+                distance = Vector3.Distance(gameObject.transform.position, stackable.gameObject.transform.position);
+
+                //Determines the closest stackable to the player
+                if (distance < nearestDistance)
+                {
+                    nearestDistance = distance;
+                    nearestStackable = stackable;
+                }
+            }
+
+            // Set the nearest Interactable to the current available interactable 
+            if (nearestStackable != null && m_playerController.m_isStacked == false)
+            {
+                m_playerController.m_availableStackablePlayer = nearestStackable.gameObject.GetComponent<Player.Stack>();
+                m_playerController.m_isStackablePlayerAvailable = true;
+                m_interactPrompt.enabled = true;
+                m_promptText.text = "Stack?";
+            }
+            else
+            {
+                m_interactPrompt.enabled = false;
+            }
+        }
+
     }
 
 }

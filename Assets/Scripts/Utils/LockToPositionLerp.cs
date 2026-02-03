@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MatchPosition : MonoBehaviour
+public class LockToPositionLerp : MonoBehaviour
 {
     public Transform m_targetTransform;
     public float m_matchSpeed = 1.0f;
