@@ -1350,7 +1350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_firstVirtualCamera: {fileID: 2092988380}
   m_secondVirtualCamera: {fileID: 8695934967031428930}
-  testSwitch: 0
+  m_testSwitch: 0
 --- !u!4 &1965891915
 Transform:
   m_ObjectHideFlags: 0
@@ -2036,7 +2036,7 @@ MonoBehaviour:
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 1
+    m_Time: 0.5
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
