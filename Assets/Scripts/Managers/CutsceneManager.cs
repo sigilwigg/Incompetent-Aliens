@@ -1,22 +1,31 @@
+using Cinemachine;
 using Player;
 using UnityEngine;
 
 public class CutsceneManager : MonoBehaviour
 {
+    private CinemachineBrain m_cinemachineBrain;
     private Controller m_playerController;
 
+    [Header("Cutscene Status")]
     public bool isCutscenePlaying;
 
     private void Start()
     {
         m_playerController = GameObject.FindWithTag("Player").GetComponent<Controller>();
+        m_cinemachineBrain = Camera.main.GetComponent<CinemachineBrain>();
+    }
+
+    private void Update()
+    {
+        DetectBlend();
     }
 
     public void StartCutscene()
     {
         isCutscenePlaying = true;
-
-        // Additional logic to start the cutscene, such as playing animations, disabling player controls, etc.
+        
+        //stops player movement when cut scene starts.
         m_playerController.m_canMove = false;
 
     }
@@ -25,7 +34,26 @@ public class CutsceneManager : MonoBehaviour
     {
         isCutscenePlaying = false;
 
-        // Additional logic to end the cutscene, such as re-enabling player controls, transitioning back to gameplay, etc.
+        //allows player movement when cut scene ends.
         m_playerController.m_canMove = true;
+    }
+
+    //starts the cutscene when a blend starts, and ends the cutscene when the blend ends.
+    private void DetectBlend()
+    {
+        if(m_cinemachineBrain.IsBlending)
+        {
+            if(!isCutscenePlaying)
+            {
+                StartCutscene();
+            }
+        }
+        else
+        {
+            if(isCutscenePlaying)
+            {
+                EndCutscene();
+            }
+        }
     }
 }

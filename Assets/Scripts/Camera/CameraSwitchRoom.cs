@@ -10,22 +10,25 @@ public class CameraSwitchRoom : MonoBehaviour
 
     private void Update()
     {
-        if(m_testSwitch)
-        {
-            SwitchCameras(m_firstVirtualCamera,m_secondVirtualCamera);
-        }
-        else
-        {
-            SwitchCameras(m_secondVirtualCamera,m_firstVirtualCamera);
-        }
+        TestSwitch();
     }
 
     private void SwitchCameras(CinemachineVirtualCamera firstCamera, CinemachineVirtualCamera secondCamera)
     {
         firstCamera.Priority = 1;
         secondCamera.Priority = 0;
+    }
 
-    }   
-
-    
+    //for testing with the inspector, will be removed when we have the trigger set up
+    private void TestSwitch()
+    {
+        if(m_testSwitch)
+        {
+            SwitchCameras(m_firstVirtualCamera, m_secondVirtualCamera);
+        }
+        else
+        {
+            SwitchCameras(m_secondVirtualCamera, m_firstVirtualCamera);
+        }
+    }
 }
