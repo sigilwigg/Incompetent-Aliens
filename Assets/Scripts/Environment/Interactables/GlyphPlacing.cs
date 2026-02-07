@@ -19,14 +19,19 @@ namespace Glyph
     public class GlyphPlacing : MonoBehaviour
     {
         // ----- These will allow the developers to add a specific item of their request to each of the variables -----
-        public GameObject Glyph_1;
-        public GameObject Slot_1;
+        [Header("First Glyph")]
+        public GameObject m_glyph1;
+        public GameObject m_slot1;
 
-        public GameObject Glyph_2;
-        public GameObject Slot_2;
+        [Header("Second Glyph")]
+        public GameObject m_glyph2;
+        public GameObject m_slot2;
 
-        public bool Glyph_1_inPlace = false;
-        public bool Glyph_2_inPlace = false;
+        [Header("In Place Checker")]
+        public bool m_glyph1InSlot = false;
+        public bool m_glyph2InSlot = false;
+
+        public float reach = 1f;
 
         private Controller m_playerController;
 
@@ -41,17 +46,16 @@ namespace Glyph
         {
 
             // ----- These variables determine the range at which you can put the glyph in -----
-            float reach = 1.5f;
             float distance;
 
             // ----- This calculates the distance between the glyph and slot, and outputs it as a float -----
-            distance = Vector3.Distance(Glyph_1.transform.position, Slot_1.transform.position);
+            distance = Vector3.Distance(m_glyph1.transform.position, m_slot1.transform.position);
 
             if (reach > distance)
             {
-                Glyph_1_inPlace = true;
+                m_glyph1InSlot = true;
 
-                Glyph_1.transform.position = Slot_1.transform.position;
+                m_glyph1.transform.position = m_slot1.transform.position;
 
                 // Pickupable itemToDrop = m_playerController.m_currentlyHeldItem.GetComponent<Interactables.Pickupable>();
 
@@ -61,26 +65,25 @@ namespace Glyph
             }
             else
             {
-                Glyph_1_inPlace = false;
+                m_glyph1InSlot = false;
             }
         }
 
         private void Glyph2()
         {
-            float reach = 1.5f;
             float distance;
 
-            distance = Vector3.Distance(Glyph_2.transform.position, Slot_2.transform.position);
+            distance = Vector3.Distance(m_glyph2.transform.position, m_slot2.transform.position);
 
             if (reach > distance)
             {
-                Glyph_2_inPlace = true;
+                m_glyph2InSlot = true;
 
-                Glyph_2.transform.position = Slot_2.transform.position;
+                m_glyph2.transform.position = m_slot2.transform.position;
             }
             else
             {
-                Glyph_2_inPlace = false;
+                m_glyph2InSlot = false;
             }
         }
 
