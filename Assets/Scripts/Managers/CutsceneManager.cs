@@ -1,16 +1,31 @@
+using Player;
 using UnityEngine;
 
 public class CutsceneManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private Controller m_playerController;
+
+    public bool isCutscenePlaying;
+
+    private void Start()
     {
-        
+        m_playerController = GameObject.FindWithTag("Player").GetComponent<Controller>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartCutscene()
     {
-        
+        isCutscenePlaying = true;
+
+        // Additional logic to start the cutscene, such as playing animations, disabling player controls, etc.
+        m_playerController.m_canMove = false;
+
+    }
+
+    public void EndCutscene()
+    {
+        isCutscenePlaying = false;
+
+        // Additional logic to end the cutscene, such as re-enabling player controls, transitioning back to gameplay, etc.
+        m_playerController.m_canMove = true;
     }
 }
