@@ -1,9 +1,6 @@
 using UnityEngine;
 using Player;
 using Interactables;
-using TMPro;
-
-
 
 /*
  * This script is to let the player place the glyph inside the slot
@@ -15,7 +12,6 @@ using TMPro;
 
 namespace Glyph
 {
-
     public class GlyphPlacing : MonoBehaviour
     {
         // ----- These will allow the developers to add a specific item of their request to each of the variables -----
@@ -31,9 +27,18 @@ namespace Glyph
         public bool m_glyph1InSlot = false;
         public bool m_glyph2InSlot = false;
 
+        [Header("Alien Attributes")]
         public float reach = 1f;
 
+        private bool hasDone1 = false;
+        private bool hasDone2 = false;
+
         private Controller m_playerController;
+
+        private void Awake()
+        {
+            m_playerController = GameObject.FindWithTag("Player").GetComponent<Controller>();
+        }
 
         private void Update()
         {
@@ -44,28 +49,21 @@ namespace Glyph
         // ----- Get the distance to the slot -----
         private void Glyph1()
         {
-
             // ----- These variables determine the range at which you can put the glyph in -----
             float distance;
 
             // ----- This calculates the distance between the glyph and slot, and outputs it as a float -----
             distance = Vector3.Distance(m_glyph1.transform.position, m_slot1.transform.position);
 
-            if (reach > distance)
+            if (reach > distance && !hasDone1)
             {
                 m_glyph1InSlot = true;
 
                 m_glyph1.transform.position = m_slot1.transform.position;
 
-                // Pickupable itemToDrop = m_playerController.m_currentlyHeldItem.GetComponent<Interactables.Pickupable>();
+                m_playerController.DropItem();
 
-                // if (itemToDrop != null) itemToDrop.m_collider.enabled = true;
-                // itemToDrop.gameObject.transform.parent = null;
-                // m_playerController.m_currentlyHeldItem = null;
-            }
-            else
-            {
-                m_glyph1InSlot = false;
+                hasDone1 = true;
             }
         }
 
@@ -75,18 +73,16 @@ namespace Glyph
 
             distance = Vector3.Distance(m_glyph2.transform.position, m_slot2.transform.position);
 
-            if (reach > distance)
+            if (reach > distance && !hasDone2)
             {
                 m_glyph2InSlot = true;
 
                 m_glyph2.transform.position = m_slot2.transform.position;
-            }
-            else
-            {
-                m_glyph2InSlot = false;
+
+                m_playerController.DropItem();
+
+                hasDone2 = true;
             }
         }
-
-
     }
 }

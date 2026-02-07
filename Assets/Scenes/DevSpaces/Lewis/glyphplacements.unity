@@ -1245,9 +1245,9 @@ MonoBehaviour:
   m_slot1: {fileID: 926976651}
   m_glyph2: {fileID: 1068987602}
   m_slot2: {fileID: 1717941259}
-  Glyph_1_inPlace: 0
-  Glyph_2_inPlace: 0
-  reach: 10
+  m_glyph1InSlot: 0
+  m_glyph2InSlot: 0
+  reach: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
