@@ -24,7 +24,7 @@ namespace Player
 
         private void Start()
         {
-            m_inputManager = GameObject.FindWithTag("InputManager").GetComponent<InputManager>();
+            
         }
 
         private void Update()
@@ -36,7 +36,7 @@ namespace Player
         private void HandleMovement()
         {
             // ----- handle move input -----
-            Vector2 input = m_inputManager.GetMovementInput();
+            Vector2 input = m_playerController.m_input;
             if (!m_playerController.m_canMove) input = Vector2.zero;
 
             Vector3 movementInput = new Vector3(input.x, 0, input.y);
@@ -51,7 +51,7 @@ namespace Player
         private void HandleFalseRotation()
         {
             // ----- handle rotation input -----
-            Vector2 input = m_inputManager.GetMovementInput();
+            Vector2 input = m_playerController.m_input;
             if (!m_playerController.m_canMove) input = Vector2.zero;
 
             Vector3 movementInput = new Vector3(input.x, 0, input.y);
