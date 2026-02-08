@@ -8,7 +8,8 @@ using UnityEngine;
 /*
  * Controls the Interact function of the player. When the player is in range of an interactable object, a prompt will appear and they will be able to press SPACE to interact with the object 
  * 
- * CheckForInteractable() => Uses an overlap sphere to gather all the potential interactable objects in range of the player, before choosing the closest one and giving the player the option to interact with it
+ * CheckForInteractable()       =>  Uses an overlap sphere to gather all the potential interactable objects in range of the player,
+ *                                  before choosing the closest one and giving the player the option to interact with it
  * 
  * 
 */
