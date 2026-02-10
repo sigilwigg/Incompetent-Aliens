@@ -5,7 +5,7 @@ namespace Player
 {
     public class Controller : MonoBehaviour
     {
-        private InputManager m_inputManager;
+        private Player.InputManager m_inputManager;
         public enum MoveState
         {
             Idle,
@@ -38,7 +38,7 @@ namespace Player
 
         private void Start()
         {
-            m_inputManager = GameObject.FindWithTag("InputManager").GetComponent<InputManager>();
+            m_inputManager = GetComponent<Player.InputManager>();
         }
 
         private void Update()
@@ -49,7 +49,7 @@ namespace Player
 
         private void GetInput()
         {
-            m_input = m_inputManager.GetMovementInput();
+            m_input = m_inputManager.m_moveInput;
         }
 
         // =========== INTERACTABLES ===========
