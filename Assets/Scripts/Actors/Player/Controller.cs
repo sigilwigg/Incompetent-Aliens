@@ -63,6 +63,7 @@ namespace Player
             itemToDrop.m_isPickedUp = false;
 
             if (itemToDrop != null) itemToDrop.m_collider.enabled = true;
+            if(itemToDrop.m_isMultipointPickupPoint) m_canMove = true;
             //itemToDrop.gameObject.transform.parent = null;
             m_currentlyHeldItem = null;
         }

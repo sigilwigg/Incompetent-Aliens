@@ -35,9 +35,10 @@ namespace Player
 
         private void HandleMovement()
         {
+            if (!m_playerController.m_canMove) return;
+
             // ----- handle move input -----
             Vector2 input = m_playerController.m_moveInput;
-            if (!m_playerController.m_canMove) input = Vector2.zero;
 
             Vector3 movementInput = new Vector3(input.x, 0, input.y);
             movementInput = Vector3.ClampMagnitude(movementInput, 1f);

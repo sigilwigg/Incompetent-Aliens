@@ -10,8 +10,8 @@ namespace Interactables
         public List<Pickupable> m_pickupPoints;
         private CharacterController m_characterController;
 
-        private Vector3 m_itemMoveVelocity;
-        private Vector3 m_targetMoveVelocity;
+        public Vector3 m_itemMoveVelocity;
+        public Vector3 m_targetMoveVelocity;
 
         private void Start()
         {
@@ -30,20 +30,21 @@ namespace Interactables
             {
                 if (!pickupPoint.m_isPickedUp) { isAllPickupPointsGrabbed = false; break; }
 
-                float movementForceX = MathExtensions.Remap(
-                    pickupPoint.m_playerController.m_moveInput.x,
-                    minValue, maxValue,
-                    -1.0f, 1.0f
-                );
-
-                float movementForceY = MathExtensions.Remap(
-                    pickupPoint.m_playerController.m_moveInput.y,
-                    minValue, maxValue,
-                    -1.0f, 1.0f
-                );
-
-                combinedMovementForce += new Vector2(movementForceX, movementForceY);
+                combinedMovementForce += pickupPoint.m_playerController.m_moveInput;
             }
+
+            combinedMovementForce /= m_pickupPoints.Count;
+            float movementForceX = MathExtensions.Remap(
+                    combinedMovementForce.x,
+                    minValue, maxValue,
+                    -1.0f, 1.0f
+                );
+
+            float movementForceY = MathExtensions.Remap(
+                combinedMovementForce.y,
+                minValue, maxValue,
+                -1.0f, 1.0f
+            );
 
             float speedMultiplier = isAllPickupPointsGrabbed ? 1.0f : 0.0f;
             combinedMovementForce *= speedMultiplier;
