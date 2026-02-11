@@ -9,7 +9,7 @@ namespace Player
         private Player.Controller m_playerController;
         private CharacterController m_characterController;
 
-        [SerializeField] private float m_moveSpeed = 12.0f;
+        public float m_moveSpeed = 12.0f;
         [SerializeField] private float m_moveAcceleration = 5.0f;
         private Vector3 m_currentMoveVelocity;
         private Vector3 m_targetMoveVelocity;
