@@ -28,13 +28,16 @@ namespace Player
 
         public void Interact(InputAction.CallbackContext context)
         {
-            if (m_playerController.m_currentlyHeldItem != null)
+            if (context.phase == InputActionPhase.Performed)
             {
-                m_playerController.DropItem();
-            }
-            else
-            {
-                m_playerController.Interact();
+                if (m_playerController.m_currentlyHeldItem != null)
+                {
+                    m_playerController.DropItem();
+                }
+                else
+                {
+                    m_playerController.Interact();
+                }
             }
         }
     }

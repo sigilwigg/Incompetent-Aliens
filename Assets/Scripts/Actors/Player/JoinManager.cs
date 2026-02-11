@@ -15,8 +15,8 @@ public class JoinManager : MonoBehaviour
     [SerializeField] private GameObject m_playerPrefab;
     [SerializeField] private Transform m_spawnPoint;
 
-    private bool m_isJoinedKeyboardWASD = false;
-    private bool m_isJoinedKeyboardArrows = false;
+    public bool m_isJoinedKeyboardWASD = false;
+    public bool m_isJoinedKeyboardArrows = false;
 
     private void Update()
     {
