@@ -16,8 +16,6 @@ namespace Player
     {
         private Player.Controller m_playerController;
 
-        public Vector2 m_moveInput;
-
         void Awake()
         {
             m_playerController = GetComponent<Controller>();
@@ -25,7 +23,7 @@ namespace Player
 
         public void Move(InputAction.CallbackContext context)
         {
-            m_moveInput = context.ReadValue<Vector2>();
+            m_playerController.m_moveInput = context.ReadValue<Vector2>();
         }
 
         public void Interact(InputAction.CallbackContext context)

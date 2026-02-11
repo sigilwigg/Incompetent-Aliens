@@ -1,6 +1,15 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/*
+ *  Handles checking for new gamepad or keyboard connections.
+ *  TODO: needs handling disconnections, reconnections
+ *  
+ *  HandleNewConnectionsKeyboardWASD()      => new wasd movement based keyboard connections (only 1 allowed)
+ *  HandleNewConnectionsKeyboardArrows()    => new arrow based movement keyboard connections (only 1 allowed)
+ *  HandleNewConnectionsGamepads()          => new gamepad connections (any number allowed)
+ */
+
 public class JoinManager : MonoBehaviour
 {
     [SerializeField] private GameObject m_playerPrefab;
