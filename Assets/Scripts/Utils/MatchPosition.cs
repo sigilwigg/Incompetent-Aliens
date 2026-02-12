@@ -8,7 +8,7 @@ public class MatchPosition : MonoBehaviour
     private Vector3 m_currentPosition;
     private Vector3 m_targetPosition;
 
-    private void Update()
+    private void LateUpdate()
     {
         m_targetPosition = m_targetTransform.position;
 
