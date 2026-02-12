@@ -477,6 +477,7 @@ MonoBehaviour:
   m_pickupPoints:
   - {fileID: 523608728}
   - {fileID: 47176940}
+  isAllPickupPointsGrabbed: 1
   m_itemMoveVelocity: {x: 0, y: 0, z: 0}
   m_targetMoveVelocity: {x: 0, y: 0, z: 0}
 --- !u!143 &931469119
@@ -521,7 +522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1061228928
 Transform:
   m_ObjectHideFlags: 0
