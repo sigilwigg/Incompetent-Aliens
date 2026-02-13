@@ -48,9 +48,30 @@ namespace Stack
         private void ModifyInputsForEachPlayer()
         {
             if (m_playersInStack <= 1) return;
-            for(int idx = 1;  idx < m_playersInStack; idx++)
+
+            bool isTopDown = false;
+            if (Vector2.Distance(m_playerInputs[m_topPlayerPosition], Vector2.zero) > 0.1)
+            {
+                isTopDown = true;
+            }
+
+            for (int idx = 1;  idx < m_playersInStack; idx++)
             {
                 m_playerInputs[idx] -= m_playerInputs[idx - 1];
+            }
+
+            if (isTopDown)
+            {
+                m_playerInputs[0] *= m_modifiers[3];
+                m_playerInputs[1] *= m_modifiers[2];
+                m_playerInputs[2] *= m_modifiers[1];
+                m_playerInputs[3] *= m_modifiers[0];
+            } else
+            {
+                m_playerInputs[0] *= m_modifiers[0];
+                m_playerInputs[1] *= m_modifiers[1];
+                m_playerInputs[2] *= m_modifiers[2];
+                m_playerInputs[3] *= m_modifiers[3];
             }
         }
 
