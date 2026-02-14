@@ -13,6 +13,7 @@ namespace Player
         }
 
         public Player.Movement m_movement;
+        public Stack.Controller m_stackController;
 
         [Header("Core")]
         public Transform m_rotationTransform;

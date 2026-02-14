@@ -16,6 +16,9 @@ namespace Player
 
         public float m_rotation;
 
+        public Transform m_influencingTransform;
+        public float m_influencingStrength = 0.5f;
+
         private void Awake()
         {
             m_playerController = GetComponentInParent<Player.Controller>();
@@ -42,6 +45,15 @@ namespace Player
 
             Vector3 movementInput = new Vector3(input.x, 0, input.y);
             movementInput = Vector3.ClampMagnitude(movementInput, 1f);
+
+            // ----- handle influencing transform -----
+            if (m_influencingTransform != null)
+            {
+                Vector3 influencingDistanceFromCenter = new Vector3(m_influencingTransform.localPosition.x, 0, m_influencingTransform.localPosition.z);
+                influencingDistanceFromCenter *= m_influencingStrength;
+                movementInput += influencingDistanceFromCenter;
+                movementInput /= 2.0f;
+            }
 
             // ----- handle move velocity -----
             m_targetMoveVelocity = movementInput * m_moveSpeed;
