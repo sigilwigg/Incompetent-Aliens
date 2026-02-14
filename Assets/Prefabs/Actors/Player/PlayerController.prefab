@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4370518288249147026}
   - component: {fileID: 2256026057176014139}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpriteHands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 593652129518116286}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 759583343546141696}
   - component: {fileID: 821759834577042603}
   - component: {fileID: 7519179440364409819}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InteractPrompt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 1721307094712382549}
   - component: {fileID: 4525209478401454529}
   - component: {fileID: 849703254980206571}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpriteBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 8553933295191655886}
   - component: {fileID: 3855561455430077467}
   - component: {fileID: 868110633189307930}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpriteHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ GameObject:
   - component: {fileID: 900765231108856551}
   - component: {fileID: 3361860303178320912}
   - component: {fileID: 5632319508339469504}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpriteHandRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +507,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7595651885790493224}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InteractOrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6428058560866030336}
   - component: {fileID: 3045616812676180565}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HeldItemPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,7 +587,7 @@ GameObject:
   - component: {fileID: 6075041021904727466}
   - component: {fileID: 7026141624604925451}
   - component: {fileID: 3040288733584469043}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -676,7 +676,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5691587727117072002}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rotation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -710,7 +710,7 @@ GameObject:
   - component: {fileID: 5988927006374799698}
   - component: {fileID: 5829789168216073276}
   - component: {fileID: 5932092256703662427}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PromptText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -844,7 +844,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6366877067247051410}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpriteHeadPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -877,7 +877,7 @@ GameObject:
   - component: {fileID: 4156805515734326044}
   - component: {fileID: 7088470128028388054}
   - component: {fileID: 2915206416006903971}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpriteHandLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -980,7 +980,7 @@ GameObject:
   - component: {fileID: 1625405461214580991}
   - component: {fileID: 1435125282999404410}
   - component: {fileID: 2368275317984315100}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerController
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1018,7 +1018,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85781d2a1ea56a4abac9c7468cf18a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveInput: {x: 0, y: 0}
 --- !u!114 &6370772817099476602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1031,8 +1030,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b2ab4f04a3df504684235e52137b721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.Controller
+  m_movement: {fileID: 0}
   m_rotationTransform: {fileID: 5691587727117072002}
-  m_input: {x: 0, y: 0}
+  m_moveInput: {x: 0, y: 0}
   m_canMove: 1
   m_rotation: 0
   m_moveState: 0

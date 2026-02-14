@@ -48,11 +48,11 @@ namespace Player
         }
 
         // =========== INTERACTABLES ===========
-        public void Interact()
+        public void Interact(Player.Controller playerController)
         {
             if (m_isInteractableObjectAvailable)
             {
-                m_availableInteractableObject.Interact();
+                m_availableInteractableObject.Interact(playerController);
             }
         }
 
@@ -61,8 +61,11 @@ namespace Player
         {
             Pickupable itemToDrop = m_currentlyHeldItem.GetComponent<Interactables.Pickupable>();
 
+            itemToDrop.m_isPickedUp = false;
+
             if (itemToDrop != null) itemToDrop.m_collider.enabled = true;
-            itemToDrop.gameObject.transform.parent = null;
+            if(itemToDrop.m_isMultipointPickupPoint) m_canMove = true;
+            //itemToDrop.gameObject.transform.parent = null;
             m_currentlyHeldItem = null;
         }
     }
