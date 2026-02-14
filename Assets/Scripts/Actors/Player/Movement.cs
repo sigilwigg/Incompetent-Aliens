@@ -9,7 +9,7 @@ namespace Player
         private Player.Controller m_playerController;
         private CharacterController m_characterController;
 
-        [SerializeField] private float m_moveSpeed = 12.0f;
+        public float m_moveSpeed = 12.0f;
         [SerializeField] private float m_moveAcceleration = 5.0f;
         private Vector3 m_currentMoveVelocity;
         private Vector3 m_targetMoveVelocity;
@@ -35,9 +35,10 @@ namespace Player
 
         private void HandleMovement()
         {
+            if (!m_playerController.m_canMove) return;
+
             // ----- handle move input -----
             Vector2 input = m_playerController.m_moveInput;
-            if (!m_playerController.m_canMove) input = Vector2.zero;
 
             Vector3 movementInput = new Vector3(input.x, 0, input.y);
             movementInput = Vector3.ClampMagnitude(movementInput, 1f);
