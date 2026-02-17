@@ -21,7 +21,7 @@ namespace Enemy
             m_controller = GetComponentInParent<Enemy.Controller>();
         }
 
-        private void Update()
+        public void Evaluate()
         {
             Run(m_currentState);
         }
@@ -119,6 +119,11 @@ namespace Enemy
                     Debug.Log("state for enter not found");
                     break;
             }
+        }
+
+        public virtual void Decide()
+        {
+            // template function overridden by our subclasses
         }
 
         protected virtual void RunSleep(Enemy.Controller controller)
