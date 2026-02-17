@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab5baba23be34747be189fbb12a35f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_blackboard: {fileID: 0}
 --- !u!143 &5396029426813248058
 CharacterController:
   m_ObjectHideFlags: 0
@@ -237,7 +238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3793603397893712472}
   - component: {fileID: 5086798648580960323}
-  - component: {fileID: 7212231087791157894}
+  - component: {fileID: 2463569922855267296}
   m_Layer: 0
   m_Name: PharaohEnemyController
   m_TagString: Untagged
@@ -277,7 +278,7 @@ MonoBehaviour:
   m_blackboard: {fileID: 0}
   m_aiCore: {fileID: 0}
   m_aiObserve: {fileID: 0}
---- !u!114 &7212231087791157894
+--- !u!114 &2463569922855267296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,7 +287,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8884329847481763669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8e90d292a27e3148b6b04f95475e7f8, type: 3}
+  m_Script: {fileID: 11500000, guid: c0202cffdb770d540a995b9f6e52a9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_canSeePlayer: 0
