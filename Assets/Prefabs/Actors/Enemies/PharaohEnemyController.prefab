@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6388026325581990793}
+  - component: {fileID: 8529432979799911543}
   - component: {fileID: 5503504908253041320}
   - component: {fileID: 4296903558434794998}
   - component: {fileID: 5396029426813248058}
@@ -29,13 +30,27 @@ Transform:
   m_GameObject: {fileID: 2359751512605618627}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 3.18, y: 2, z: -5.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9213073853923153896}
   m_Father: {fileID: 3793603397893712472}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8529432979799911543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2359751512605618627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0202cffdb770d540a995b9f6e52a9ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_canSeePlayer: 0
+  m_isMirrorHeldByPlayers: 0
 --- !u!114 &5503504908253041320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +76,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab5baba23be34747be189fbb12a35f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_visionRange: 5
+  m_visionAngle: 120
+  m_targetMask:
+    serializedVersion: 2
+    m_Bits: 128
+  m_obstacleMask:
+    serializedVersion: 2
+    m_Bits: 256
   m_blackboard: {fileID: 0}
 --- !u!143 &5396029426813248058
 CharacterController:
@@ -238,7 +261,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3793603397893712472}
   - component: {fileID: 5086798648580960323}
-  - component: {fileID: 2463569922855267296}
   m_Layer: 0
   m_Name: PharaohEnemyController
   m_TagString: Untagged
@@ -278,17 +300,3 @@ MonoBehaviour:
   m_blackboard: {fileID: 0}
   m_aiCore: {fileID: 0}
   m_aiObserve: {fileID: 0}
---- !u!114 &2463569922855267296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8884329847481763669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0202cffdb770d540a995b9f6e52a9ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_canSeePlayer: 0
-  m_isMirrorHeldByPlayers: 0
