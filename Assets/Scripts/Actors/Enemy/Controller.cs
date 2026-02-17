@@ -13,6 +13,8 @@ namespace Enemy
         private void Start()
         {
             m_blackboard = GetComponent<AIBlackboard>();
+            m_aiCore = GetComponentInChildren<AICore>();
+            m_aiObserve = GetComponentInChildren<AIObserve>();
         }
 
         private void Update()
