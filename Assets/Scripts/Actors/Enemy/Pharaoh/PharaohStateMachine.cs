@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Pharaoh
+namespace Enemy.Pharaoh
 {
     public class PharaohStateMachine : Enemy.AICore
     {
