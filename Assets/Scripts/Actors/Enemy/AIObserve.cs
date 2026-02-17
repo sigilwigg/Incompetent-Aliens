@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class AIObserve
+    public class AIObserve : MonoBehaviour
     {
-        public void Observe()
+        public virtual void Observe()
         {
-
+            // template function overridden by our subclasses
         }
     }
 }
