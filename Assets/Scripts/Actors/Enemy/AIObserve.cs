@@ -19,7 +19,7 @@ namespace Enemy
 
         private void Start()
         {
-            m_blackboard = GetComponentInParent<AIBlackboard>();
+            m_blackboard = GetComponent<AIBlackboard>();
 
             StartCoroutine(ObserveRoutine());
         }

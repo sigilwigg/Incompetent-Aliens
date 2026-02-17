@@ -6,12 +6,15 @@ using UnityEngine;
 [CustomEditor(typeof(PharaohObserve))]
 public class AIObserveEditor : Editor
 {
+
     private void OnSceneGUI()
     {
+        // ----- Draw vision range editor -----
         AIObserve observe = (AIObserve)target;
         Handles.color = Color.aliceBlue;
         Handles.DrawWireArc(observe.transform.position, Vector3.up, Vector3.forward, 360, observe.m_visionRange);
 
+        // ----- Draw vision angle lines in the editor -----
         Vector3 visionAngleLeft = DirFromAngle(observe.transform.eulerAngles.y, -observe.m_visionAngle / 2);
         Vector3 visionAngleRight = DirFromAngle(observe.transform.eulerAngles.y, observe.m_visionAngle / 2);
         Handles.color = Color.red;
