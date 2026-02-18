@@ -13,8 +13,10 @@ namespace Enemy.Pharaoh
             //if player seen and not in sleep state or distract.
             //exit current state.
             //enter chase state.
+
         }
 
+        #region Sleep State
         protected override void RunSleep(Enemy.Controller controller)
         {
 
@@ -28,7 +30,9 @@ namespace Enemy.Pharaoh
         {
 
         }
+        #endregion
 
+        #region Idle State
         protected override void RunIdle(Enemy.Controller controller)
         {
 
@@ -42,7 +46,9 @@ namespace Enemy.Pharaoh
         {
 
         }
+        #endregion
 
+        #region Walk State
         protected override void RunWalk(Enemy.Controller controller)
         {
 
@@ -56,7 +62,9 @@ namespace Enemy.Pharaoh
         {
 
         }
+        #endregion
 
+        #region Chase State
         protected override void RunChase(Enemy.Controller controller)
         {
 
@@ -70,7 +78,9 @@ namespace Enemy.Pharaoh
         {
 
         }
+        #endregion
 
+        #region Activity State
         protected override void RunActivity(Enemy.Controller controller)
         {
 
@@ -84,5 +94,6 @@ namespace Enemy.Pharaoh
         {
 
         }
+        #endregion
     }
 }
