@@ -60,14 +60,18 @@ namespace Player
 
             foreach (var interactable in interactableColliders)
             {
-                //Get the distance between each interactable and the player
-                distance = Vector3.Distance(gameObject.transform.position, interactable.gameObject.transform.position);
-
-                //Determines the closest interactable to the player
-                if (distance < nearestDistance)
+                // make sure its not a collider on our own self
+                if (interactable.gameObject.transform.parent != transform)
                 {
-                    nearestDistance = distance;
-                    nearestInteractable = interactable;
+                    //Get the distance between each interactable and the player
+                    distance = Vector3.Distance(gameObject.transform.position, interactable.gameObject.transform.position);
+
+                    //Determines the closest interactable to the player
+                    if (distance < nearestDistance)
+                    {
+                        nearestDistance = distance;
+                        nearestInteractable = interactable;
+                    }
                 }
             }
 

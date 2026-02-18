@@ -13,12 +13,17 @@ namespace Player
         }
 
         public Player.Movement m_movement;
-        public Stack.Controller m_stackController;
 
         [Header("Core")]
         public Transform m_rotationTransform;
 
+        [Header("Stacking")]
+        public MatchPosition m_playerMatchPosition;
+        public Stack.Controller m_stackController;
+        public int m_stackPosition;
+
         [Header("Statuses")]
+        public bool m_isStacked;
         public Vector2 m_moveInput;
         public bool m_canMove;
         public float m_rotation;
@@ -40,6 +45,8 @@ namespace Player
         private void Start()
         {
             m_inputManager = GetComponent<Player.InputManager>();
+
+            m_playerMatchPosition.enabled = false;
         }
 
         private void Update()
@@ -53,6 +60,10 @@ namespace Player
             if (m_isInteractableObjectAvailable)
             {
                 m_availableInteractableObject.Interact(playerController);
+            }
+            else if (m_isStacked)
+            {
+                m_stackController.RemoveFromStack(m_stackPosition);
             }
         }
 

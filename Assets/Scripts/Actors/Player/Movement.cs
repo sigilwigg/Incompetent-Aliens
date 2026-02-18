@@ -9,6 +9,7 @@ namespace Player
         private Player.Controller m_playerController;
         private CharacterController m_characterController;
 
+        public float m_gravityForce = 5.0f;
         public float m_moveSpeed = 12.0f;
         [SerializeField] private float m_moveAcceleration = 5.0f;
         private Vector3 m_currentMoveVelocity;
@@ -57,7 +58,9 @@ namespace Player
 
             // ----- handle move velocity -----
             m_targetMoveVelocity = movementInput * m_moveSpeed;
+            m_targetMoveVelocity.y = -m_gravityForce;
             m_currentMoveVelocity = Vector3.Lerp(m_currentMoveVelocity, m_targetMoveVelocity, m_moveAcceleration * Time.deltaTime);
+            Debug.Log(m_targetMoveVelocity);
             m_characterController.Move(m_currentMoveVelocity * Time.deltaTime);
         }
 
