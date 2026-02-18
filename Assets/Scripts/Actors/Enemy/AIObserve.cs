@@ -37,6 +37,11 @@ namespace Enemy
         // ----- Check for Players in vision range and angle, and if there are any obstacles in the way -----
         public virtual void Observe()
         {
+            CanSeePlayer();
+        }
+
+        private void CanSeePlayer()
+        {
 
             Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, m_visionRange, m_targetMask);
 
@@ -61,8 +66,7 @@ namespace Enemy
                 }
             }
             else if(m_blackboard.m_canSeePlayer)            
-                m_blackboard.m_canSeePlayer = false;
-            
+                m_blackboard.m_canSeePlayer = false;          
         }
     }
 }
