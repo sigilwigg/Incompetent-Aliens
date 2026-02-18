@@ -178,7 +178,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 593652129518116286, guid: 7e3d45d248bbb7449bb439cc602a7dda, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1158581084}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e3d45d248bbb7449bb439cc602a7dda, type: 3}
 --- !u!1 &252838334
@@ -10186,7 +10189,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+  - {fileID: 2100000, guid: c63ea1dae23ac284b82f0d6d6fab3c53, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10493,8 +10496,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 1
+      scalar: 1
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -14989,11 +14992,11 @@ Transform:
   m_GameObject: {fileID: 1158581081}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 9.29, y: 0, z: -0.33}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1691530852}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &1214238992
 PrefabInstance:
@@ -20007,6 +20010,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645627903}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1691530852 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 593652129518116286, guid: 7e3d45d248bbb7449bb439cc602a7dda, type: 3}
+  m_PrefabInstance: {fileID: 218192696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1700029233
 GameObject:
   m_ObjectHideFlags: 0
@@ -24999,7 +25007,6 @@ SceneRoots:
   - {fileID: 1214238992}
   - {fileID: 1629917488}
   - {fileID: 2026216614}
-  - {fileID: 1158581084}
   - {fileID: 252838337}
   - {fileID: 938987356}
   - {fileID: 1700029236}
