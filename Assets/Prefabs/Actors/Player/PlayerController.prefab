@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MatchPosition
   m_targetTransform: {fileID: 6366877067247051410}
-  m_matchSpeed: 15
+  m_matchSpeed: 18
 --- !u!1 &839725355006775957
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +312,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 6.32, y: 6.32, z: 6.32}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7324986503841025892}
@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MatchPosition
   m_targetTransform: {fileID: 6366877067247051410}
-  m_matchSpeed: 25
+  m_matchSpeed: 30
 --- !u!1 &2427632592269201185
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,7 +975,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7324986503841025892}
+  - component: {fileID: 1032381180355791806}
   - component: {fileID: 6370772817099476602}
+  - component: {fileID: 1625405461214580991}
+  - component: {fileID: 1435125282999404410}
+  - component: {fileID: 2368275317984315100}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Player
@@ -994,7 +998,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6428058560866030336}
   - {fileID: 989547565007715295}
@@ -1002,6 +1006,19 @@ Transform:
   - {fileID: 7147915927220249512}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1032381180355791806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9059712430612431610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85781d2a1ea56a4abac9c7468cf18a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_moveInput: {x: 0, y: 0}
 --- !u!114 &6370772817099476602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1015,10 +1032,110 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.Controller
   m_rotationTransform: {fileID: 5691587727117072002}
+  m_input: {x: 0, y: 0}
   m_canMove: 1
   m_rotation: 0
+  m_moveState: 0
   m_isInteractableObjectAvailable: 0
   m_availableInteractableObject: {fileID: 0}
   m_currentlyHeldItem: {fileID: 0}
   m_heldItemsPosition: {fileID: 6428058560866030336}
   m_interactableCheckOrigin: {fileID: 7595651885790493224}
+--- !u!114 &1625405461214580991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9059712430612431610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2397bc590a291dd4ea444ddaf26980c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IDLE: Idle
+  WALK: Walk
+--- !u!95 &1435125282999404410
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9059712430612431610}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d45942577a390444cb774087d96fcf49, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2368275317984315100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9059712430612431610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 4a25ada32cb9f0c4988bc58d0fd83c9e, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1032381180355791806}
+        m_TargetAssemblyTypeName: Player.InputManager, Assembly-CSharp
+        m_MethodName: Move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6a8b56d3-9cd0-4515-bab8-21311bf81451
+    m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1032381180355791806}
+        m_TargetAssemblyTypeName: Player.InputManager, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fa39bf73-8f4f-428f-907f-bea064a4a543
+    m_ActionName: 'Player/Interact[/Keyboard/space,/Keyboard/rightShift]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: KeyboardWASD
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

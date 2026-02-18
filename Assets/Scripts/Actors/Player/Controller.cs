@@ -5,14 +5,23 @@ namespace Player
 {
     public class Controller : MonoBehaviour
     {
+        private Player.InputManager m_inputManager;
+        public enum MoveState
+        {
+            Idle,
+            Walking
+        }
+
         private Player.Movement m_movement;
 
         [Header("Core")]
         public Transform m_rotationTransform;
 
         [Header("Statuses")]
+        public Vector2 m_moveInput;
         public bool m_canMove;
         public float m_rotation;
+        public MoveState m_moveState;
 
         [Header("Interact")]
         public bool m_isInteractableObjectAvailable = false;
@@ -25,6 +34,11 @@ namespace Player
         private void Awake()
         {
             m_movement = GetComponentInChildren<Player.Movement>();
+        }
+
+        private void Start()
+        {
+            m_inputManager = GetComponent<Player.InputManager>();
         }
 
         private void Update()
