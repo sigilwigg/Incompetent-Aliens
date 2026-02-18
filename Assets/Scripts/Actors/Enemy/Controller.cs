@@ -21,7 +21,7 @@ namespace Enemy
         {
             m_aiObserve.Observe();
             m_aiCore.Decide();
-            m_aiCore.Evaluate();
+            m_aiCore.Act();
         }
     }
 }

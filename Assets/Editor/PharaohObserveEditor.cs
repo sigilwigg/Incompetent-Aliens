@@ -3,7 +3,7 @@ using Enemy.Pharaoh;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(PharaohObserve))]
+[CustomEditor(typeof(Observation))]
 public class AIObserveEditor : Editor
 {
 

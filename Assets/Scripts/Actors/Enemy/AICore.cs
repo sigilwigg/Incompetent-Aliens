@@ -21,7 +21,7 @@ namespace Enemy
             m_controller = GetComponentInParent<Enemy.Controller>();
         }
 
-        public void Evaluate()
+        public void Act()
         {
             Run(m_currentState);
         }

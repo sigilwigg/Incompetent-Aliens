@@ -2,8 +2,19 @@ using UnityEngine;
 
 namespace Enemy.Pharaoh
 {
-    public class PharaohStateMachine : Enemy.AICore
+    public class StateMachine : Enemy.AICore
     {
+        public override void Decide()
+        {
+            //if pharaoh in acvitity zone and walk state.
+            //exit walk state.
+            //enter activity state, do activty state stuff.
+
+            //if player seen and not in sleep state or distract.
+            //exit current state.
+            //enter chase state.
+        }
+
         protected override void RunSleep(Enemy.Controller controller)
         {
 
