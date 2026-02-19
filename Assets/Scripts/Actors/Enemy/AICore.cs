@@ -6,9 +6,12 @@ namespace Enemy
     public class AICore : MonoBehaviour
     {
         private Enemy.Controller m_controller;
-        private NavMeshAgent m_agent;
+        private NavMeshAgent m_agent;      
 
         public State m_currentState;
+
+        public NavMeshAgent Agent { get => m_agent; }
+
         public enum State
         {
             Sleep,

@@ -5,13 +5,13 @@ using UnityEditor;
 
 namespace Enemy
 {
-    public class Path
+    public class Path : MonoBehaviour
     {
         public List<Transform> m_waypoints;
 
-        [SerializeField] private bool m_AlwaysDrawPath;
-        [SerializeField] private bool m_DrawAsLoop;
-        [SerializeField] private bool m_DrawNumbers;
+        [SerializeField] private bool m_AlwaysDrawPath = false;
+        [SerializeField] private bool m_DrawAsLoop = false;
+        [SerializeField] private bool m_DrawNumbers = false;
 
         public Color debugColour = Color.white;
 
