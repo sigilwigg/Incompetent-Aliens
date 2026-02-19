@@ -51,7 +51,14 @@ namespace Enemy.Pharaoh
         #region Walk State
         protected override void RunWalk(Enemy.Controller controller)
         {
-
+            //if enemy agent remaining distance is less than or equal to stopping distance.
+            //wait timer += delta time.
+            //if wait timer is greater than or equal to wait time.
+            //if waypoint index is greater than or equal to waypoints count - 1.
+            //waypoint index ++;
+            //else set waypoint index to 0.
+            //agent set destination to waypoints at waypoint index.
+            //wait timer = 0.
         }
         protected override void EnterWalk(Enemy.Controller controller)
         {
