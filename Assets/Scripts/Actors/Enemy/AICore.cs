@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Enemy
 {
     public class AICore : MonoBehaviour
     {
         private Enemy.Controller m_controller;
+        private NavMeshAgent m_agent;
 
         public State m_currentState;
         public enum State
@@ -19,6 +21,7 @@ namespace Enemy
         private void Start()
         {
             m_controller = GetComponentInParent<Enemy.Controller>();
+            m_agent = GetComponent<NavMeshAgent>();
         }
 
         public void Act()
