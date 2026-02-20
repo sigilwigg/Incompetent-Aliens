@@ -32,7 +32,7 @@ namespace Enemy
             Run(m_currentState);
         }
 
-        void ChangeStateTo(State nextState)
+        public void ChangeStateTo(State nextState)
         {
             // ----- stop from interrupting its own state -----
             if (m_currentState == nextState) return;

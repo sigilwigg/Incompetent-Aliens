@@ -14,7 +14,15 @@ namespace Enemy.Pharaoh
         }
 
         public override void Decide()
-        {         
+        {
+            //temp decide function for testing. will be replaced with a more robust one later.
+            if(!m_controller.m_blackboard.m_canSeePlayer)
+            {
+                ChangeStateTo(State.Walk);
+            }
+            else
+                ChangeStateTo(State.Idle);
+
             //if pharaoh in acvitity zone and walk state.
             //exit walk state.
             //enter activity state, do activty state stuff.
@@ -69,7 +77,7 @@ namespace Enemy.Pharaoh
 
         protected override void ExitWalk(Enemy.Controller controller)
         {
-
+            
         }
         #endregion
 
