@@ -8,8 +8,5 @@ namespace Enemy.Pharaoh
         public bool m_isMirrorHeldByPlayers = false;
         public bool m_isPharaohInMirrorArea = false;
         public bool m_isDistracted = false;
-
-        [Header("Navigation")]
-        public Path m_path;
     }
 }

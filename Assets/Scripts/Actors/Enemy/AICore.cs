@@ -5,7 +5,7 @@ namespace Enemy
 {
     public class AICore : MonoBehaviour
     {
-        private Enemy.Controller m_controller;
+        public Enemy.Controller m_controller;
         private NavMeshAgent m_agent;      
 
         public State m_currentState;
@@ -21,7 +21,7 @@ namespace Enemy
             Activity
         }
 
-        private void Start()
+        private void Awake()
         {
             m_controller = GetComponentInParent<Enemy.Controller>();
             m_agent = GetComponent<NavMeshAgent>();
