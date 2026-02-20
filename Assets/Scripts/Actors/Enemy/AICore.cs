@@ -21,7 +21,7 @@ namespace Enemy
             Activity
         }
 
-        private void Awake()
+        protected virtual void Start()
         {
             m_controller = GetComponentInParent<Enemy.Controller>();
             m_agent = GetComponent<NavMeshAgent>();

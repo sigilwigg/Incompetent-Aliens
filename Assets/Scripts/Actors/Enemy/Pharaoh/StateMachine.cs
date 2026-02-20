@@ -7,8 +7,9 @@ namespace Enemy.Pharaoh
     {
         public Enemy.Pharaoh.Actions m_actions;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             m_actions = GetComponent<Enemy.Pharaoh.Actions>();
         }
 
