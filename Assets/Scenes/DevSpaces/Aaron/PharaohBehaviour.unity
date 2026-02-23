@@ -896,6 +896,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1591606770 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7147915927220249512, guid: 7e3d45d248bbb7449bb439cc602a7dda, type: 3}
+  m_PrefabInstance: {fileID: 1914768180}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1745075382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -919,6 +924,10 @@ PrefabInstance:
     - target: {fileID: 3751701996407561882, guid: 7401959626075944aa79c0471b9c4915, type: 3}
       propertyPath: m_BaseOffset
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3751701996407561882, guid: 7401959626075944aa79c0471b9c4915, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 3793603397893712472, guid: 7401959626075944aa79c0471b9c4915, type: 3}
       propertyPath: m_LocalPosition.x
@@ -960,6 +969,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4296903558434794998, guid: 7401959626075944aa79c0471b9c4915, type: 3}
+      propertyPath: m_visionAngle
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296903558434794998, guid: 7401959626075944aa79c0471b9c4915, type: 3}
+      propertyPath: m_visionRange
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6839091010922574120, guid: 7401959626075944aa79c0471b9c4915, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -981,9 +998,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8529432979799911543, guid: 7401959626075944aa79c0471b9c4915, type: 3}
+      propertyPath: m_players.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8529432979799911543, guid: 7401959626075944aa79c0471b9c4915, type: 3}
       propertyPath: m_isPharaohInMirrorArea
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8529432979799911543, guid: 7401959626075944aa79c0471b9c4915, type: 3}
+      propertyPath: 'm_players.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1591606770}
     - target: {fileID: 8884329847481763669, guid: 7401959626075944aa79c0471b9c4915, type: 3}
       propertyPath: m_Name
       value: PharaohEnemyController
@@ -1062,6 +1087,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5381833068888664116, guid: 7e3d45d248bbb7449bb439cc602a7dda, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5775078969111518197, guid: 7e3d45d248bbb7449bb439cc602a7dda, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -1129,6 +1158,10 @@ PrefabInstance:
     - target: {fileID: 9059712430612431610, guid: 7e3d45d248bbb7449bb439cc602a7dda, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059712430612431610, guid: 7e3d45d248bbb7449bb439cc602a7dda, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

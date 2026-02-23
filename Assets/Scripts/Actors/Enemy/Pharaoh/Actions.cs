@@ -8,6 +8,9 @@ namespace Enemy.Pharaoh
         public float m_waypointWaitTime = 0.2f;
         public float m_waypointDistanceThreshold = 0.2f;
 
+        [Header("Chase State Parameters")]
+        
+
         // ----- walk private state parameters -----
         private int m_waypointIndex;
         private float m_waitTimer;
@@ -27,11 +30,11 @@ namespace Enemy.Pharaoh
         #region Walk state functions
 
         public void WalkCycle(Enemy.Controller controller)
-        {     
+        {
             if(controller.m_aiCore.Agent.remainingDistance < m_waypointDistanceThreshold)
             {
                 m_waitTimer += Time.deltaTime;
-                if(m_waitTimer >= m_waypointWaitTime) 
+                if(m_waitTimer >= m_waypointWaitTime)
                 {
                     if(m_waypointIndex < controller.m_blackboard.m_path.m_waypoints.Count - 1)
                         m_waypointIndex++;
@@ -45,5 +48,22 @@ namespace Enemy.Pharaoh
 
 
         #endregion
+
+        #region Chase state functions
+
+        public void ChasePlayer(Enemy.Controller controller)
+        {
+            for(int i = 0; i < controller.m_blackboard.m_players.Length; i++)
+            {
+                controller.m_aiCore.Agent.SetDestination(controller.m_blackboard.m_players[i].position);
+            }
+        }
+
+        #endregion
+
+        public void ChangeSpeed(Enemy.Controller controller, float newSpeed)
+        {
+            controller.m_aiCore.Agent.speed = newSpeed;
+        }
     }
 }

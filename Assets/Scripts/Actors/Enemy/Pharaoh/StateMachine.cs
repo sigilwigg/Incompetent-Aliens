@@ -7,6 +7,10 @@ namespace Enemy.Pharaoh
     {
         public Enemy.Pharaoh.Actions m_actions;
 
+        [Header("Speed Parameters")]
+        public float m_defaultSpeed = 1.5f;
+        public float m_chaseSpeed = 6f;
+
         protected override void Start()
         {
             base.Start();
@@ -21,7 +25,7 @@ namespace Enemy.Pharaoh
                 ChangeStateTo(State.Walk);
             }
             else
-                ChangeStateTo(State.Idle);
+                ChangeStateTo(State.Chase);
 
             //if pharaoh in acvitity zone and walk state.
             //exit walk state.
@@ -77,23 +81,23 @@ namespace Enemy.Pharaoh
 
         protected override void ExitWalk(Enemy.Controller controller)
         {
-            
+
         }
         #endregion
 
         #region Chase State
         protected override void RunChase(Enemy.Controller controller)
         {
-
+            m_actions.ChasePlayer(controller);
         }
         protected override void EnterChase(Enemy.Controller controller)
         {
-
+            m_actions.ChangeSpeed(controller, m_chaseSpeed);
         }
 
         protected override void ExitChase(Enemy.Controller controller)
         {
-
+            m_actions.ChangeSpeed(controller, m_defaultSpeed);
         }
         #endregion
 
