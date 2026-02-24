@@ -5,7 +5,10 @@ namespace Enemy.Pharaoh
 {
     public class StateMachine : Enemy.AICore
     {
-        public Enemy.Pharaoh.Actions m_actions;
+        private Enemy.Pharaoh.Actions m_actions;
+
+        [Header("Navigation")]
+        public Path m_walkStatePath;
 
         [Header("Speed Parameters")]
         public float m_walkSpeed = 1.5f;
@@ -17,6 +20,21 @@ namespace Enemy.Pharaoh
 
         [Header("References")]
         public Transform[] m_players;
+
+        private enum SleepSubState
+        {
+            WalkToSarcophagus,
+            InSarcophagus,
+            ExitSarcophagus
+        }
+
+        private enum ActivitySubState
+        {
+            WalkToMirrorPlace,
+            Distracted,
+            Annoyed,
+            ExitMirrorPlace
+        }
 
         protected override void Start()
         {
@@ -66,7 +84,9 @@ namespace Enemy.Pharaoh
         #region Sleep State
         protected override void RunSleep(Enemy.Controller controller)
         {
+            
 
+            
         }
         protected override void EnterSleep(Enemy.Controller controller)
         {
@@ -98,7 +118,7 @@ namespace Enemy.Pharaoh
         #region Walk State
         protected override void RunWalk(Enemy.Controller controller)
         {
-            m_actions.WalkCycle(controller);
+            m_actions.WalkCycle(controller, m_walkStatePath);
         }
         protected override void EnterWalk(Enemy.Controller controller)
         {

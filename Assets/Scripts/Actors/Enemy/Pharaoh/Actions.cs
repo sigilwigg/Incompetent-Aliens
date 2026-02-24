@@ -26,18 +26,18 @@ namespace Enemy.Pharaoh
 
         #region Walk state functions
 
-        public void WalkCycle(Enemy.Controller controller)
+        public void WalkCycle(Enemy.Controller controller, Path path)
         {
             if (controller.m_aiCore.Agent.remainingDistance < m_waypointDistanceThreshold)
             {
                 m_waitTimer += Time.deltaTime;
                 if (m_waitTimer >= m_waypointWaitTime)
                 {
-                    if (m_waypointIndex < controller.m_blackboard.m_path.m_waypoints.Count - 1)
+                    if (m_waypointIndex < path.m_waypoints.Count - 1)
                         m_waypointIndex++;
                     else
                         m_waypointIndex = 0;
-                    controller.m_aiCore.Agent.SetDestination(controller.m_blackboard.m_path.m_waypoints[m_waypointIndex].position);
+                    controller.m_aiCore.Agent.SetDestination(path.m_waypoints[m_waypointIndex].position);
                     m_waitTimer = 0f;
                 }
             }
