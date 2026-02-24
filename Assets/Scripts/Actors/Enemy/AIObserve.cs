@@ -43,35 +43,35 @@ namespace Enemy
 
         private void CanSeePlayer()
         {
-
             Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, m_visionRange, m_targetMask);
 
-            if (targetsInViewRadius.Length > 0)
+            m_blackboard.m_canSeePlayer = false;
+            m_closestEnemyInView = null;
+
+            // Track the shortest distance found so far (start at "infinity")
+            float minSqrDistance = Mathf.Infinity;
+
+            for (int i = 0; i < targetsInViewRadius.Length; i++)
             {
-                for (int i = 0; i < targetsInViewRadius.Length; i++)
+                Transform target = targetsInViewRadius[i].transform;
+                Vector3 dirToTarget = (target.position - transform.position).normalized;
+
+                if (Vector3.Angle(transform.forward, dirToTarget) < m_visionAngle / 2)
                 {
-                    Transform target = targetsInViewRadius[i].transform;
-                    Vector3 dirToTarget = (target.position - transform.position).normalized;
+                    float sqrDistToTarget = (target.position - transform.position).sqrMagnitude;
 
-                    if (Vector3.Angle(transform.forward, dirToTarget) < m_visionAngle / 2)
+                    // Only perform the expensive Raycast if this target is actually closer
+                    if (sqrDistToTarget < minSqrDistance)
                     {
-                        float distToTarget = Vector3.Distance(transform.position, target.position);
-
-                        if (!Physics.Raycast(transform.position, dirToTarget, distToTarget, m_obstacleMask))
+                        if (!Physics.Raycast(transform.position, dirToTarget, Mathf.Sqrt(sqrDistToTarget), m_obstacleMask))
                         {
-                            m_blackboard.m_canSeePlayer = true;
+                            minSqrDistance = sqrDistToTarget;
                             m_closestEnemyInView = target;
-                            break;
+                            m_blackboard.m_canSeePlayer = true;
                         }
-                        else
-                            m_blackboard.m_canSeePlayer = false;
                     }
-                    else
-                        m_blackboard.m_canSeePlayer = false;
                 }
             }
-            else if (m_blackboard.m_canSeePlayer)
-                m_blackboard.m_canSeePlayer = false;
         }
     }
 }
