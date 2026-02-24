@@ -48,7 +48,6 @@ namespace Enemy
             m_blackboard.m_canSeePlayer = false;
             m_closestEnemyInView = null;
 
-            // Track the shortest distance found so far (start at "infinity")
             float minSqrDistance = Mathf.Infinity;
 
             for (int i = 0; i < targetsInViewRadius.Length; i++)
@@ -60,7 +59,6 @@ namespace Enemy
                 {
                     float sqrDistToTarget = (target.position - transform.position).sqrMagnitude;
 
-                    // Only perform the expensive Raycast if this target is actually closer
                     if (sqrDistToTarget < minSqrDistance)
                     {
                         if (!Physics.Raycast(transform.position, dirToTarget, Mathf.Sqrt(sqrDistToTarget), m_obstacleMask))
