@@ -8,13 +8,39 @@ namespace Enemy.Pharaoh
         public Enemy.Pharaoh.Actions m_actions;
 
         [Header("Speed Parameters")]
-        public float m_defaultSpeed = 1.5f;
+        public float m_walkSpeed = 1.5f;
         public float m_chaseSpeed = 6f;
+
+        [Header("Vision Parameters")]
+        public float m_walkVisionAngle = 140f;
+        public float m_chaseVisionAngle = 200;
+
+        [Header("References")]
+        public Transform[] m_players;
 
         protected override void Start()
         {
             base.Start();
             m_actions = GetComponent<Enemy.Pharaoh.Actions>();
+
+            //----- If array isn't set in inspector, try to find all Player objects in the scene -----
+            if (m_players == null || m_players.Length == 0)
+            {
+                GameObject[] found = GameObject.FindGameObjectsWithTag("Player");
+                if (found.Length == 0)
+                {
+                    Debug.LogError("Player not found in scene. Make sure there is a GameObject with the tag 'Player' in the scene.");
+                    return;
+                }
+
+                m_players = new Transform[found.Length];
+                for (int i = 0; i < found.Length; i++)
+                {
+                    m_players[i] = found[i].transform;
+                }
+
+                return;
+            }
         }
 
         public override void Decide()
@@ -76,7 +102,8 @@ namespace Enemy.Pharaoh
         }
         protected override void EnterWalk(Enemy.Controller controller)
         {
-
+            m_actions.ChangeSpeed(controller, m_walkSpeed);
+            m_actions.ChangeVisionAngle(controller, m_walkVisionAngle);
         }
 
         protected override void ExitWalk(Enemy.Controller controller)
@@ -88,16 +115,16 @@ namespace Enemy.Pharaoh
         #region Chase State
         protected override void RunChase(Enemy.Controller controller)
         {
-            m_actions.ChasePlayer(controller);
+            m_actions.ChasePlayer(controller, m_players);
         }
         protected override void EnterChase(Enemy.Controller controller)
         {
             m_actions.ChangeSpeed(controller, m_chaseSpeed);
+            m_actions.ChangeVisionAngle(controller, m_chaseVisionAngle);
         }
 
         protected override void ExitChase(Enemy.Controller controller)
         {
-            m_actions.ChangeSpeed(controller, m_defaultSpeed);
         }
         #endregion
 
