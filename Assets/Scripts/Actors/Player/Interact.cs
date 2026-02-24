@@ -8,9 +8,10 @@ using UnityEngine;
 /*
  * Controls the Interact function of the player. When the player is in range of an interactable object, a prompt will appear and they will be able to press SPACE to interact with the object 
  * 
- * CheckForInteractable()       =>  Uses an overlap sphere to gather all the potential interactable objects in range of the player,
+ * CheckForInteractable()           =>  Uses an overlap sphere to gather all the potential interactable objects in range of the player,
  *                                  before choosing the closest one and giving the player the option to interact with it
- * 
+ * IsOwnCollider()                  =>  returns bool for if detected collider is our own
+ * IsStackColliderInCurrentStack()  =>  retruns bool for if detected collider is part of the stack we're stacked in
  * 
 */
 namespace Player
@@ -58,12 +59,21 @@ namespace Player
                 m_interactableLayerMask
             );
 
-            foreach (var interactable in interactableColliders)
+            foreach (Collider interactable in interactableColliders)
             {
-                //Get the distance between each interactable and the player
+                // ----- prevent edge case detections -----
+                if (IsOwnCollider(interactable)) continue;
+
+                if (m_playerController.m_isStacked)
+                {
+                    if (IsStackColliderInCurrentStack(interactable)) continue;
+                }
+
+                // ----- continue filtering by nearest distance -----
+                // Get the distance between each interactable and the player
                 distance = Vector3.Distance(gameObject.transform.position, interactable.gameObject.transform.position);
 
-                //Determines the closest interactable to the player
+                // Determines the closest interactable to the player
                 if (distance < nearestDistance)
                 {
                     nearestDistance = distance;
@@ -71,7 +81,7 @@ namespace Player
                 }
             }
 
-            // Set the nearest Interactable to the current available interactable 
+            // ----- nearest interactable set to available interactable -----
             if (nearestInteractable != null && m_playerController.m_currentlyHeldItem == null)
             {
                 m_playerController.m_availableInteractableObject = nearestInteractable.gameObject.GetComponent<Interactables.Interactable>();
@@ -84,7 +94,36 @@ namespace Player
                 m_interactPrompt.enabled = false;
             }
         }
-           
-    }
 
+        private bool IsOwnCollider(Collider interactable)
+        {
+            // ----- make sure its not a collider on our own self -----
+            if (interactable.gameObject.transform.parent == transform) return true;
+            return false;
+        }
+
+        private bool IsStackColliderInCurrentStack(Collider interactable)
+        {
+            // ----- ignore if is type pickupable -----
+            if (interactable.gameObject.GetComponent<Pickupable>() == null) return false;
+
+            // ----- return if not has stack controller -----
+            if (m_playerController.m_stackController == null) return true;
+
+            // ----- detect currently stacked in stack -----
+            bool myStackDetected = false;
+            foreach (Player.Controller playerController in m_playerController.m_stackController.m_playerControllers)
+            {
+                if (playerController == null) continue;
+                Stack.Controller stackController = playerController.GetComponentInChildren<Stack.Controller>();
+                if (stackController != null && interactable.gameObject == stackController.gameObject)
+                {
+                    myStackDetected = true;
+                    break;
+                }
+            }
+
+            return myStackDetected;
+        }
+    }
 }
