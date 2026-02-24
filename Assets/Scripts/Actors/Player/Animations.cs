@@ -51,12 +51,12 @@ namespace Player
 
         private void PlayIdleAnimation()
         {
-            AnimationController.ChangeAnimationState(m_animator, m_currentAnimationState, IDLE);
+            m_currentAnimationState = AnimationController.ChangeAnimationState(m_animator, m_currentAnimationState, IDLE);
         }
 
         private void PlayWalkingAnimation()
         {
-            AnimationController.ChangeAnimationState(m_animator, m_currentAnimationState, WALK);
+            m_currentAnimationState = AnimationController.ChangeAnimationState(m_animator, m_currentAnimationState, WALK);
         }
 
         private void SetRotationFromInput()

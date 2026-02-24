@@ -312,10 +312,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 6.32, y: 6.32, z: 6.32}
+  m_LocalScale: {x: 6.32, y: 6.3200006, z: 6.3200006}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 7324986503841025892}
+  m_Father: {fileID: 7147915927220249512}
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!212 &8553933295191655886
 SpriteRenderer:
@@ -379,7 +379,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103996643772225746}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d90f872d50a4b2246a7c24233e2fdb1e, type: 3}
   m_Name: 
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103996643772225746}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5af14d1b41652ee4997bb722719d1b67, type: 3}
   m_Name: 
@@ -610,6 +610,7 @@ Transform:
   - {fileID: 593652129518116286}
   - {fileID: 8365116942196619400}
   - {fileID: 5691587727117072002}
+  - {fileID: 989547565007715295}
   m_Father: {fileID: 7324986503841025892}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6075041021904727466
@@ -1001,7 +1002,6 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6428058560866030336}
-  - {fileID: 989547565007715295}
   - {fileID: 4370518288249147026}
   - {fileID: 7147915927220249512}
   m_Father: {fileID: 0}
@@ -1018,7 +1018,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85781d2a1ea56a4abac9c7468cf18a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveInput: {x: 0, y: 0}
 --- !u!114 &6370772817099476602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1032,7 +1031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.Controller
   m_rotationTransform: {fileID: 5691587727117072002}
-  m_input: {x: 0, y: 0}
+  m_moveInput: {x: 0, y: 0}
   m_canMove: 1
   m_rotation: 0
   m_moveState: 0
