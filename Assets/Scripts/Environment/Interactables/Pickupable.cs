@@ -1,6 +1,13 @@
 using Player;
 using UnityEngine;
 
+/*
+ * Interactables that can be picked up by the player.
+ * 
+ * Interact()       => standard interact override method, handles what to do for interact.
+ * PositionItem()   => positions item in player hold position initially.
+ */
+
 namespace Interactables
 {
     public class Pickupable : Interactable
@@ -28,8 +35,10 @@ namespace Interactables
             m_playerController.m_currentlyHeldItem = gameObject;
             m_collider.enabled = false;
 
-            if(!m_isMultipointPickupPoint)
+            if (!m_isMultipointPickupPoint)
+            {
                 PositionItem();
+            }
             else
             {
                 playerController.m_canMove = false;

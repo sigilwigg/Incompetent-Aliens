@@ -9,7 +9,7 @@ namespace Interactables
 
         public virtual void Interact(Player.Controller playerController)
         {
-            Debug.Log(m_interactableText);
+            
         }
     }
 

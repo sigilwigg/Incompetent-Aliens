@@ -309,7 +309,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988896187549397929}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -787,7 +787,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3427074725354475578}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -971,7 +971,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4823375076310966341}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1106,11 +1106,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b5b11312eef0a4459fdae13e4dcd229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.Movement
+  m_gravityForce: 5
   m_moveSpeed: 12
   m_moveAcceleration: 5
   m_rotation: 0
+  m_groundCheckDistance: 0.15
+  m_groundCheckRadius: 0.4
   m_influencingTransform: {fileID: 1421161949965194677}
-  m_influencingStrength: 1
+  m_influencingStrength: -1
+  m_groundLayer:
+    serializedVersion: 2
+    m_Bits: 9
 --- !u!114 &7026141624604925451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1146,7 +1152,7 @@ CharacterController:
   serializedVersion: 3
   m_Height: 1
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 0
   m_StepOffset: 0
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
@@ -1717,7 +1723,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8852638832089025499}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2048,9 +2054,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.Controller
   m_movement: {fileID: 0}
-  m_stackController: {fileID: 0}
   m_rotationTransform: {fileID: 5691587727117072002}
   m_playerMatchPosition: {fileID: 9212958395852280863}
+  m_stackController: {fileID: 0}
+  m_stackPosition: 0
   m_isStacked: 0
   m_moveInput: {x: 0, y: 0}
   m_canMove: 1

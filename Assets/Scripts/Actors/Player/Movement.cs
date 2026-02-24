@@ -16,9 +16,14 @@ namespace Player
         private Vector3 m_targetMoveVelocity;
 
         public float m_rotation;
+        private bool m_isGrounded;
+        public float m_groundCheckDistance = 0.1f;
+        public float m_groundCheckRadius = 0.25f;
 
         public Transform m_influencingTransform;
         public float m_influencingStrength = 0.5f;
+
+        public LayerMask m_groundLayer;
 
         private void Awake()
         {
@@ -33,8 +38,38 @@ namespace Player
 
         private void Update()
         {
+            CheckIsGrounded();
             HandleMovement();
             HandleFalseRotation();
+        }
+
+        private void CheckIsGrounded()
+        {
+            if (m_playerController.m_isStacked)
+            {
+                m_isGrounded = true;
+                return;
+            }
+
+            RaycastHit hit;
+
+            Vector3 groudCheckPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            if (Physics.SphereCast(groudCheckPosition, m_groundCheckRadius, Vector3.down, out hit, m_groundCheckDistance, m_groundLayer))
+            {
+                m_isGrounded = true;
+            } else
+            {
+                m_isGrounded = false;
+            }
+
+            if (Physics.SphereCast(groudCheckPosition, m_groundCheckRadius, Vector3.down, out hit, m_groundCheckDistance, m_groundLayer))
+            {
+                m_isGrounded = true;
+            }
+            else
+            {
+                m_isGrounded = false;
+            }
         }
 
         private void HandleMovement()
@@ -48,7 +83,7 @@ namespace Player
             movementInput = Vector3.ClampMagnitude(movementInput, 1f);
 
             // ----- handle influencing transform -----
-            if (m_influencingTransform != null)
+            if (m_influencingTransform != null && m_influencingStrength > 0.0f)
             {
                 Vector3 influencingDistanceFromCenter = new Vector3(m_influencingTransform.localPosition.x, 0, m_influencingTransform.localPosition.z);
                 influencingDistanceFromCenter *= m_influencingStrength;
@@ -58,9 +93,9 @@ namespace Player
 
             // ----- handle move velocity -----
             m_targetMoveVelocity = movementInput * m_moveSpeed;
-            m_targetMoveVelocity.y = -m_gravityForce;
+            if (!m_isGrounded && m_playerController.m_stackPosition == 0) 
+                m_targetMoveVelocity.y = -m_gravityForce;
             m_currentMoveVelocity = Vector3.Lerp(m_currentMoveVelocity, m_targetMoveVelocity, m_moveAcceleration * Time.deltaTime);
-            Debug.Log(m_targetMoveVelocity);
             m_characterController.Move(m_currentMoveVelocity * Time.deltaTime);
         }
 
@@ -81,6 +116,20 @@ namespace Player
             }
 
             m_playerController.m_rotation = m_rotation;
+        }
+
+        private void OnDrawGizmos()
+        {
+            // Set the color with custom alpha.
+            Gizmos.color = new Color(1f, 0f, 0f, 0.25f); // Red with custom alpha
+            if (m_isGrounded)
+            {
+                Gizmos.color = new Color(0f, 1f, 0f, 0.25f);
+            }
+
+            // Draw the sphere.
+            Vector3 groudCheckPosition = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
+            Gizmos.DrawSphere(groudCheckPosition, m_groundCheckRadius);
         }
     }
 }

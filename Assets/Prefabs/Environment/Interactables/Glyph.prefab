@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7335172748698829148}
-  - component: {fileID: 5016719081133735594}
   - component: {fileID: 806216567695157929}
+  - component: {fileID: 3264564561537069263}
   m_Layer: 6
   m_Name: Glyph
   m_TagString: Untagged
@@ -34,8 +34,27 @@ Transform:
   - {fileID: 6463322935398426634}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &5016719081133735594
-SphereCollider:
+--- !u!114 &806216567695157929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534260311670834297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d7e8f6945787b45beb434e8c5b8be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_interactableText: Glyph
+  m_interactableRadius: 0
+  m_playerController: {fileID: 0}
+  m_collider: {fileID: 3264564561537069263}
+  m_isPickedUp: 0
+  m_isMultipointPickupPoint: 0
+  m_itemName: Glyph
+--- !u!65 &3264564561537069263
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -53,24 +72,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Size: {x: 0.75, y: 1, z: 0.75}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &806216567695157929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5534260311670834297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d7e8f6945787b45beb434e8c5b8be2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_interactableText: Glyph
-  m_interactableRadius: 0
-  m_collider: {fileID: 5016719081133735594}
-  m_itemName: Glyph
 --- !u!1 &5987135904614364036
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,13 +99,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5987135904614364036}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7335172748698829148}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!212 &6259123654565780481
 SpriteRenderer:
   m_ObjectHideFlags: 0

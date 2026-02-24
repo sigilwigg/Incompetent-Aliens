@@ -52,6 +52,7 @@ namespace Player
         private void Update()
         {
             m_rotationTransform.rotation = Quaternion.Euler(0, 180 + m_rotation, 0);
+            UpdateItemPosition();
         }
 
         // =========== INTERACTABLES ===========
@@ -61,13 +62,12 @@ namespace Player
             {
                 m_availableInteractableObject.Interact(playerController);
             }
-            else if (m_isStacked)
+            else if (m_isStacked && m_stackController != null)
             {
                 m_stackController.RemoveFromStack(m_stackPosition);
             }
         }
 
-        // Called when the player inputs the Interact key when holding an item
         public void DropItem() 
         {
             Pickupable itemToDrop = m_currentlyHeldItem.GetComponent<Interactables.Pickupable>();
@@ -76,8 +76,13 @@ namespace Player
 
             if (itemToDrop != null) itemToDrop.m_collider.enabled = true;
             if(itemToDrop.m_isMultipointPickupPoint) m_canMove = true;
-            //itemToDrop.gameObject.transform.parent = null;
             m_currentlyHeldItem = null;
+        }
+
+        public void UpdateItemPosition()
+        {
+            if (m_currentlyHeldItem == null) return;
+            m_currentlyHeldItem.transform.position = m_heldItemsPosition.position;
         }
     }
 }

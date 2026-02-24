@@ -8,7 +8,6 @@ public class MatchHalfWobble: MonoBehaviour
     public float m_percentageMatch = 1.0f;
     public float m_matchSpeed = 1.0f;
 
-    private Vector3 m_currentPosition;
     private Vector3 m_targetPosition;
 
     private void Update()

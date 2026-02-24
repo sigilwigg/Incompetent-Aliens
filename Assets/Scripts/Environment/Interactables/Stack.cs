@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/*
+ * Simple interactable for stacks specifically. Calls necessary methods on stack controller.
+ */
+
 namespace Interactables
 {
     public class StackOfPlayers : Interactable
