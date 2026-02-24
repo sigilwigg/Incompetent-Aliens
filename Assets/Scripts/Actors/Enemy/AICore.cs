@@ -5,12 +5,14 @@ namespace Enemy
 {
     public class AICore : MonoBehaviour
     {
-        public Enemy.Controller m_controller;
+        private Enemy.Controller m_controller;
         private NavMeshAgent m_agent;      
 
         public State m_currentState;
 
+        //---- getters ----
         public NavMeshAgent Agent { get => m_agent; }
+        public Enemy.Controller Controller { get => m_controller; }
 
         public enum State
         {

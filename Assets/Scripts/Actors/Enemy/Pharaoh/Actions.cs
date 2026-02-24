@@ -48,13 +48,9 @@ namespace Enemy.Pharaoh
 
         #region Chase state functions
 
-        public void ChasePlayer(Enemy.Controller controller, Transform[] players)
+        public void ChasePlayer(Enemy.Controller controller)
         {
-            for (int i = 0; i < players.Length; i++)
-            {
-                controller.m_aiCore.Agent.SetDestination(players[i].position);
-
-            }
+            controller.m_aiCore.Agent.SetDestination(controller.m_aiObserve.m_closestEnemyInView.position);
         }
 
         #endregion

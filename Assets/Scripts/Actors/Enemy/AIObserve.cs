@@ -16,6 +16,7 @@ namespace Enemy
 
         [Header("References")]
         public AIBlackboard m_blackboard;
+        public Transform m_closestEnemyInView;
 
         private void Start()
         {
@@ -27,7 +28,7 @@ namespace Enemy
         //----- Check for Players every 0.2 seconds -----
         private IEnumerator ObserveRoutine()
         {
-            while(true)
+            while (true)
             {
                 yield return new WaitForSeconds(0.2f);
                 Observe();
@@ -45,19 +46,23 @@ namespace Enemy
 
             Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, m_visionRange, m_targetMask);
 
-            if(targetsInViewRadius.Length > 0)
+            if (targetsInViewRadius.Length > 0)
             {
-                for(int i = 0;i < targetsInViewRadius.Length;i++)
+                for (int i = 0; i < targetsInViewRadius.Length; i++)
                 {
                     Transform target = targetsInViewRadius[i].transform;
                     Vector3 dirToTarget = (target.position - transform.position).normalized;
 
-                    if(Vector3.Angle(transform.forward, dirToTarget) < m_visionAngle / 2)
+                    if (Vector3.Angle(transform.forward, dirToTarget) < m_visionAngle / 2)
                     {
                         float distToTarget = Vector3.Distance(transform.position, target.position);
 
-                        if(!Physics.Raycast(transform.position, dirToTarget, distToTarget, m_obstacleMask))
+                        if (!Physics.Raycast(transform.position, dirToTarget, distToTarget, m_obstacleMask))
+                        {
                             m_blackboard.m_canSeePlayer = true;
+                            m_closestEnemyInView = target;
+                            break;
+                        }
                         else
                             m_blackboard.m_canSeePlayer = false;
                     }
@@ -65,8 +70,8 @@ namespace Enemy
                         m_blackboard.m_canSeePlayer = false;
                 }
             }
-            else if(m_blackboard.m_canSeePlayer)            
-                m_blackboard.m_canSeePlayer = false;          
+            else if (m_blackboard.m_canSeePlayer)
+                m_blackboard.m_canSeePlayer = false;
         }
     }
 }

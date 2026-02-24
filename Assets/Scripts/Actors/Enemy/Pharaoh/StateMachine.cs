@@ -18,8 +18,8 @@ namespace Enemy.Pharaoh
         public float m_walkVisionAngle = 140f;
         public float m_chaseVisionAngle = 200;
 
-        [Header("References")]
-        public Transform[] m_players;
+        //[Header("References")]
+        //public Transform[] m_players;
 
         private enum SleepSubState
         {
@@ -41,30 +41,30 @@ namespace Enemy.Pharaoh
             base.Start();
             m_actions = GetComponent<Enemy.Pharaoh.Actions>();
 
-            //----- If array isn't set in inspector, try to find all Player objects in the scene -----
-            if (m_players == null || m_players.Length == 0)
-            {
-                GameObject[] found = GameObject.FindGameObjectsWithTag("Player");
-                if (found.Length == 0)
-                {
-                    Debug.LogError("Player not found in scene. Make sure there is a GameObject with the tag 'Player' in the scene.");
-                    return;
-                }
+            ////----- If array isn't set in inspector, try to find all Player objects in the scene -----
+            //if (m_players == null || m_players.Length == 0)
+            //{
+            //    GameObject[] found = GameObject.FindGameObjectsWithTag("Player");
+            //    if (found.Length == 0)
+            //    {
+            //        Debug.LogError("Player not found in scene. Make sure there is a GameObject with the tag 'Player' in the scene.");
+            //        return;
+            //    }
 
-                m_players = new Transform[found.Length];
-                for (int i = 0; i < found.Length; i++)
-                {
-                    m_players[i] = found[i].transform;
-                }
+            //    m_players = new Transform[found.Length];
+            //    for (int i = 0; i < found.Length; i++)
+            //    {
+            //        m_players[i] = found[i].transform;
+            //    }
 
-                return;
-            }
+            //    return;
+            //}
         }
 
         public override void Decide()
-        {
+        {           
             //temp decide function for testing. will be replaced with a more robust one later.
-            if(!m_controller.m_blackboard.m_canSeePlayer)
+            if(!Controller.m_blackboard.m_canSeePlayer)
             {
                 ChangeStateTo(State.Walk);
             }
@@ -135,7 +135,7 @@ namespace Enemy.Pharaoh
         #region Chase State
         protected override void RunChase(Enemy.Controller controller)
         {
-            m_actions.ChasePlayer(controller, m_players);
+            m_actions.ChasePlayer(controller);
         }
         protected override void EnterChase(Enemy.Controller controller)
         {
