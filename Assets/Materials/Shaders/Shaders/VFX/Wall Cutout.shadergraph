@@ -209,20 +209,6 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
-                    "m_Id": "26a68dfb648646d0abddc3ebb8c61da8"
-                },
-                "m_SlotId": 2
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "d0bc3362a42645ebb3c7b2e2d548d417"
-                },
-                "m_SlotId": 0
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
                     "m_Id": "2a1ce05da93b472aaa05e2d304b7a64a"
                 },
                 "m_SlotId": 0
@@ -243,7 +229,7 @@
             },
             "m_InputSlot": {
                 "m_Node": {
-                    "m_Id": "a45ffbb499f64bb58bdc2eae9a0715ce"
+                    "m_Id": "d0bc3362a42645ebb3c7b2e2d548d417"
                 },
                 "m_SlotId": 0
             }
@@ -671,10 +657,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1463.9998779296875,
-            "y": 954.0000610351563,
-            "width": 207.9998779296875,
-            "height": 302.00006103515627
+            "x": -1466.0001220703125,
+            "y": 1003.0000610351563,
+            "width": 126.0001220703125,
+            "height": 118.00006103515625
         }
     },
     "m_Slots": [
@@ -693,7 +679,7 @@
         "divided by"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": true,
+    "m_PreviewExpanded": false,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
     "m_CustomColors": {
@@ -958,10 +944,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1945.0,
-            "y": 979.0,
-            "width": 126.0001220703125,
-            "height": 117.9998779296875
+            "x": -1836.0001220703125,
+            "y": 1030.0001220703125,
+            "width": 126.0,
+            "height": 118.0
         }
     },
     "m_Slots": [
@@ -1804,7 +1790,7 @@
     "m_DefaultRefNameVersion": 1,
     "m_RefNameGeneratedByDisplayName": "Main Texture",
     "m_DefaultReferenceName": "_Main_Texture",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_MainTexture",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
@@ -2328,7 +2314,7 @@
     "m_ShaderOutputName": "B",
     "m_StageCapability": 3,
     "m_Value": {
-        "e00": 2.0,
+        "e00": 1.0,
         "e01": 2.0,
         "e02": 2.0,
         "e03": 2.0,
@@ -2993,8 +2979,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1347.9998779296875,
-            "y": 826.0,
+            "x": -1330.0,
+            "y": 922.0000610351563,
             "width": 128.0,
             "height": 101.0
         }
@@ -3115,10 +3101,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -2085.0,
-            "y": 991.0000610351563,
+            "x": -1973.0001220703125,
+            "y": 1031.0001220703125,
             "width": 88.0,
-            "height": 100.99993896484375
+            "height": 100.9998779296875
         }
     },
     "m_Slots": [
