@@ -50,6 +50,7 @@ namespace Stack
             m_playerControllers[m_playersInStack] = playerController;
             playerController.GetComponentInChildren<Player.Movement>().enabled = false;
             playerController.GetComponentInChildren<CharacterController>().enabled = false;
+            playerController.m_particleTrailVFX.SetActive(false);
 
             // ----- snap player to stack position -----
             playerController.m_playerMatchPosition.enabled = true;
@@ -70,6 +71,7 @@ namespace Stack
             Player.Controller playerController = m_playerControllers[stackPosition];
             playerController.GetComponentInChildren<Player.Movement>().enabled = true;
             playerController.GetComponentInChildren<CharacterController>().enabled = true;
+            playerController.m_particleTrailVFX.SetActive(true);
 
             // ----- un-snap player to stack position -----
             playerController.m_playerMatchPosition.m_targetTransform = null;

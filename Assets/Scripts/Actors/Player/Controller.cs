@@ -16,6 +16,7 @@ namespace Player
 
         [Header("Core")]
         public Transform m_rotationTransform;
+        public GameObject m_particleTrailVFX;
 
         [Header("Stacking")]
         public MatchPosition m_playerMatchPosition;
