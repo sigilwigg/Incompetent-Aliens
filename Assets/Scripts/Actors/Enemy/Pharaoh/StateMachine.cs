@@ -31,13 +31,6 @@ namespace Enemy.Pharaoh
 
         private Blackboard m_pharaohBlackboard;
 
-        private enum SleepSubState
-        {
-            WalkToSarcophagus,
-            InSarcophagus,
-            ExitSarcophagus
-        }
-
         private enum ActivitySubState
         {
             WalkToMirrorPlace,
@@ -141,7 +134,14 @@ namespace Enemy.Pharaoh
         #region Activity State
         protected override void RunActivity(Enemy.Controller controller)
         {
-
+            if (m_pharaohBlackboard.m_isMirrorHeldByPlayers)
+            {
+                m_actions.Distracted();
+            }
+            else
+            {
+                m_actions.MadAtMissingMirror();
+            }
         }
         protected override void EnterActivity(Enemy.Controller controller)
         {
