@@ -9,13 +9,13 @@ public class WallCutout : MonoBehaviour
     private LayerMask wallMask;
 
     private Camera groupCamera;
-    void Awake()
+    private void Awake()
     {
         groupCamera = GetComponent<Camera>();
     }
 
 
-    void Update()
+    private void Update()
     {
         Vector2 cutoutPos = groupCamera.WorldToViewportPoint(targetObject.position);
 
