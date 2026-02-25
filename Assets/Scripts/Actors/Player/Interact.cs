@@ -63,11 +63,7 @@ namespace Player
             {
                 // ----- prevent edge case detections -----
                 if (IsOwnCollider(interactable)) continue;
-
-                if (m_playerController.m_isStacked)
-                {
-                    if (IsStackColliderInCurrentStack(interactable)) continue;
-                }
+                if (IsStackColliderInCurrentStack(interactable)) continue;
 
                 // ----- continue filtering by nearest distance -----
                 // Get the distance between each interactable and the player
@@ -104,8 +100,12 @@ namespace Player
 
         private bool IsStackColliderInCurrentStack(Collider interactable)
         {
+            // ----- only check if player is stacked -----
+            if (!m_playerController.m_isStacked) return false;
+
             // ----- ignore if is type pickupable -----
-            if (interactable.gameObject.GetComponent<Pickupable>() == null) return false;
+            bool isPickupableType = interactable.gameObject.GetComponent<Pickupable>() != null ? true : false;
+            if (isPickupableType) return false;
 
             // ----- return if not has stack controller -----
             if (m_playerController.m_stackController == null) return true;
@@ -115,15 +115,14 @@ namespace Player
             foreach (Player.Controller playerController in m_playerController.m_stackController.m_playerControllers)
             {
                 if (playerController == null) continue;
+
                 Stack.Controller stackController = playerController.GetComponentInChildren<Stack.Controller>();
-                if (stackController != null && interactable.gameObject == stackController.gameObject)
-                {
-                    myStackDetected = true;
-                    break;
-                }
+                if(stackController == null) continue;
+
+                if(interactable.gameObject == stackController.gameObject) return true;
             }
 
-            return myStackDetected;
+            return false;
         }
     }
 }
