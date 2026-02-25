@@ -9,6 +9,15 @@ namespace Enemy.Pharaoh
 
         [Header("Navigation")]
         public Path m_walkStatePath;
+        public Path m_sleepStatePath;
+
+        [Header("Sleep State Parameters")]
+        public float m_sleepStateWaypointWaitTime = 5f;
+        public float m_sleepStateWaypointDistanceThreshold = 0.2f;
+
+        [Header("Walk State Parameters")]
+        public float m_walkStateWaypointWaitTime = 0.2f;
+        public float m_walkStateWaypointDistanceThreshold = 0.2f;
 
         [Header("Speed Parameters")]
         public float m_walkSpeed = 1.5f;
@@ -16,10 +25,11 @@ namespace Enemy.Pharaoh
 
         [Header("Vision Parameters")]
         public float m_walkVisionAngle = 140f;
-        public float m_chaseVisionAngle = 200;
+        public float m_chaseVisionAngle = 200f;
+        public float m_deafultVisionRange = 15f;
+        public float m_sleepVisionRange = 0f;
 
-        //[Header("References")]
-        //public Transform[] m_players;
+        private Blackboard m_pharaohBlackboard;
 
         private enum SleepSubState
         {
@@ -40,62 +50,42 @@ namespace Enemy.Pharaoh
         {
             base.Start();
             m_actions = GetComponent<Enemy.Pharaoh.Actions>();
+            m_pharaohBlackboard = (Blackboard)AIBlackboard;
 
-            ////----- If array isn't set in inspector, try to find all Player objects in the scene -----
-            //if (m_players == null || m_players.Length == 0)
-            //{
-            //    GameObject[] found = GameObject.FindGameObjectsWithTag("Player");
-            //    if (found.Length == 0)
-            //    {
-            //        Debug.LogError("Player not found in scene. Make sure there is a GameObject with the tag 'Player' in the scene.");
-            //        return;
-            //    }
-
-            //    m_players = new Transform[found.Length];
-            //    for (int i = 0; i < found.Length; i++)
-            //    {
-            //        m_players[i] = found[i].transform;
-            //    }
-
-            //    return;
-            //}
         }
 
         public override void Decide()
-        {           
+        {
             //temp decide function for testing. will be replaced with a more robust one later.
-            if(!Controller.m_blackboard.m_canSeePlayer)
+            if (Controller.m_blackboard.m_canSeePlayer)
             {
-                ChangeStateTo(State.Walk);
+                ChangeStateTo(State.Chase);
+            }
+            else if (m_pharaohBlackboard.m_isInSleepZone)
+            {
+                ChangeStateTo(State.Sleep);
             }
             else
-                ChangeStateTo(State.Chase);
-
-            //if pharaoh in acvitity zone and walk state.
-            //exit walk state.
-            //enter activity state, do activty state stuff.
-
-            //if player seen and not in sleep state or distract.
-            //exit current state.
-            //enter chase state.
+                ChangeStateTo(State.Walk);
 
         }
 
         #region Sleep State
         protected override void RunSleep(Enemy.Controller controller)
         {
-            
-
-            
+            m_actions.PathNavigationCycle(controller, m_sleepStatePath, m_sleepStateWaypointWaitTime, m_sleepStateWaypointDistanceThreshold);
         }
         protected override void EnterSleep(Enemy.Controller controller)
         {
+            Agent.ResetPath();
+            Agent.SetDestination(m_sleepStatePath.m_waypoints[0].position);
+            m_actions.ChangeVisionRange(controller, m_sleepVisionRange);
 
         }
 
         protected override void ExitSleep(Enemy.Controller controller)
         {
-
+            m_actions.ChangeVisionRange(controller, m_deafultVisionRange);
         }
         #endregion
 
@@ -118,7 +108,7 @@ namespace Enemy.Pharaoh
         #region Walk State
         protected override void RunWalk(Enemy.Controller controller)
         {
-            m_actions.WalkCycle(controller, m_walkStatePath);
+            m_actions.PathNavigationCycle(controller, m_walkStatePath, m_walkStateWaypointWaitTime, m_walkStateWaypointDistanceThreshold);
         }
         protected override void EnterWalk(Enemy.Controller controller)
         {

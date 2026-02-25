@@ -7,6 +7,7 @@ TagManager:
   - InputManager
   - GameTimer
   - CutsceneManager
+  - SarcophagasZone
   layers:
   - Default
   - TransparentFX

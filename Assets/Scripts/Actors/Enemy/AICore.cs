@@ -7,12 +7,14 @@ namespace Enemy
     {
         private Enemy.Controller m_controller;
         private NavMeshAgent m_agent;      
+        private AIBlackboard m_blackboard;
 
         public State m_currentState;
 
         //---- getters ----
         public NavMeshAgent Agent { get => m_agent; }
         public Enemy.Controller Controller { get => m_controller; }
+        public AIBlackboard AIBlackboard { get => m_blackboard; }
 
         public enum State
         {
@@ -27,6 +29,7 @@ namespace Enemy
         {
             m_controller = GetComponentInParent<Enemy.Controller>();
             m_agent = GetComponent<NavMeshAgent>();
+            m_blackboard = GetComponent<AIBlackboard>();
         }
 
         public void Act()

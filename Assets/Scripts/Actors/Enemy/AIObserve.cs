@@ -18,7 +18,7 @@ namespace Enemy
         public AIBlackboard m_blackboard;
         public Transform m_closestEnemyInView;
 
-        private void Start()
+        protected virtual void Start()
         {
             m_blackboard = GetComponent<AIBlackboard>();
 
