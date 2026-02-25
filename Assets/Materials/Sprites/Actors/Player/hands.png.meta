@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d002eb645882ba24f8f35e89c5785254
+guid: e847851eea2578a418ea1257889ae04b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 480
+  spritePixelsToUnits: 720
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -149,13 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: head_0
+      name: hands_0
       rect:
         serializedVersion: 2
-        x: 272
-        y: 1265
-        width: 810
-        height: 759
+        x: 38
+        y: 193
+        width: 151
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,8 +164,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d06d1f07ffdd56d449f1a116d9fcfa1e
-      internalID: 841916511
+      spriteID: 5c32585e9f795b74da6b74a865f765fb
+      internalID: 723187943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hands_1
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 181
+        width: 148
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecf073cd533609a4181289049fa0fc35
+      internalID: 1404896727
       vertices: []
       indices: 
       edges: []
@@ -174,7 +196,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3199375cf8d0e2342b93658058e17496
+    spriteID: 2bae657570acf194bb97b3ac6f30160a
     internalID: 0
     vertices: []
     indices: 
@@ -186,7 +208,8 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      head_0: 841916511
+      hands_0: 723187943
+      hands_1: 1404896727
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
