@@ -19,7 +19,7 @@ public class Break : MonoBehaviour
     {
         if (collision.gameObject.tag == "Floor")
         {
-            //ParticleSystem.Play;
+            particles.gameObject.ParticleSystem.Play;
             Debug.Log("A");
         }
     }
