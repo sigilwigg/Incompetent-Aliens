@@ -6,7 +6,7 @@ namespace Enemy.Pharaoh
     public class Actions : MonoBehaviour
     {
         // ----- walk private state parameters -----
-        private int m_waypointIndex;
+        //private int m_waypointIndex;
         private float m_waitTimer;
 
         #region sleep state functions
@@ -15,14 +15,7 @@ namespace Enemy.Pharaoh
         #endregion
 
         #region Activty state functions
-        public void Distracted()
-        {           
-            //if in activity state and player held mirror
-        }
-        public void MadAtMissingMirror()
-        {
-            //if in activity state and player held mirror is false
-        }
+
         #endregion
 
         #region Walk state functions
@@ -42,21 +35,22 @@ namespace Enemy.Pharaoh
 
         #region General functions
 
-        public void PathNavigationCycle(Enemy.Controller controller, Path path, float waypointWaitTime, float waypointDistanceThreshold)
+        public int PathNavigationCycle(Enemy.Controller controller, Path path, float waypointWaitTime, float waypointDistanceThreshold, int waypointIndex)
         {
-            if (controller.m_aiCore.Agent.remainingDistance < waypointDistanceThreshold)
+            if(controller.m_aiCore.Agent.remainingDistance < waypointDistanceThreshold)
             {
                 m_waitTimer += Time.deltaTime;
-                if (m_waitTimer >= waypointWaitTime)
+                if(m_waitTimer >= waypointWaitTime)
                 {
-                    if (m_waypointIndex < path.m_waypoints.Count - 1)
-                        m_waypointIndex++;
-                    else 
-                        m_waypointIndex = 0;
-                    controller.m_aiCore.Agent.SetDestination(path.m_waypoints[m_waypointIndex].position);
+                    if(waypointIndex < path.m_waypoints.Count - 1)
+                        waypointIndex++;
+                    else
+                        waypointIndex = 0;
+                    controller.m_aiCore.Agent.SetDestination(path.m_waypoints[waypointIndex].position);
                     m_waitTimer = 0f;
                 }
             }
+            return waypointIndex;
         }
 
         public void ChangeSpeed(Enemy.Controller controller, float newSpeed)

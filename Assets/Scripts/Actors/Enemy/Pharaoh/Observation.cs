@@ -25,6 +25,11 @@ namespace Enemy.Pharaoh
             {
                 m_pharaohBlackboard.m_isInSleepZone = true;
             }
+
+            if(other.CompareTag("MirrorZone"))
+            {
+                m_pharaohBlackboard.m_isPharaohInMirrorZone = true;
+            }
         }
 
         private void OnTriggerExit(Collider other)
@@ -32,7 +37,12 @@ namespace Enemy.Pharaoh
             if (other.CompareTag("SarcophagasZone"))
             {
                 m_pharaohBlackboard.m_isInSleepZone = false;
-            };
+            }
+
+            if(other.CompareTag("MirrorZone"))
+            {
+                m_pharaohBlackboard.m_isPharaohInMirrorZone = false;
+            }
         }
 
      

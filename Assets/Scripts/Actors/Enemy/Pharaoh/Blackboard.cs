@@ -6,8 +6,7 @@ namespace Enemy.Pharaoh
     {
         [Header("Pharaoh Paramaters")]
         public bool m_isMirrorHeldByPlayers = false;
-        public bool m_isPharaohInMirrorArea = false;
-        public bool m_isDistracted = false;
+        public bool m_isPharaohInMirrorZone = false;
         public bool m_isInSleepZone = false;
       
     }

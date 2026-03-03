@@ -10,24 +10,32 @@ namespace Enemy.Pharaoh
         [Header("Navigation")]
         public Path m_walkStatePath;
         public Path m_sleepStatePath;
+        public Path m_activityStatePath;
 
         [Header("Sleep State Parameters")]
         public float m_sleepStateWaypointWaitTime = 5f;
         public float m_sleepStateWaypointDistanceThreshold = 0.2f;
+        public int m_sleepStateWaypointIndex = 0;
 
         [Header("Walk State Parameters")]
         public float m_walkStateWaypointWaitTime = 0.2f;
         public float m_walkStateWaypointDistanceThreshold = 0.2f;
+        public int m_walkStateWaypointIndex = 0;
+
+        [Header("Activity State Parameters")]
+        public float m_activityStateWaypointWaitTime = 0.2f;
+        public float m_activityStateWaypointDistanceThreshold = 0.2f;
+        public int m_activityStateWaypointIndex = 0;
 
         [Header("Speed Parameters")]
         public float m_walkSpeed = 1.5f;
         public float m_chaseSpeed = 6f;
 
         [Header("Vision Parameters")]
-        public float m_walkVisionAngle = 140f;
+        public float m_defaultVisionAngle = 140f;
         public float m_chaseVisionAngle = 200f;
         public float m_deafultVisionRange = 15f;
-        public float m_sleepVisionRange = 0f;
+        public float m_zeroVisionRange = 0f;
 
         private Blackboard m_pharaohBlackboard;
 
@@ -49,14 +57,17 @@ namespace Enemy.Pharaoh
 
         public override void Decide()
         {
-            //temp decide function for testing. will be replaced with a more robust one later.
-            if (Controller.m_blackboard.m_canSeePlayer)
+            if(Controller.m_blackboard.m_canSeePlayer)
             {
                 ChangeStateTo(State.Chase);
             }
-            else if (m_pharaohBlackboard.m_isInSleepZone)
+            else if(m_pharaohBlackboard.m_isInSleepZone)
             {
                 ChangeStateTo(State.Sleep);
+            }
+            else if(m_pharaohBlackboard.m_isPharaohInMirrorZone)
+            {
+                ChangeStateTo(State.Activity);
             }
             else
                 ChangeStateTo(State.Walk);
@@ -66,14 +77,13 @@ namespace Enemy.Pharaoh
         #region Sleep State
         protected override void RunSleep(Enemy.Controller controller)
         {
-            m_actions.PathNavigationCycle(controller, m_sleepStatePath, m_sleepStateWaypointWaitTime, m_sleepStateWaypointDistanceThreshold);
+           m_sleepStateWaypointIndex = m_actions.PathNavigationCycle(controller, m_sleepStatePath, m_sleepStateWaypointWaitTime, m_sleepStateWaypointDistanceThreshold, m_sleepStateWaypointIndex);
         }
         protected override void EnterSleep(Enemy.Controller controller)
         {
             Agent.ResetPath();
             Agent.SetDestination(m_sleepStatePath.m_waypoints[0].position);
-            m_actions.ChangeVisionRange(controller, m_sleepVisionRange);
-
+            m_actions.ChangeVisionRange(controller, m_zeroVisionRange);
         }
 
         protected override void ExitSleep(Enemy.Controller controller)
@@ -101,12 +111,12 @@ namespace Enemy.Pharaoh
         #region Walk State
         protected override void RunWalk(Enemy.Controller controller)
         {
-            m_actions.PathNavigationCycle(controller, m_walkStatePath, m_walkStateWaypointWaitTime, m_walkStateWaypointDistanceThreshold);
+            m_walkStateWaypointIndex = m_actions.PathNavigationCycle(controller, m_walkStatePath, m_walkStateWaypointWaitTime, m_walkStateWaypointDistanceThreshold, m_walkStateWaypointIndex);
         }
         protected override void EnterWalk(Enemy.Controller controller)
         {
             m_actions.ChangeSpeed(controller, m_walkSpeed);
-            m_actions.ChangeVisionAngle(controller, m_walkVisionAngle);
+            m_actions.ChangeVisionAngle(controller, m_defaultVisionAngle);     
         }
 
         protected override void ExitWalk(Enemy.Controller controller)
@@ -134,18 +144,29 @@ namespace Enemy.Pharaoh
         #region Activity State
         protected override void RunActivity(Enemy.Controller controller)
         {
-            if (m_pharaohBlackboard.m_isMirrorHeldByPlayers)
+            m_activityStateWaypointIndex = m_actions.PathNavigationCycle(controller, m_activityStatePath, m_activityStateWaypointWaitTime, m_activityStateWaypointDistanceThreshold, m_activityStateWaypointIndex);
+
+            if(m_pharaohBlackboard.m_isMirrorHeldByPlayers)
             {
-                m_actions.Distracted();
+                m_activityStateWaypointWaitTime = Mathf.Infinity;               
+
+                m_actions.ChangeVisionRange(controller, m_zeroVisionRange);
+
+                //play distracted animation
             }
             else
             {
-                m_actions.MadAtMissingMirror();
+                m_activityStateWaypointWaitTime = 0.2f;
+
+                m_actions.ChangeVisionRange(controller, m_deafultVisionRange);
+
+                // play mad at mirror animation
             }
         }
         protected override void EnterActivity(Enemy.Controller controller)
         {
-
+            Agent.ResetPath();
+            Agent.SetDestination(m_activityStatePath.m_waypoints[0].position);
         }
 
         protected override void ExitActivity(Enemy.Controller controller)
