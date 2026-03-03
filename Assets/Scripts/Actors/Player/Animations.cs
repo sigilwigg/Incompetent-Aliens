@@ -5,6 +5,7 @@ using UnityEngine;
  *  
  *  PlayIdleAnimation()         =>  Calls for idle aniamtion blend tree state;
  *  PlayWalkAnimation()         =>  Calls for walk aniamtion blend tree state;
+ *  SetHoldingAnimation()       =>  Calls for holding animation blend tree state (This state is kept on a seperate override layer);
  *  SetRotationFromInput()      =>  Takes -1 - 1 input values for x y and sets in animator;
  */
 
@@ -18,6 +19,8 @@ namespace Player
 
         public string IDLE = "Idle";
         public string WALK = "Walk";
+        public string HOLD = "Holding";
+        public string DROP = "Default";
 
         private void Start()
         {
@@ -45,18 +48,33 @@ namespace Player
                     break;
             }
 
+            // ----- holding items -----
+            SetHoldingAnimation();
+
             // ----- rotation -----
             SetRotationFromInput();
         }
 
         private void PlayIdleAnimation()
         {
-            AnimationController.ChangeAnimationState(m_animator, m_currentAnimationState, IDLE);
+            m_currentAnimationState = AnimationController.ChangeAnimationState(m_animator, m_currentAnimationState, IDLE);
         }
 
         private void PlayWalkingAnimation()
         {
-            AnimationController.ChangeAnimationState(m_animator, m_currentAnimationState, WALK);
+            m_currentAnimationState = AnimationController.ChangeAnimationState(m_animator, m_currentAnimationState, WALK);
+        }
+
+        private void SetHoldingAnimation()
+        {
+            if (m_playerController.m_currentlyHeldItem != null)
+            {
+                m_animator.Play(HOLD);
+            }
+            else
+            {
+                m_animator.Play(DROP);
+            }
         }
 
         private void SetRotationFromInput()
