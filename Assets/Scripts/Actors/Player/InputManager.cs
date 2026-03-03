@@ -36,7 +36,7 @@ namespace Player
                 }
                 else
                 {
-                    m_playerController.Interact();
+                    m_playerController.Interact(m_playerController);
                 }
             }
         }
