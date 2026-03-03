@@ -82,7 +82,6 @@ namespace Player
             
             Vector3 movementInput = new Vector3(input.x, 0, input.y);
             movementInput = Vector3.ClampMagnitude(movementInput, 1f);
-            Debug.Log(movementInput);
 
             // ----- handle influencing transform -----
             if (m_influencingTransform != null && m_influencingStrength > 0.0f)
