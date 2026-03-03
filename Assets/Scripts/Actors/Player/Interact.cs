@@ -111,7 +111,6 @@ namespace Player
             if (m_playerController.m_stackController == null) return true;
 
             // ----- detect currently stacked in stack -----
-            bool myStackDetected = false;
             foreach (Player.Controller playerController in m_playerController.m_stackController.m_playerControllers)
             {
                 if (playerController == null) continue;
