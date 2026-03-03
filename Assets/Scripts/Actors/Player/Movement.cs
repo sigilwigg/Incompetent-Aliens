@@ -79,8 +79,10 @@ namespace Player
             // ----- handle move input -----
             Vector2 input = m_playerController.m_moveInput;
 
+            
             Vector3 movementInput = new Vector3(input.x, 0, input.y);
             movementInput = Vector3.ClampMagnitude(movementInput, 1f);
+            Debug.Log(movementInput);
 
             // ----- handle influencing transform -----
             if (m_influencingTransform != null && m_influencingStrength > 0.0f)
@@ -97,6 +99,15 @@ namespace Player
                 m_targetMoveVelocity.y = -m_gravityForce;
             m_currentMoveVelocity = Vector3.Lerp(m_currentMoveVelocity, m_targetMoveVelocity, m_moveAcceleration * Time.deltaTime);
             m_characterController.Move(m_currentMoveVelocity * Time.deltaTime);
+
+            if (movementInput == Vector3.zero)
+            {
+                m_playerController.m_moveState = Controller.MoveState.Idle;
+            }
+            else
+            {
+                m_playerController.m_moveState = Controller.MoveState.Walking;
+            }
         }
 
         private void HandleFalseRotation()
