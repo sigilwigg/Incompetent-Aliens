@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 290962570857909749}
   m_Layer: 0
   m_Name: PlayerController
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -763,6 +763,7 @@ MonoBehaviour:
   m_stackPosition: 0
   m_isStacked: 0
   m_moveInput: {x: 0, y: 0}
+  m_influencedMoveInput: {x: 0, y: 0}
   m_canMove: 1
   m_rotation: 0
   m_moveState: 0
@@ -884,9 +885,9 @@ GameObject:
   - component: {fileID: 1183327666177235333}
   - component: {fileID: 9094273587122555078}
   - component: {fileID: 7787414005986063972}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
