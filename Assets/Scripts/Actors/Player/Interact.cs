@@ -110,16 +110,22 @@ namespace Player
             // ----- return if not has stack controller -----
             if (m_playerController.m_stackController == null) return true;
 
-            // ----- detect currently stacked in stack -----
-            foreach (Player.Controller playerController in m_playerController.m_stackController.m_playerControllers)
+            // ----- if any of the stacks in our own stack match the interactable -----
+            Stack.Controller myStackController = m_playerController.GetComponentInChildren<Stack.Controller>();
+            foreach (Player.Controller playerController in myStackController.m_playerControllers)
             {
                 if (playerController == null) continue;
-
-                Stack.Controller stackController = playerController.GetComponentInChildren<Stack.Controller>();
-                if(stackController == null) continue;
-
-                if(interactable.gameObject == stackController.gameObject) return true;
+                if (interactable.gameObject == playerController.m_stackController.gameObject) return true;
             }
+
+            // ----- if any of the stacks in our stacked stack match the interactable -----
+            Stack.Controller theStackImInStackController = m_playerController.m_stackController;
+            if (theStackImInStackController.gameObject == interactable.gameObject) return true;
+            //foreach (Player.Controller playerController in theStackImInStackController.m_playerControllers)
+            //{
+            //    if (playerController == null) continue;
+            //    if (interactable.gameObject == playerController.m_stackController.gameObject) return true;
+            //}
 
             return false;
         }

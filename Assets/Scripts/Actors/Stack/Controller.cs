@@ -13,17 +13,20 @@ namespace Stack
 {
     public class Controller : MonoBehaviour
     {
+        public Player.Controller m_playerController;
         public List<Transform> m_stackPositionTransforms = new List<Transform>();
         public List<Player.Controller> m_playerControllers = new List<Player.Controller>();
 
-        public int m_playersInStack = 0;
+        public int m_playersInStack = 1;
         public int m_topPlayerPosition;
 
         [Range(-2.0f, 2.0f)]
         public float m_baseInfluencingStrength = 0.5f;
 
-        private void Awake()
+        private void Start()
         {
+            m_playerControllers[0] = m_playerController;
+            m_playerControllers[0].m_movement.m_influencingTransform = m_stackPositionTransforms[0]; 
         }
 
         private void Update()
@@ -33,6 +36,8 @@ namespace Stack
             if(m_playersInStack == 1)
             {
                 m_playerControllers[0].m_movement.m_influencingStrength = 0;
+
+                if(m_playerController.m_stackController == null) m_playerControllers[0].m_isStacked = false;
             } 
             else if (m_playersInStack > 1)
             {

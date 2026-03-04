@@ -91,6 +91,8 @@ namespace Player
                 movementInput /= 2.0f;
             }
 
+            m_playerController.m_influencedMoveInput = movementInput;
+
             // ----- handle move velocity -----
             m_targetMoveVelocity = movementInput * m_moveSpeed;
             if (!m_isGrounded && m_playerController.m_stackPosition == 0) 
@@ -118,7 +120,7 @@ namespace Player
             movementInput = Vector3.ClampMagnitude(movementInput, 1f);
 
             // ----- handle rotation calculations -----
-            if(input != Vector2.zero)
+            if (input != Vector2.zero)
             {
                 m_rotation = Mathf.Atan2(movementInput.x, movementInput.z);
                 m_rotation *= Mathf.Rad2Deg;
