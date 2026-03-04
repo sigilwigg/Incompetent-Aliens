@@ -1201,6 +1201,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stack
       objectReference: {fileID: 0}
+    - target: {fileID: 4396290218637285406, guid: efdd5fc20d568544abbb221813614138, type: 3}
+      propertyPath: m_playerController
+      value: 
+      objectReference: {fileID: 7662794724068649500}
     - target: {fileID: 7070110379330787159, guid: efdd5fc20d568544abbb221813614138, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

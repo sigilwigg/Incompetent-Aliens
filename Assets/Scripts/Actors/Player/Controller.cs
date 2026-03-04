@@ -26,6 +26,7 @@ namespace Player
         [Header("Statuses")]
         public bool m_isStacked;
         public Vector2 m_moveInput;
+        public Vector2 m_influencedMoveInput;
         public bool m_canMove;
         public float m_rotation;
         public MoveState m_moveState;

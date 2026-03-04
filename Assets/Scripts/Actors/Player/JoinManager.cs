@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,6 +18,8 @@ public class JoinManager : MonoBehaviour
 
     public bool m_isJoinedKeyboardWASD = false;
     public bool m_isJoinedKeyboardArrows = false;
+
+    public CinemachineTargetGroup m_cinemachineTargetGroup;
 
     private void Update()
     {
@@ -42,6 +45,9 @@ public class JoinManager : MonoBehaviour
 
             // ----- remember joined -----
             m_isJoinedKeyboardWASD = true;
+
+            // ----- handle camera retargeting -----
+            m_cinemachineTargetGroup.AddMember(player.GetComponent<Player.Controller>().m_movement.transform, 1.0f, 0.0f);
         }
     }
 
@@ -62,6 +68,9 @@ public class JoinManager : MonoBehaviour
 
             // ----- remember joined -----
             m_isJoinedKeyboardArrows = true;
+
+            // ----- handle camera retargeting -----
+            m_cinemachineTargetGroup.AddMember(player.GetComponent<Player.Controller>().m_movement.transform, 1.0f, 0.0f);
         }
     }
 
@@ -80,6 +89,9 @@ public class JoinManager : MonoBehaviour
 
                 // ----- set player to spawn point -----
                 player.transform.position = m_spawnPoint.position;
+
+                // ----- handle camera retargeting -----
+                m_cinemachineTargetGroup.AddMember(player.GetComponent<Player.Controller>().m_movement.transform, 1.0f, 0.0f);
             }
         }
     }
