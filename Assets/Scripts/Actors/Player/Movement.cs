@@ -5,7 +5,6 @@ namespace Player
 {
     public class Movement : MonoBehaviour
     {
-        private InputManager m_inputManager;
         private Player.Controller m_playerController;
         private CharacterController m_characterController;
 
@@ -114,7 +113,7 @@ namespace Player
         {
             // ----- handle rotation input -----
             Vector2 input = m_playerController.m_moveInput;
-            if (!m_playerController.m_canMove) input = Vector2.zero;
+            //if (!m_playerController.m_canMove) input = Vector2.zero;
 
             Vector3 movementInput = new Vector3(input.x, 0, input.y);
             movementInput = Vector3.ClampMagnitude(movementInput, 1f);

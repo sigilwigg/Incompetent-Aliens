@@ -53,7 +53,7 @@ namespace Stack
 
             // ----- get controller, disable movement -----
             m_playerControllers[m_playersInStack] = playerController;
-            playerController.GetComponentInChildren<Player.Movement>().enabled = false;
+            playerController.m_canMove = false;
             playerController.GetComponentInChildren<CharacterController>().enabled = false;
             playerController.m_particleTrailVFX.SetActive(false);
 
@@ -74,7 +74,7 @@ namespace Stack
 
             // ----- get controller, enable movement -----
             Player.Controller playerController = m_playerControllers[stackPosition];
-            playerController.GetComponentInChildren<Player.Movement>().enabled = true;
+            playerController.m_canMove = true;
             playerController.GetComponentInChildren<CharacterController>().enabled = true;
             playerController.m_particleTrailVFX.SetActive(true);
 
