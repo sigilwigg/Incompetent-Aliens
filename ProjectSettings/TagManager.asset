@@ -8,6 +8,8 @@ TagManager:
   - GameTimer
   - SceneLoader
   - CutsceneManager
+  - SarcophagasZone
+  - MirrorZone
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - UI
   - Interactable
   - Player
-  - 
+  - Obstacle
   - 
   - 
   - 
