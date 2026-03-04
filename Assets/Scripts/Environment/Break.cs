@@ -1,5 +1,3 @@
-
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Break : MonoBehaviour
