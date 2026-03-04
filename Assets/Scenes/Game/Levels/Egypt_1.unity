@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &86686775 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3874899948124026100, guid: acbd4c04255149e45b3fc54c369dfb56, type: 3}
+  m_PrefabInstance: {fileID: 1693791885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5eb80d8e62d9d145bb50fb783c0f731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100232822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -288,7 +299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8884329847481763669, guid: 7401959626075944aa79c0471b9c4915, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1578,7 +1589,7 @@ PrefabInstance:
     - target: {fileID: 1519682582830544862, guid: ac56190bf2c11fe4eb9deb2f047b219f, type: 3}
       propertyPath: m_cinemachineTargetGroup
       value: 
-      objectReference: {fileID: 1194634080}
+      objectReference: {fileID: 86686775}
     - target: {fileID: 3574836428311310081, guid: ac56190bf2c11fe4eb9deb2f047b219f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
