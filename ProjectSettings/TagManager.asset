@@ -6,15 +6,17 @@ TagManager:
   tags:
   - InputManager
   - GameTimer
+  - SceneLoader
+  - CutsceneManager
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - Interactable
-  - 
+  - Player
   - 
   - 
   - 

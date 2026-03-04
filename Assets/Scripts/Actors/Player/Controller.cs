@@ -5,20 +5,27 @@ namespace Player
 {
     public class Controller : MonoBehaviour
     {
-        private InputManager m_inputManager;
+        private Player.InputManager m_inputManager;
         public enum MoveState
         {
             Idle,
             Walking
         }
 
-        private Player.Movement m_movement;
+        public Player.Movement m_movement;
 
         [Header("Core")]
         public Transform m_rotationTransform;
+        public GameObject m_particleTrailVFX;
+
+        [Header("Stacking")]
+        public MatchPosition m_playerMatchPosition;
+        public Stack.Controller m_stackController;
+        public int m_stackPosition;
 
         [Header("Statuses")]
-        public Vector2 m_input;
+        public bool m_isStacked;
+        public Vector2 m_moveInput;
         public bool m_canMove;
         public float m_rotation;
         public MoveState m_moveState;
@@ -38,37 +45,45 @@ namespace Player
 
         private void Start()
         {
-            m_inputManager = GameObject.FindWithTag("InputManager").GetComponent<InputManager>();
+            m_inputManager = GetComponent<Player.InputManager>();
+
+            m_playerMatchPosition.enabled = false;
         }
 
         private void Update()
         {
-            GetInput();
             m_rotationTransform.rotation = Quaternion.Euler(0, 180 + m_rotation, 0);
-        }
-
-        private void GetInput()
-        {
-            m_input = m_inputManager.GetMovementInput();
+            UpdateItemPosition();
         }
 
         // =========== INTERACTABLES ===========
-        public void Interact()
+        public void Interact(Player.Controller playerController)
         {
             if (m_isInteractableObjectAvailable)
             {
-                m_availableInteractableObject.Interact();
+                m_availableInteractableObject.Interact(playerController);
+            }
+            else if (m_isStacked && m_stackController != null)
+            {
+                m_stackController.RemoveFromStack(m_stackPosition);
             }
         }
 
-        // Called when the player inputs the Interact key when holding an item
         public void DropItem() 
         {
             Pickupable itemToDrop = m_currentlyHeldItem.GetComponent<Interactables.Pickupable>();
 
+            itemToDrop.m_isPickedUp = false;
+
             if (itemToDrop != null) itemToDrop.m_collider.enabled = true;
-            itemToDrop.gameObject.transform.parent = null;
+            if(itemToDrop.m_isMultipointPickupPoint) m_canMove = true;
             m_currentlyHeldItem = null;
+        }
+
+        public void UpdateItemPosition()
+        {
+            if (m_currentlyHeldItem == null) return;
+            m_currentlyHeldItem.transform.position = m_heldItemsPosition.position;
         }
     }
 }
