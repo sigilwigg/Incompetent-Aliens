@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaafec8186eae034892ccd684ec021f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerPrefab: {fileID: 9059712430612431610, guid: 7e3d45d248bbb7449bb439cc602a7dda, type: 3}
+  m_playerPrefab: {fileID: 8327706689564291871, guid: da74da0173cefe44c8f5985c336487f6, type: 3}
   m_spawnPoint: {fileID: 1669677669092617300}
   m_isJoinedKeyboardWASD: 1
   m_isJoinedKeyboardArrows: 0
