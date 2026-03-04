@@ -1,4 +1,5 @@
 using Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,9 +24,9 @@ public class JoinManager : MonoBehaviour
 
     private void Update()
     {
-        HandleNewConnectionsKeyboardWASD();
-        HandleNewConnectionsKeyboardArrows();
-        HandleNewConnectionsGamepads();
+            HandleNewConnectionsKeyboardWASD();
+            HandleNewConnectionsKeyboardArrows();
+            HandleNewConnectionsGamepads();      
     }
 
     private void HandleNewConnectionsKeyboardWASD()
@@ -78,7 +79,7 @@ public class JoinManager : MonoBehaviour
     {
         foreach(Gamepad gamepad in Gamepad.all)
         {
-            if (gamepad.buttonSouth.wasPressedThisFrame)
+            if (gamepad.buttonSouth.wasPressedThisFrame && !MaxPlayerCountReached())
             {
                 // ----- create player -----
                 var player = PlayerInput.Instantiate(
@@ -93,6 +94,19 @@ public class JoinManager : MonoBehaviour
                 // ----- handle camera retargeting -----
                 m_cinemachineTargetGroup.AddMember(player.GetComponent<Player.Controller>().m_movement.transform, 1.0f, 0.0f);
             }
+        }
+    }
+
+    private bool MaxPlayerCountReached()
+    {
+        if(m_cinemachineTargetGroup.m_Targets.Length >= 4)
+        {
+            Debug.Log("Max player count reached!");
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
