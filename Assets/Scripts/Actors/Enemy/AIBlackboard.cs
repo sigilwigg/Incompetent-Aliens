@@ -4,7 +4,8 @@ namespace Enemy
 {
     public class AIBlackboard : MonoBehaviour
     {
+        [Header("Default AI Parameters")]
         public bool m_canSeePlayer = false;
-        public bool m_isMirrorHeldByPlayers = false;
+
     }
 }
