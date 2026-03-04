@@ -32,7 +32,7 @@ public class JoinManager : MonoBehaviour
     private void HandleNewConnectionsKeyboardWASD()
     {
         if (Keyboard.current == null) return;
-        if(!m_isJoinedKeyboardWASD && Keyboard.current.spaceKey.wasPressedThisFrame)
+        if(!m_isJoinedKeyboardWASD && Keyboard.current.spaceKey.wasPressedThisFrame && !MaxPlayerCountReached())
         {
             // ----- create player -----
             var player = PlayerInput.Instantiate(
@@ -55,7 +55,7 @@ public class JoinManager : MonoBehaviour
     private void HandleNewConnectionsKeyboardArrows()
     {
         if (Keyboard.current == null) return;
-        if (!m_isJoinedKeyboardArrows && Keyboard.current.rightShiftKey.wasPressedThisFrame)
+        if (!m_isJoinedKeyboardArrows && Keyboard.current.rightShiftKey.wasPressedThisFrame && !MaxPlayerCountReached())
         {
             // ----- create player -----
             var player = PlayerInput.Instantiate(
