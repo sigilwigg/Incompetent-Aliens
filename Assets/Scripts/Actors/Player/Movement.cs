@@ -16,7 +16,7 @@ namespace Player
         private Vector3 m_targetMoveVelocity;
 
         public float m_rotation;
-        private bool m_isGrounded;
+        public bool m_isGrounded;
         public float m_groundCheckDistance = 0.1f;
         public float m_groundCheckRadius = 0.25f;
 
@@ -78,7 +78,6 @@ namespace Player
 
             // ----- handle move input -----
             Vector2 input = m_playerController.m_moveInput;
-
             
             Vector3 movementInput = new Vector3(input.x, 0, input.y);
             movementInput = Vector3.ClampMagnitude(movementInput, 1f);
