@@ -129,7 +129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3184659285684821066, guid: da74da0173cefe44c8f5985c336487f6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7651398679470931924, guid: da74da0173cefe44c8f5985c336487f6, type: 3}
       propertyPath: m_ApplyActiveColorSpace
