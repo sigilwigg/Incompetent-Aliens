@@ -25,8 +25,8 @@ namespace Player
             m_animator = GetComponent<Animator>();
 
             m_currentAnimationState = IDLE;
-            m_animator.SetFloat("InputX", m_playerController.m_input.x);
-            m_animator.SetFloat("InputY", m_playerController.m_input.y);
+            m_animator.SetFloat("InputX", m_playerController.m_moveInput.x);
+            m_animator.SetFloat("InputY", m_playerController.m_moveInput.y);
         }
 
         private void Update()
@@ -61,10 +61,10 @@ namespace Player
 
         private void SetRotationFromInput()
         {
-            if (m_playerController.m_input != Vector2.zero)
+            if (m_playerController.m_moveInput != Vector2.zero)
             {
-                m_animator.SetFloat("InputX", m_playerController.m_input.x);
-                m_animator.SetFloat("InputY", m_playerController.m_input.y);
+                m_animator.SetFloat("InputX", m_playerController.m_moveInput.x);
+                m_animator.SetFloat("InputY", m_playerController.m_moveInput.y);
             } 
         }
 
