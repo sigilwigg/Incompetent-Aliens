@@ -6,16 +6,20 @@ TagManager:
   tags:
   - InputManager
   - GameTimer
+  - SceneLoader
+  - CutsceneManager
+  - SarcophagasZone
+  - MirrorZone
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - Interactable
-  - 
-  - 
+  - Player
+  - Obstacle
   - 
   - 
   - 

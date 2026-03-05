@@ -1,12 +1,21 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Enemy
 {
     public class AICore : MonoBehaviour
     {
         private Enemy.Controller m_controller;
+        private NavMeshAgent m_agent;      
+        private AIBlackboard m_blackboard;
 
         public State m_currentState;
+
+        //---- getters ----
+        public NavMeshAgent Agent { get => m_agent; }
+        public Enemy.Controller Controller { get => m_controller; }
+        public AIBlackboard AIBlackboard { get => m_blackboard; }
+
         public enum State
         {
             Sleep,
@@ -16,17 +25,19 @@ namespace Enemy
             Activity
         }
 
-        private void Start()
+        protected virtual void Start()
         {
             m_controller = GetComponentInParent<Enemy.Controller>();
+            m_agent = GetComponent<NavMeshAgent>();
+            m_blackboard = GetComponent<AIBlackboard>();
         }
 
-        private void Update()
+        public void Act()
         {
             Run(m_currentState);
         }
 
-        void ChangeStateTo(State nextState)
+        public void ChangeStateTo(State nextState)
         {
             // ----- stop from interrupting its own state -----
             if (m_currentState == nextState) return;
@@ -119,6 +130,11 @@ namespace Enemy
                     Debug.Log("state for enter not found");
                     break;
             }
+        }
+
+        public virtual void Decide()
+        {
+            // template function overridden by our subclasses
         }
 
         protected virtual void RunSleep(Enemy.Controller controller)
