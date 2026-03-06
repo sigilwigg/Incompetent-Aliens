@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 public class GlyphSlots : MonoBehaviour
 {
-    private Controller m_playerController;
+    private Player.Controller m_playerController;
 
     // ----- These will allow the developers to add a specific item of their request to each of the variables -----
     [Header("Glyph Attributes")]
@@ -27,7 +27,7 @@ public class GlyphSlots : MonoBehaviour
 
     private void Awake()
     {
-        m_playerController = GameObject.FindWithTag("Player").GetComponent<Controller>();
+        m_playerController = GetComponent<Controller>();
     }
 
     private void Update()
