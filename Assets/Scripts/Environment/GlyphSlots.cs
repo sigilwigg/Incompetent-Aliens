@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 public class GlyphSlots : MonoBehaviour
 {
-    private Player.Controller m_playerController;
+    private Controller m_playerToDrop;
 
     // ----- These will allow the developers to add a specific item of their request to each of the variables -----
     [Header("Glyph Attributes")]
@@ -27,7 +27,7 @@ public class GlyphSlots : MonoBehaviour
 
     private void Awake()
     {
-        m_playerController = GetComponent<Controller>();
+        //m_playerController = GetComponent<Controller>();
     }
 
     private void Update()
@@ -53,7 +53,9 @@ public class GlyphSlots : MonoBehaviour
 
             m_glyphs[glyphIndex].transform.position = m_slots[glyphIndex].transform.position;
 
-            m_playerController.DropItem();
+            m_playerToDrop = m_glyphs[glyphIndex].transform.parent.GetComponent<Controller>();
+
+            m_playerToDrop.DropItem();
         }
     }
 }
