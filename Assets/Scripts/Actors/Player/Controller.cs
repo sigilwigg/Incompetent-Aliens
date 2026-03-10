@@ -13,6 +13,7 @@ namespace Player
         }
 
         public Player.Movement m_movement;
+        private Player.Animations m_animations;
 
         [Header("Core")]
         public Transform m_rotationTransform;
@@ -21,6 +22,7 @@ namespace Player
         [Header("Stacking")]
         public MatchPosition m_playerMatchPosition;
         public Stack.Controller m_stackController;
+        public Stack.Controller m_myStackController;
         public int m_stackPosition;
 
         [Header("Statuses")]
@@ -42,6 +44,7 @@ namespace Player
         private void Awake()
         {
             m_movement = GetComponentInChildren<Player.Movement>();
+            m_animations = GetComponent<Player.Animations>();
         }
 
         private void Start()
@@ -85,6 +88,31 @@ namespace Player
         {
             if (m_currentlyHeldItem == null) return;
             m_currentlyHeldItem.transform.position = m_heldItemsPosition.position;
+        }
+
+        public void SetBeingThrown(Transform bouncyTransform)
+        {
+            GetComponentInChildren<Player.Movement>().enabled = false;
+            GetComponentInChildren<CharacterController>().enabled = false;
+            m_particleTrailVFX.SetActive(false);
+
+            m_playerMatchPosition.enabled = true;
+            m_playerMatchPosition.m_targetTransform = bouncyTransform;
+
+            m_animations.SetBouncingAnimation(true);
+            Invoke(nameof(UnSetBeingThrown), 1.5f);
+        }
+
+        private void UnSetBeingThrown()
+        {
+            GetComponentInChildren<Player.Movement>().enabled = true;
+            GetComponentInChildren<CharacterController>().enabled = true;
+            m_particleTrailVFX.SetActive(true);
+
+            m_playerMatchPosition.enabled = false;
+            m_playerMatchPosition.m_targetTransform = null;
+
+            m_animations.SetBouncingAnimation(false);
         }
     }
 }

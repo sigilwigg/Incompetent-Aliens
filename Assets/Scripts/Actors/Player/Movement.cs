@@ -11,9 +11,10 @@ namespace Player
 
         public float m_gravityForce = 5.0f;
         public float m_moveSpeed = 12.0f;
+        public float m_moveSpeedStacked = 4.0f;
         [SerializeField] private float m_moveAcceleration = 5.0f;
         private Vector3 m_currentMoveVelocity;
-        private Vector3 m_targetMoveVelocity;
+        public Vector3 m_targetMoveVelocity;
 
         public float m_rotation;
         public bool m_isGrounded;
@@ -86,15 +87,19 @@ namespace Player
             if (m_influencingTransform != null && m_influencingStrength > 0.0f)
             {
                 Vector3 influencingDistanceFromCenter = new Vector3(m_influencingTransform.localPosition.x, 0, m_influencingTransform.localPosition.z);
+  
                 influencingDistanceFromCenter *= m_influencingStrength;
                 movementInput += influencingDistanceFromCenter;
+
                 movementInput /= 2.0f;
             }
 
             m_playerController.m_influencedMoveInput = movementInput;
 
             // ----- handle move velocity -----
-            m_targetMoveVelocity = movementInput * m_moveSpeed;
+            float moveSpeed = m_playerController.m_isStacked && m_playerController.m_myStackController.m_stackLean.m_isCounteracted
+                ? m_moveSpeedStacked : m_moveSpeed;
+            m_targetMoveVelocity = movementInput * moveSpeed;
             if (!m_isGrounded && m_playerController.m_stackPosition == 0) 
                 m_targetMoveVelocity.y = -m_gravityForce;
             m_currentMoveVelocity = Vector3.Lerp(m_currentMoveVelocity, m_targetMoveVelocity, m_moveAcceleration * Time.deltaTime);
