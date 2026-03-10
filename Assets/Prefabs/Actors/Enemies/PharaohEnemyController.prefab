@@ -54,6 +54,7 @@ MonoBehaviour:
   m_isMirrorHeldByPlayers: 0
   m_isPharaohInMirrorZone: 0
   m_isInSleepZone: 0
+  m_canCatchPlayer: 0
 --- !u!114 &5503504908253041320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +108,7 @@ MonoBehaviour:
     m_Bits: 256
   m_blackboard: {fileID: 0}
   m_closestEnemyInView: {fileID: 0}
+  m_catchRange: 1.5
 --- !u!114 &6524292258419844676
 MonoBehaviour:
   m_ObjectHideFlags: 0

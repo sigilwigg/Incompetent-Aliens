@@ -14,6 +14,11 @@ public class AIObserveEditor : Editor
         Handles.color = Color.aliceBlue;
         Handles.DrawWireArc(observe.transform.position, Vector3.up, Vector3.forward, 360, observe.m_visionRange);
 
+        // ----- Draw catch range editor -----
+        Observation observation = (Observation)target;
+        Handles.color = Color.yellow;
+        Handles.DrawWireArc(observation.transform.position, Vector3.up, Vector3.forward, 360, observation.m_catchRange);
+
         // ----- Draw vision angle lines in the editor -----
         Vector3 visionAngleLeft = DirFromAngle(observe.transform.eulerAngles.y, -observe.m_visionAngle / 2);
         Vector3 visionAngleRight = DirFromAngle(observe.transform.eulerAngles.y, observe.m_visionAngle / 2);
