@@ -67,7 +67,7 @@ public class StackLean : MonoBehaviour
 
             // ----- and now for a true pro programmnig moment -----
             if      (leaningRotation == 0   && rotation == 180)     m_isCounteracted = true;
-            else if (leaningRotation == 90  && rotation == -900)    m_isCounteracted = true;
+            else if (leaningRotation == 90  && rotation == -90)    m_isCounteracted = true;
             else if (leaningRotation == -90 && rotation == 90)      m_isCounteracted = true;
             else if (leaningRotation == 180 && rotation == 0)       m_isCounteracted = true;
             else if (leaningRotation == 45  && rotation == -135)    m_isCounteracted = true;
