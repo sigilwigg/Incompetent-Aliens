@@ -1610,7 +1610,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 290962570857909749, guid: da74da0173cefe44c8f5985c336487f6, type: 3}
       propertyPath: m_DefaultControlScheme
-      value: Gamepad
+      value: KeyboardWASD
       objectReference: {fileID: 0}
     - target: {fileID: 8327706689564291871, guid: da74da0173cefe44c8f5985c336487f6, type: 3}
       propertyPath: m_Name
