@@ -39,14 +39,6 @@ namespace Enemy.Pharaoh
 
         private Blackboard m_pharaohBlackboard;
 
-        private enum ActivitySubState
-        {
-            WalkToMirrorPlace,
-            Distracted,
-            Annoyed,
-            ExitMirrorPlace
-        }
-
         protected override void Start()
         {
             base.Start();
@@ -57,6 +49,13 @@ namespace Enemy.Pharaoh
 
         public override void Decide()
         {
+            //----- check if player is caught -----
+            if (m_pharaohBlackboard.m_canCatchPlayer)
+            {
+                //play catch animation
+            }
+
+            //----- decide state -----
             if(Controller.m_blackboard.m_canSeePlayer)
             {
                 ChangeStateTo(State.Chase);

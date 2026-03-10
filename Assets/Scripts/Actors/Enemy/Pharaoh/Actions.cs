@@ -6,23 +6,7 @@ namespace Enemy.Pharaoh
     public class Actions : MonoBehaviour
     {
         // ----- walk private state parameters -----
-        //private int m_waypointIndex;
         private float m_waitTimer;
-
-        #region sleep state functions
-
-
-        #endregion
-
-        #region Activty state functions
-
-        #endregion
-
-        #region Walk state functions
-
-
-
-        #endregion
 
         #region Chase state functions
 
