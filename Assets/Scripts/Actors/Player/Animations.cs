@@ -22,6 +22,8 @@ namespace Player
         public string HOLD = "Holding";
         public string DROP = "Default";
         public string STACK = "Stacked";
+        public string BOUNCING = "Bouncing";
+        public string NOT_BOUNCING = "NotBouncing";
 
         private void Start()
         {
@@ -103,5 +105,10 @@ namespace Player
             } 
         }
 
+        public void SetBouncingAnimation(bool isTrue)
+        {
+            if (isTrue) m_animator.Play(BOUNCING);
+            if (!isTrue) m_animator.Play(NOT_BOUNCING);
+        }
     }
 }
