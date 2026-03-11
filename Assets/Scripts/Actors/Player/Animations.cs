@@ -21,6 +21,7 @@ namespace Player
         public string WALK = "Walk";
         public string HOLD = "Holding";
         public string DROP = "Default";
+        public string STACK = "Stacked";
         public string BOUNCING = "Bouncing";
         public string NOT_BOUNCING = "NotBouncing";
 
@@ -53,6 +54,9 @@ namespace Player
             // ----- holding items -----
             SetHoldingAnimation();
 
+            // ----- stacked -----
+            SetStackedAnimation();
+
             // ----- rotation -----
             SetRotationFromInput();
         }
@@ -75,10 +79,23 @@ namespace Player
             }
             else
             {
+                if (m_playerController.m_isStacked) return;
                 m_animator.Play(DROP);
             }
         }
 
+        private void SetStackedAnimation()
+        {
+            if (m_playerController.m_isStacked)
+            {
+                m_animator.Play(STACK);
+            }
+            else
+            {
+                if (m_playerController.m_currentlyHeldItem != null) return;
+                m_animator.Play(DROP);
+            }
+        }
         private void SetRotationFromInput()
         {
             if (m_playerController.m_moveInput != Vector2.zero)
