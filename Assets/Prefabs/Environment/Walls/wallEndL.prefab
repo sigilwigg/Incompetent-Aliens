@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: f75e25d818cf03e4a991dc90338c3e55, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 46f506ab9cd6ce84bb7dd2e1e59dac9c, type: 2}
+      objectReference: {fileID: 2100000, guid: 0f5ec2bb1ad97524eaf5246b28e3c398, type: 2}
     - target: {fileID: 919132149155446097, guid: f75e25d818cf03e4a991dc90338c3e55, type: 3}
       propertyPath: m_Name
       value: wallEndL

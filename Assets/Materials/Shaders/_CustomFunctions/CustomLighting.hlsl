@@ -77,9 +77,10 @@ void AllAdditionalLights_float(float3 WorldPos, float3 WorldNormal, float2 Cutof
         Light light = GetAdditionalLight(i, WorldPos);
 
         float3 color = dot(light.direction, WorldNormal);
+        color *= light.distanceAttenuation;
         color = smoothstep(CutoffThresholds.x, CutoffThresholds.y, color);
         color *= light.color;
-        color *= light.distanceAttenuation;
+        
 
         LightColor += color;
     }
