@@ -8,11 +8,6 @@ namespace Enemy.Pharaoh
     {
         private Enemy.Pharaoh.Actions m_actions;
 
-        [Header("Paths")]
-        public Path m_walkStatePath;
-        public Path m_sleepStatePath;
-        public Path m_activityStatePath;
-
         [Header("Speed Parameters")]
         public float m_walkSpeed = 1.5f;
         public float m_chaseSpeed = 6f;
@@ -25,20 +20,25 @@ namespace Enemy.Pharaoh
         public float m_defaultVisionAngle = 140f;
         public float m_chaseVisionAngle = 200f;
 
-        [Header("General Pathing Parameters")]
+        [Header("Paths")]
+        public Path m_walkStatePath;
+        public Path m_sleepStatePath;
+        public Path m_activityStatePath;
+
+        [Header("Pathing Parameters")]
         public float m_waypointDistanceTheshold = 0.2f;
 
-        [Header("Sleep State Pathing Parameters")]
+        //----- Sleep State Pathing Parameters -----
         public float m_sleepStateWaypointWaitTime = 5f;      
-        public int m_sleepStateWaypointIndex = 0;
+        private int m_sleepStateWaypointIndex = 0;
 
-        [Header("Walk State Pathing Parameters")]
+        //----- Walk State Pathing Parameters -----
         public float m_walkStateWaypointWaitTime = 0.2f;       
-        public int m_walkStateWaypointIndex = 0;
+        private int m_walkStateWaypointIndex = 0;
 
-        [Header("Activity State Pathing Parameters")]
+        //---- Activity State Pathing Parameters -----
         public float m_activityStateWaypointWaitTime = 0.2f;
-        public int m_activityStateWaypointIndex = 0;
+        private int m_activityStateWaypointIndex = 0;
 
         //----- references -----
         private Blackboard m_pharaohBlackboard;
