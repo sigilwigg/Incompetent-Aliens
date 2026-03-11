@@ -297,6 +297,14 @@ PrefabInstance:
       propertyPath: m_activityStateWaypointWaitTime
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6524292258419844676, guid: 7401959626075944aa79c0471b9c4915, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1064052070}
+    - target: {fileID: 6524292258419844676, guid: 7401959626075944aa79c0471b9c4915, type: 3}
+      propertyPath: m_bouncingBallPrefab
+      value: 
+      objectReference: {fileID: 1491885154261573631, guid: 1c97e7f2fd75a84489401d8ef7c6112d, type: 3}
     - target: {fileID: 8884329847481763669, guid: 7401959626075944aa79c0471b9c4915, type: 3}
       propertyPath: m_Name
       value: PharaohEnemyController
@@ -1361,6 +1369,17 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &1064052070 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7662794724068649500, guid: da74da0173cefe44c8f5985c336487f6, type: 3}
+  m_PrefabInstance: {fileID: 100232822}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2ab4f04a3df504684235e52137b721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.Controller
 --- !u!1 &1278776027
 GameObject:
   m_ObjectHideFlags: 0
