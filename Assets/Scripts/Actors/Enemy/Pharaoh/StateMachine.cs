@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -7,6 +9,10 @@ namespace Enemy.Pharaoh
     public class StateMachine : Enemy.AICore
     {
         private Enemy.Pharaoh.Actions m_actions;
+
+        [Header("Throwing Paramaters")]
+        public float m_throwCooldown = 5f;
+        public float m_throwForce = 0.5f;
 
         [Header("Speed Parameters")]
         public float m_walkSpeed = 1.5f;
@@ -29,11 +35,11 @@ namespace Enemy.Pharaoh
         public float m_waypointDistanceTheshold = 0.2f;
 
         //----- Sleep State Pathing Parameters -----
-        public float m_sleepStateWaypointWaitTime = 5f;      
+        public float m_sleepStateWaypointWaitTime = 5f;
         private int m_sleepStateWaypointIndex = 0;
 
         //----- Walk State Pathing Parameters -----
-        public float m_walkStateWaypointWaitTime = 0.2f;       
+        public float m_walkStateWaypointWaitTime = 0.2f;
         private int m_walkStateWaypointIndex = 0;
 
         //---- Activity State Pathing Parameters -----
@@ -56,8 +62,7 @@ namespace Enemy.Pharaoh
             //----- check if player is caught -----
             if (m_pharaohBlackboard.m_canCatchPlayer)
             {
-                //play catch animation
-                //throw player
+                m_actions.throwPlayer(m_throwCooldown, m_throwForce);
             }
 
             //----- decide state -----
@@ -157,6 +162,8 @@ namespace Enemy.Pharaoh
 
             if (m_pharaohBlackboard.m_isMirrorHeldByPlayers)
             {
+                m_pharaohBlackboard.m_isDistracted = true;
+
                 m_activityStateWaypointWaitTime = Mathf.Infinity;
 
                 m_actions.ChangeVisionRange(0f);
@@ -166,6 +173,8 @@ namespace Enemy.Pharaoh
             }
             else
             {
+                m_pharaohBlackboard.m_isDistracted = false;
+
                 m_activityStateWaypointWaitTime = 0.2f;
 
                 m_actions.ChangeVisionRange(m_deafultVisionRange);
@@ -185,5 +194,6 @@ namespace Enemy.Pharaoh
 
         }
         #endregion
+
     }
 }

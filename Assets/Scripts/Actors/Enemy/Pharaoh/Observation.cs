@@ -10,6 +10,9 @@ namespace Enemy.Pharaoh
         [Header("Pharaoh LOS")]
         public float m_catchRange;
 
+        public Player.Controller m_closestEnemyInCatchView;
+        
+
         protected override void Start()
         {
             base.Start();
@@ -54,6 +57,7 @@ namespace Enemy.Pharaoh
             Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, m_catchRange, m_targetMask);
 
             m_pharaohBlackboard.m_canCatchPlayer = false;
+            m_closestEnemyInCatchView = null;
 
             float minSqrDistance = Mathf.Infinity;
 
@@ -67,7 +71,10 @@ namespace Enemy.Pharaoh
                 {
                     if (!Physics.Raycast(transform.position, dirToTarget, Mathf.Sqrt(sqrDistToTarget), m_obstacleMask))
                     {
-                        minSqrDistance = sqrDistToTarget;                       
+                        minSqrDistance = sqrDistToTarget;
+                        m_closestEnemyInCatchView = target.gameObject.GetComponentInParent<Player.Controller>();
+
+
                         m_pharaohBlackboard.m_canCatchPlayer = true;
                     }
                 }
