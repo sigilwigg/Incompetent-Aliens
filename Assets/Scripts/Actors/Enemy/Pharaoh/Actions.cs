@@ -6,23 +6,14 @@ namespace Enemy.Pharaoh
     public class Actions : MonoBehaviour
     {
         // ----- walk private state parameters -----
-        //private int m_waypointIndex;
         private float m_waitTimer;
 
-        #region sleep state functions
+        private Observation m_observation;
 
-
-        #endregion
-
-        #region Activty state functions
-
-        #endregion
-
-        #region Walk state functions
-
-
-
-        #endregion
+        private void Start()
+        {
+            m_observation = GetComponent<Observation>();
+        }
 
         #region Chase state functions
 
@@ -37,12 +28,12 @@ namespace Enemy.Pharaoh
 
         public int PathNavigationCycle(Enemy.Controller controller, Path path, float waypointWaitTime, float waypointDistanceThreshold, int waypointIndex)
         {
-            if(controller.m_aiCore.Agent.remainingDistance < waypointDistanceThreshold)
+            if (controller.m_aiCore.Agent.remainingDistance < waypointDistanceThreshold)
             {
                 m_waitTimer += Time.deltaTime;
-                if(m_waitTimer >= waypointWaitTime)
+                if (m_waitTimer >= waypointWaitTime)
                 {
-                    if(waypointIndex < path.m_waypoints.Count - 1)
+                    if (waypointIndex < path.m_waypoints.Count - 1)
                         waypointIndex++;
                     else
                         waypointIndex = 0;
@@ -58,14 +49,19 @@ namespace Enemy.Pharaoh
             controller.m_aiCore.Agent.speed = newSpeed;
         }
 
-        public void ChangeVisionAngle(Enemy.Controller controller, float newVisionAngle)
+        public void ChangeVisionAngle(float newVisionAngle)
         {
-            controller.m_aiObserve.m_visionAngle = newVisionAngle;
+            m_observation.m_visionAngle = newVisionAngle;
         }
 
-        public void ChangeVisionRange(Enemy.Controller controller, float newVisionRange)
+        public void ChangeVisionRange(float newVisionRange)
+        { 
+            m_observation.m_visionRange = newVisionRange;
+        }
+
+        public void ChangeCatchRange(float newCatchRange)
         {
-            controller.m_aiObserve.m_visionRange = newVisionRange;
+            m_observation.m_catchRange = newCatchRange;
         }
 
         #endregion

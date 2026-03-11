@@ -1,6 +1,7 @@
 using UnityEngine;
 using Player;
 using System.Collections.Generic;
+using Interactables;
 
 /*
 * This script is to let the player place the glyph inside the slot
@@ -14,7 +15,7 @@ using System.Collections.Generic;
 
 public class GlyphSlots : MonoBehaviour
 {
-    private Controller m_playerController;
+    private Controller m_playerToDrop;
 
     // ----- These will allow the developers to add a specific item of their request to each of the variables -----
     [Header("Glyph Attributes")]
@@ -23,11 +24,11 @@ public class GlyphSlots : MonoBehaviour
     public List<bool> m_isGlyphInPlace = new List<bool>();
 
     [Header("Alien Attributes")]
-    public float reach = 1f;
+    public float m_playerReach = 1f;
 
     private void Awake()
     {
-        m_playerController = GameObject.FindWithTag("Player").GetComponent<Controller>();
+        //m_playerController = GetComponent<Controller>();
     }
 
     private void Update()
@@ -41,19 +42,18 @@ public class GlyphSlots : MonoBehaviour
     // ----- Get the distance to the slot -----
     private void HandleGlyphPlacement(int glyphIndex)
     {
-        // ----- These variables determine the range at which you can put the glyph in -----
-        float distance;
+        // ----- This calculates the currentPlayerDistanceFromGlyph between the glyph and slot, and outputs it as a float -----
+        float currentPlayerDistanceFromGlyph = Vector3.Distance(m_glyphs[glyphIndex].transform.position, m_slots[glyphIndex].transform.position);
 
-        // ----- This calculates the distance between the glyph and slot, and outputs it as a float -----
-        distance = Vector3.Distance(m_glyphs[glyphIndex].transform.position, m_slots[glyphIndex].transform.position);
-
-        if (reach > distance && !m_isGlyphInPlace[glyphIndex])
+        if (m_playerReach > currentPlayerDistanceFromGlyph && !m_isGlyphInPlace[glyphIndex])
         {
+            // modify glyph placement
             m_isGlyphInPlace[glyphIndex] = true;
-
             m_glyphs[glyphIndex].transform.position = m_slots[glyphIndex].transform.position;
 
-            m_playerController.DropItem();
+            // update player
+            m_playerToDrop = m_glyphs[glyphIndex].GetComponent<Pickupable>().m_playerController;
+            m_playerToDrop.DropItem();
         }
     }
 }

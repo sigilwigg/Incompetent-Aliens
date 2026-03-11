@@ -14,14 +14,15 @@ namespace Stack
     public class Controller : MonoBehaviour
     {
         public Player.Controller m_playerController;
+        public StackLean m_stackLean;
         public List<Transform> m_stackPositionTransforms = new List<Transform>();
         public List<Player.Controller> m_playerControllers = new List<Player.Controller>();
 
         public int m_playersInStack = 1;
         public int m_topPlayerPosition;
 
-        [Range(-2.0f, 2.0f)]
-        public float m_baseInfluencingStrength = 0.5f;
+        [Range(-2.0f, 5.0f)]
+        public float m_baseInfluencingStrength = 4.0f;
 
         private void Start()
         {
@@ -44,6 +45,11 @@ namespace Stack
                 m_playerControllers[0].m_isStacked = true;
                 m_playerControllers[0].m_movement.m_influencingStrength = m_baseInfluencingStrength;
             }
+
+            if(m_stackLean.m_isCounteracted)
+            {
+                m_playerControllers[0].m_movement.m_influencingStrength = 0.0f;
+            }
         }
 
         public void AddToStack(Player.Controller playerController)
@@ -53,7 +59,7 @@ namespace Stack
 
             // ----- get controller, disable movement -----
             m_playerControllers[m_playersInStack] = playerController;
-            playerController.GetComponentInChildren<Player.Movement>().enabled = false;
+            playerController.m_canMove = false;
             playerController.GetComponentInChildren<CharacterController>().enabled = false;
             playerController.m_particleTrailVFX.SetActive(false);
 
@@ -65,6 +71,9 @@ namespace Stack
             playerController.m_isStacked = true;
             playerController.m_stackController = this;
             playerController.m_stackPosition = m_playersInStack;
+
+            // ----- stack leaning adjustments -----
+            if(m_playersInStack == 1) m_stackLean.RestartLean();
         }
 
         public void RemoveFromStack(int stackPosition)
@@ -74,7 +83,7 @@ namespace Stack
 
             // ----- get controller, enable movement -----
             Player.Controller playerController = m_playerControllers[stackPosition];
-            playerController.GetComponentInChildren<Player.Movement>().enabled = true;
+            playerController.m_canMove = true;
             playerController.GetComponentInChildren<CharacterController>().enabled = true;
             playerController.m_particleTrailVFX.SetActive(true);
 
