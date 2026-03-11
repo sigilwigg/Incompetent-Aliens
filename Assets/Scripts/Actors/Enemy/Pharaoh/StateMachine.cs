@@ -35,17 +35,10 @@ namespace Enemy.Pharaoh
         public float m_defaultVisionAngle = 140f;
         public float m_chaseVisionAngle = 200f;
         public float m_deafultVisionRange = 15f;
+        public float m_defaultCatchVisionRange = 1.5f;
         public float m_zeroVisionRange = 0f;
 
         private Blackboard m_pharaohBlackboard;
-
-        private enum ActivitySubState
-        {
-            WalkToMirrorPlace,
-            Distracted,
-            Annoyed,
-            ExitMirrorPlace
-        }
 
         protected override void Start()
         {
@@ -57,6 +50,13 @@ namespace Enemy.Pharaoh
 
         public override void Decide()
         {
+            //----- check if player is caught -----
+            if (m_pharaohBlackboard.m_canCatchPlayer)
+            {
+                //play catch animation
+            }
+
+            //----- decide state -----
             if(Controller.m_blackboard.m_canSeePlayer)
             {
                 ChangeStateTo(State.Chase);
@@ -83,12 +83,14 @@ namespace Enemy.Pharaoh
         {
             Agent.ResetPath();
             Agent.SetDestination(m_sleepStatePath.m_waypoints[0].position);
-            m_actions.ChangeVisionRange(controller, m_zeroVisionRange);
+            m_actions.ChangeVisionRange( m_zeroVisionRange);
+            m_actions.ChangeCatchRange(m_zeroVisionRange);
         }
 
         protected override void ExitSleep(Enemy.Controller controller)
         {
-            m_actions.ChangeVisionRange(controller, m_deafultVisionRange);
+            m_actions.ChangeVisionRange(m_deafultVisionRange);
+            m_actions.ChangeCatchRange(m_defaultCatchVisionRange);
         }
         #endregion
 
@@ -116,7 +118,7 @@ namespace Enemy.Pharaoh
         protected override void EnterWalk(Enemy.Controller controller)
         {
             m_actions.ChangeSpeed(controller, m_walkSpeed);
-            m_actions.ChangeVisionAngle(controller, m_defaultVisionAngle);     
+            m_actions.ChangeVisionAngle( m_defaultVisionAngle);     
         }
 
         protected override void ExitWalk(Enemy.Controller controller)
@@ -133,7 +135,7 @@ namespace Enemy.Pharaoh
         protected override void EnterChase(Enemy.Controller controller)
         {
             m_actions.ChangeSpeed(controller, m_chaseSpeed);
-            m_actions.ChangeVisionAngle(controller, m_chaseVisionAngle);
+            m_actions.ChangeVisionAngle(m_chaseVisionAngle);
         }
 
         protected override void ExitChase(Enemy.Controller controller)
@@ -150,7 +152,8 @@ namespace Enemy.Pharaoh
             {
                 m_activityStateWaypointWaitTime = Mathf.Infinity;               
 
-                m_actions.ChangeVisionRange(controller, m_zeroVisionRange);
+                m_actions.ChangeVisionRange(m_zeroVisionRange);
+                m_actions.ChangeCatchRange(m_zeroVisionRange);
 
                 //play distracted animation
             }
@@ -158,7 +161,8 @@ namespace Enemy.Pharaoh
             {
                 m_activityStateWaypointWaitTime = 0.2f;
 
-                m_actions.ChangeVisionRange(controller, m_deafultVisionRange);
+                m_actions.ChangeVisionRange(m_deafultVisionRange);
+                m_actions.ChangeCatchRange(m_defaultCatchVisionRange);
 
                 // play mad at mirror animation
             }

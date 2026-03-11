@@ -28,7 +28,7 @@
                 {
                     "name": "",
                     "id": "f160480e-879a-4dc3-9e45-921e4045c3ba",
-                    "path": "<Gamepad>/leftStick",
+                    "path": "<Gamepad>/dpad",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
