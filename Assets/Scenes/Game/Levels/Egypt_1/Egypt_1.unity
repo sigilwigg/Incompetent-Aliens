@@ -282,6 +282,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5503504908253041320, guid: 7401959626075944aa79c0471b9c4915, type: 3}
+      propertyPath: m_throwCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503504908253041320, guid: 7401959626075944aa79c0471b9c4915, type: 3}
       propertyPath: m_walkStatePath
       value: 
       objectReference: {fileID: 8636276381983581761}
