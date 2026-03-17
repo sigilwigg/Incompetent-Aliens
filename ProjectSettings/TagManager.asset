@@ -10,6 +10,7 @@ TagManager:
   - CutsceneManager
   - SarcophagasZone
   - MirrorZone
+  - Basket
   layers:
   - Default
   - TransparentFX
