@@ -60,9 +60,9 @@ namespace Enemy.Pharaoh
         public override void Decide()
         {
             //----- check if player is caught -----
-            if (m_pharaohBlackboard.m_canCatchPlayer)
+            if (m_pharaohBlackboard.m_canCatchPlayer && !m_actions.m_isThrowing)
             {
-                m_actions.throwPlayer(m_throwCooldown, m_throwForce);
+                StartCoroutine(m_actions.ThrowPlayerCoroutine(m_throwCooldown, m_throwForce));
             }
 
             //----- decide state -----

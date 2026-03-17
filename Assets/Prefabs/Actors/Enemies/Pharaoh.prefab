@@ -753,6 +753,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6524292258419844676, guid: 7401959626075944aa79c0471b9c4915, type: 3}
+      propertyPath: m_pharaohModel
+      value: 
+      objectReference: {fileID: 4403850410039395447}
+    - target: {fileID: 6524292258419844676, guid: 7401959626075944aa79c0471b9c4915, type: 3}
       propertyPath: m_dustUpParticle
       value: 
       objectReference: {fileID: 5600273582570056570, guid: 2401ff2bb1b90ab4490955b2997818ab, type: 3}
@@ -773,6 +777,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7401959626075944aa79c0471b9c4915, type: 3}
+--- !u!1 &4403850410039395447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5866296389067473451, guid: 7401959626075944aa79c0471b9c4915, type: 3}
+  m_PrefabInstance: {fileID: 7815113015625074268}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6399982106620341252 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3793603397893712472, guid: 7401959626075944aa79c0471b9c4915, type: 3}
