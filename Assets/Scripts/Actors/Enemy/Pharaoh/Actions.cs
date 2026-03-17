@@ -14,8 +14,9 @@ namespace Enemy.Pharaoh
         private Observation m_observation;
         private StateMachine m_stateMachine;
 
+        //----- prefab references -----
         public GameObject m_bouncingBallPrefab;
-        //public Player.Controller playerController;
+        public GameObject m_dustUpParticle;
 
         private void Start()
         {
@@ -42,13 +43,13 @@ namespace Enemy.Pharaoh
         {
             if (m_throwCoolDownTimer <= 0)
             {
-                //play dust up anim
+                Instantiate(m_dustUpParticle, transform.position, Quaternion.identity);
 
                 int RandomfallDirectionX = Random.Range(-1, 2); //returns ints -1, 0 and 1
                 int RandomfallDirectionY = Random.Range(-1, 2); //returns ints -1, 0 and 1
                 if ((RandomfallDirectionX == 0) && (RandomfallDirectionY == 0)) RandomfallDirectionX = 1;
 
-                GameObject bouncePositioner = GameObject.Instantiate(m_bouncingBallPrefab, transform.position, Quaternion.identity);
+                GameObject bouncePositioner = Instantiate(m_bouncingBallPrefab, transform.position, Quaternion.identity);
                 BouncyBall bouncyBall = bouncePositioner.GetComponent<BouncyBall>();
                 bouncyBall.SetPropelSelf(new Vector3(0.5f * RandomfallDirectionX, 0.2f, 0.5f * RandomfallDirectionY), bounceForce);
 
