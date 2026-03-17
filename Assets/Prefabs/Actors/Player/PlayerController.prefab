@@ -1362,6 +1362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.Controller
   m_movement: {fileID: 0}
+  m_playerModel: {fileID: 3028099394597986927}
   m_rotationTransform: {fileID: 5670960378813875451}
   m_particleTrailVFX: {fileID: 3184659285684821066}
   m_playerMatchPosition: {fileID: 7787414005986063972}
