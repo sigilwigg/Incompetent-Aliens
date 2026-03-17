@@ -1,7 +1,7 @@
 using Cinemachine;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 /*
  *  Handles checking for new gamepad or keyboard connections.
@@ -22,11 +22,17 @@ public class JoinManager : MonoBehaviour
 
     public CinemachineTargetGroup m_cinemachineTargetGroup;
 
+    private int m_numberPlayersJoined = 0;
+    private Player.Controller m_playerQuedForColorAssignment = null;
+    [Header("Player Colors")]
+    public List<Color> m_playerColors = new List<Color>();
+
     private void Update()
     {
-            HandleNewConnectionsKeyboardWASD();
-            HandleNewConnectionsKeyboardArrows();
-            HandleNewConnectionsGamepads();      
+        HandleNewConnectionsKeyboardWASD();
+        HandleNewConnectionsKeyboardArrows();
+        HandleNewConnectionsGamepads();
+        HandleNewColorAssignments();
     }
 
     private void HandleNewConnectionsKeyboardWASD()
@@ -49,6 +55,8 @@ public class JoinManager : MonoBehaviour
 
             // ----- handle camera retargeting -----
             m_cinemachineTargetGroup.AddMember(player.GetComponent<Player.Controller>().m_movement.transform, 1.0f, 0.0f);
+            m_playerQuedForColorAssignment = player.GetComponent<Player.Controller>();
+            m_numberPlayersJoined++;
         }
     }
 
@@ -72,6 +80,8 @@ public class JoinManager : MonoBehaviour
 
             // ----- handle camera retargeting -----
             m_cinemachineTargetGroup.AddMember(player.GetComponent<Player.Controller>().m_movement.transform, 1.0f, 0.0f);
+            m_playerQuedForColorAssignment = player.GetComponent<Player.Controller>();
+            m_numberPlayersJoined++;
         }
     }
 
@@ -93,20 +103,21 @@ public class JoinManager : MonoBehaviour
 
                 // ----- handle camera retargeting -----
                 m_cinemachineTargetGroup.AddMember(player.GetComponent<Player.Controller>().m_movement.transform, 1.0f, 0.0f);
+                m_playerQuedForColorAssignment = player.GetComponent<Player.Controller>();
+                m_numberPlayersJoined++;
             }
         }
     }
 
+    private void HandleNewColorAssignments()
+    {
+        if (m_playerQuedForColorAssignment == null) return;
+        m_playerQuedForColorAssignment.SetColor(m_playerColors[m_numberPlayersJoined - 1]);
+        m_playerQuedForColorAssignment = null;
+    }
+
     private bool MaxPlayerCountReached()
     {
-        if(m_cinemachineTargetGroup.m_Targets.Length >= 4)
-        {
-            Debug.Log("Max player count reached!");
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return m_numberPlayersJoined >= 4 ? true : false;
     }
 }

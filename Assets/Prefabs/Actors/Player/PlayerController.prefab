@@ -1319,7 +1319,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8538743949754250763
 Transform:
   m_ObjectHideFlags: 0
@@ -1379,6 +1379,10 @@ MonoBehaviour:
   m_currentlyHeldItem: {fileID: 0}
   m_heldItemsPosition: {fileID: 3339020367458476367}
   m_interactableCheckOrigin: {fileID: 1788338210421610525}
+  m_bodySprite: {fileID: 8951960015109465763}
+  m_handLeftSprite: {fileID: 2808334199921834664}
+  m_handRightSprite: {fileID: 1407205059328922577}
+  m_headSprite: {fileID: 6820358359688095739}
 --- !u!114 &4609048766107828711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1394,6 +1398,7 @@ MonoBehaviour:
   IDLE: Idle
   WALK: Walk
   HOLD: Holding
+  STACKED: Stacked
   DROP: Default
   BOUNCING: Bouncing
   NOT_BOUNCING: NotBouncing
