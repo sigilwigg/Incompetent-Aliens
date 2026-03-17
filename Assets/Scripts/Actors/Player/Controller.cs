@@ -39,7 +39,12 @@ namespace Player
         public GameObject m_currentlyHeldItem;
         public Transform m_heldItemsPosition;
         public Transform m_interactableCheckOrigin;
-        
+
+        [Header("SpriteReferences")]
+        public SpriteRenderer m_bodySprite;
+        public SpriteRenderer m_handLeftSprite;
+        public SpriteRenderer m_handRightSprite;
+        public SpriteRenderer m_headSprite;
 
         private void Awake()
         {
@@ -58,6 +63,14 @@ namespace Player
         {
             m_rotationTransform.rotation = Quaternion.Euler(0, 180 + m_rotation, 0);
             UpdateItemPosition();
+        }
+
+        public void SetColor(Color color)
+        {
+            m_bodySprite.color = color;
+            m_handLeftSprite.color = color;
+            m_handRightSprite.color = color;
+            m_headSprite.color = color;
         }
 
         // =========== INTERACTABLES ===========
