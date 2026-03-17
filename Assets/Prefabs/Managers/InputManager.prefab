@@ -123,5 +123,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playerPrefab: {fileID: 8327706689564291871, guid: da74da0173cefe44c8f5985c336487f6, type: 3}
   m_spawnPoint: {fileID: 1669677669092617300}
-  m_isJoinedKeyboardWASD: 1
+  m_isJoinedKeyboardWASD: 0
   m_isJoinedKeyboardArrows: 0
+  m_cinemachineTargetGroup: {fileID: 0}
+  m_playerColors:
+  - {r: 0.5019608, g: 0.68235296, b: 0.34509805, a: 1}
+  - {r: 0.36862746, g: 0.6862745, b: 0.80784315, a: 1}
+  - {r: 0.9019608, g: 0.47843137, b: 0.34509805, a: 1}
+  - {r: 0.89411765, g: 0.92941177, b: 0.39215687, a: 1}
