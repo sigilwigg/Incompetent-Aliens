@@ -73,3 +73,9 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Audio Files
+/[Aa]ssets/[Aa]udio/[Ss]oundtrack/*.ogg
+/[Aa]ssets/[Aa]udio/[Ss]oundtrack/*.ogg.meta
+/[Aa]ssets/[Aa]udio/[Ss][Ff][Xx]/*.ogg
+/[Aa]ssets/[Aa]udio/[Ss][Ff][Xx]/*.ogg.meta
