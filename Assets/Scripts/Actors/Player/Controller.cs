@@ -15,6 +15,9 @@ namespace Player
         public Player.Movement m_movement;
         private Player.Animations m_animations;
 
+        //----- model ref -----
+        public GameObject m_playerModel;
+
         [Header("Core")]
         public Transform m_rotationTransform;
         public GameObject m_particleTrailVFX;
