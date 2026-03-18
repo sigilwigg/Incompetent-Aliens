@@ -56,7 +56,6 @@ public class MovementCounteraction : MonoBehaviour
     IEnumerator IsAlignedOperations()
     {
         float timeElapsed = 0.0f;
-        float targetPercentage = 0.0f;
 
         while (timeElapsed < m_alignmentDuration)
         {
