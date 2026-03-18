@@ -31,9 +31,9 @@ public class GlyphBreak : MonoBehaviour
 
         if (collision.gameObject.tag == "Basket")
         {
-            hasBeenCaught = true;
+            rb.constraints = RigidbodyConstraints.None;
 
-            rb.constraints = RigidbodyConstraints.FreezeAll;
+            Invoke("FreezeGlyph", 1);
         }
     }
 
@@ -41,5 +41,12 @@ public class GlyphBreak : MonoBehaviour
     {
         transform.position = originalLocation;
         glyphsprite.GetComponent<Renderer>().enabled = true;
+    }
+
+    private void FreezeGlyph()
+    {
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+
+        hasBeenCaught = true;
     }
 }
