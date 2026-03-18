@@ -1,3 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -7,65 +10,71 @@ namespace Enemy.Pharaoh
     {
         private Enemy.Pharaoh.Actions m_actions;
 
-        [Header("Navigation")]
-        public Path m_walkStatePath;
-        public Path m_sleepStatePath;
-        public Path m_activityStatePath;
-
-        [Header("Sleep State Parameters")]
-        public float m_sleepStateWaypointWaitTime = 5f;
-        public float m_sleepStateWaypointDistanceThreshold = 0.2f;
-        public int m_sleepStateWaypointIndex = 0;
-
-        [Header("Walk State Parameters")]
-        public float m_walkStateWaypointWaitTime = 0.2f;
-        public float m_walkStateWaypointDistanceThreshold = 0.2f;
-        public int m_walkStateWaypointIndex = 0;
-
-        [Header("Activity State Parameters")]
-        public float m_activityStateWaypointWaitTime = 0.2f;
-        public float m_activityStateWaypointDistanceThreshold = 0.2f;
-        public int m_activityStateWaypointIndex = 0;
+        [Header("Throwing Paramaters")]
+        public float m_throwCooldown = 5f;
+        public float m_throwForce = 0.5f;
 
         [Header("Speed Parameters")]
         public float m_walkSpeed = 1.5f;
         public float m_chaseSpeed = 6f;
 
-        [Header("Vision Parameters")]
-        public float m_defaultVisionAngle = 140f;
-        public float m_chaseVisionAngle = 200f;
+        [Header("Vision Range Parameters")]
         public float m_deafultVisionRange = 15f;
         public float m_defaultCatchVisionRange = 1.5f;
-        public float m_zeroVisionRange = 0f;
 
+        [Header("Vision Angle Parameters")]
+        public float m_defaultVisionAngle = 140f;
+        public float m_chaseVisionAngle = 200f;
+
+        [Header("Paths")]
+        public Path m_walkStatePath;
+        public Path m_sleepStatePath;
+        public Path m_activityStatePath;
+
+        [Header("Pathing Parameters")]
+        public float m_waypointDistanceTheshold = 0.2f;
+
+        //----- Sleep State Pathing Parameters -----
+        public float m_sleepStateWaypointWaitTime = 5f;
+        private int m_sleepStateWaypointIndex = 0;
+
+        //----- Walk State Pathing Parameters -----
+        public float m_walkStateWaypointWaitTime = 0.2f;
+        private int m_walkStateWaypointIndex = 0;
+
+        //---- Activity State Pathing Parameters -----
+        public float m_activityStateWaypointWaitTime = 0.2f;
+        private int m_activityStateWaypointIndex = 0;
+
+        //----- references -----
         private Blackboard m_pharaohBlackboard;
 
         protected override void Start()
         {
             base.Start();
-            m_actions = GetComponent<Enemy.Pharaoh.Actions>();
-            m_pharaohBlackboard = (Blackboard)AIBlackboard;
+            m_actions = GetComponent<Actions>();
+            m_pharaohBlackboard = GetComponent<Blackboard>();
 
         }
 
         public override void Decide()
         {
             //----- check if player is caught -----
-            if (m_pharaohBlackboard.m_canCatchPlayer)
+            if (m_pharaohBlackboard.m_canCatchPlayer && !m_actions.m_isThrowing)
             {
-                //play catch animation
+                StartCoroutine(m_actions.ThrowPlayerCoroutine(m_throwCooldown, m_throwForce));
             }
 
             //----- decide state -----
-            if(Controller.m_blackboard.m_canSeePlayer)
+            if (Controller.m_blackboard.m_canSeePlayer)
             {
                 ChangeStateTo(State.Chase);
             }
-            else if(m_pharaohBlackboard.m_isInSleepZone)
+            else if (m_pharaohBlackboard.m_isInSleepZone)
             {
                 ChangeStateTo(State.Sleep);
             }
-            else if(m_pharaohBlackboard.m_isPharaohInMirrorZone)
+            else if (m_pharaohBlackboard.m_isPharaohInMirrorZone)
             {
                 ChangeStateTo(State.Activity);
             }
@@ -77,14 +86,15 @@ namespace Enemy.Pharaoh
         #region Sleep State
         protected override void RunSleep(Enemy.Controller controller)
         {
-           m_sleepStateWaypointIndex = m_actions.PathNavigationCycle(controller, m_sleepStatePath, m_sleepStateWaypointWaitTime, m_sleepStateWaypointDistanceThreshold, m_sleepStateWaypointIndex);
+            m_sleepStateWaypointIndex = m_actions.PathNavigationCycle
+                (m_sleepStatePath, m_sleepStateWaypointWaitTime, m_waypointDistanceTheshold, m_sleepStateWaypointIndex);
         }
         protected override void EnterSleep(Enemy.Controller controller)
         {
             Agent.ResetPath();
             Agent.SetDestination(m_sleepStatePath.m_waypoints[0].position);
-            m_actions.ChangeVisionRange( m_zeroVisionRange);
-            m_actions.ChangeCatchRange(m_zeroVisionRange);
+            m_actions.ChangeVisionRange(0f);
+            m_actions.ChangeCatchRange(0f);
         }
 
         protected override void ExitSleep(Enemy.Controller controller)
@@ -113,12 +123,13 @@ namespace Enemy.Pharaoh
         #region Walk State
         protected override void RunWalk(Enemy.Controller controller)
         {
-            m_walkStateWaypointIndex = m_actions.PathNavigationCycle(controller, m_walkStatePath, m_walkStateWaypointWaitTime, m_walkStateWaypointDistanceThreshold, m_walkStateWaypointIndex);
+            m_walkStateWaypointIndex = m_actions.PathNavigationCycle
+                (m_walkStatePath, m_walkStateWaypointWaitTime, m_waypointDistanceTheshold, m_walkStateWaypointIndex);
         }
         protected override void EnterWalk(Enemy.Controller controller)
         {
-            m_actions.ChangeSpeed(controller, m_walkSpeed);
-            m_actions.ChangeVisionAngle( m_defaultVisionAngle);     
+            m_actions.ChangeSpeed(m_walkSpeed);
+            m_actions.ChangeVisionAngle(m_defaultVisionAngle);
         }
 
         protected override void ExitWalk(Enemy.Controller controller)
@@ -130,11 +141,11 @@ namespace Enemy.Pharaoh
         #region Chase State
         protected override void RunChase(Enemy.Controller controller)
         {
-            m_actions.ChasePlayer(controller);
+            m_actions.ChasePlayer();
         }
         protected override void EnterChase(Enemy.Controller controller)
         {
-            m_actions.ChangeSpeed(controller, m_chaseSpeed);
+            m_actions.ChangeSpeed(m_chaseSpeed);
             m_actions.ChangeVisionAngle(m_chaseVisionAngle);
         }
 
@@ -146,19 +157,24 @@ namespace Enemy.Pharaoh
         #region Activity State
         protected override void RunActivity(Enemy.Controller controller)
         {
-            m_activityStateWaypointIndex = m_actions.PathNavigationCycle(controller, m_activityStatePath, m_activityStateWaypointWaitTime, m_activityStateWaypointDistanceThreshold, m_activityStateWaypointIndex);
+            m_activityStateWaypointIndex = m_actions.PathNavigationCycle
+                (m_activityStatePath, m_activityStateWaypointWaitTime, m_waypointDistanceTheshold, m_activityStateWaypointIndex);
 
-            if(m_pharaohBlackboard.m_isMirrorHeldByPlayers)
+            if (m_pharaohBlackboard.m_isMirrorHeldByPlayers)
             {
-                m_activityStateWaypointWaitTime = Mathf.Infinity;               
+                m_pharaohBlackboard.m_isDistracted = true;
 
-                m_actions.ChangeVisionRange(m_zeroVisionRange);
-                m_actions.ChangeCatchRange(m_zeroVisionRange);
+                m_activityStateWaypointWaitTime = Mathf.Infinity;
+
+                m_actions.ChangeVisionRange(0f);
+                m_actions.ChangeCatchRange(0f);
 
                 //play distracted animation
             }
             else
             {
+                m_pharaohBlackboard.m_isDistracted = false;
+
                 m_activityStateWaypointWaitTime = 0.2f;
 
                 m_actions.ChangeVisionRange(m_deafultVisionRange);
@@ -178,5 +194,6 @@ namespace Enemy.Pharaoh
 
         }
         #endregion
+
     }
 }

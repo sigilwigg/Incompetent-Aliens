@@ -54,7 +54,8 @@ public class JoinManager : MonoBehaviour
             m_isJoinedKeyboardWASD = true;
 
             // ----- handle camera retargeting -----
-            m_cinemachineTargetGroup.AddMember(player.GetComponent<Player.Controller>().m_movement.transform, 1.0f, 0.0f);
+            if (m_cinemachineTargetGroup != null)
+                m_cinemachineTargetGroup.AddMember(player.GetComponent<Player.Controller>().m_movement.transform, 1.0f, 0.0f);
             m_playerQuedForColorAssignment = player.GetComponent<Player.Controller>();
             m_numberPlayersJoined++;
         }
@@ -79,7 +80,8 @@ public class JoinManager : MonoBehaviour
             m_isJoinedKeyboardArrows = true;
 
             // ----- handle camera retargeting -----
-            m_cinemachineTargetGroup.AddMember(player.GetComponent<Player.Controller>().m_movement.transform, 1.0f, 0.0f);
+            if (m_cinemachineTargetGroup != null)
+                m_cinemachineTargetGroup.AddMember(player.GetComponent<Player.Controller>().m_movement.transform, 1.0f, 0.0f);
             m_playerQuedForColorAssignment = player.GetComponent<Player.Controller>();
             m_numberPlayersJoined++;
         }
@@ -102,7 +104,8 @@ public class JoinManager : MonoBehaviour
                 player.transform.position = m_spawnPoint.position;
 
                 // ----- handle camera retargeting -----
-                m_cinemachineTargetGroup.AddMember(player.GetComponent<Player.Controller>().m_movement.transform, 1.0f, 0.0f);
+                if(m_cinemachineTargetGroup != null)
+                    m_cinemachineTargetGroup.AddMember(player.GetComponent<Player.Controller>().m_movement.transform, 1.0f, 0.0f);
                 m_playerQuedForColorAssignment = player.GetComponent<Player.Controller>();
                 m_numberPlayersJoined++;
             }

@@ -9,6 +9,6 @@ namespace Enemy.Pharaoh
         public bool m_isPharaohInMirrorZone = false;
         public bool m_isInSleepZone = false;
         public bool m_canCatchPlayer = false;
-      
+        public bool m_isDistracted = false;
     }
 }
