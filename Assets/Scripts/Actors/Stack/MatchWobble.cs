@@ -12,7 +12,7 @@ public class MatchWobble : MonoBehaviour
     {
         m_targetPosition = new Vector3(m_targetTransform.position.x, transform.position.y, m_targetTransform.position.z);
 
-        m_currentPosition = Vector3.Lerp(transform.position, m_targetPosition, Time.deltaTime * m_matchSpeed);
+        m_currentPosition = Vector3.Lerp(transform.position, m_targetPosition, TimeManager.instance.deltaTime * m_matchSpeed);
 
         transform.position = m_currentPosition;
     }

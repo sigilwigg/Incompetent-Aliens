@@ -40,5 +40,23 @@ namespace Player
                 }
             }
         }
+
+        public void Pause(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                if (TimeManager.instance.isGamePaused)
+                {
+                    TimeManager.instance.isGamePaused = false;
+                    UIManager.instance.pauseMenu.SetActive(false);
+                }
+                else
+                {
+                    TimeManager.instance.isGamePaused = true;
+                    UIManager.instance.pauseMenu.SetActive(true);
+                }
+                
+            }
+        }
     }
 }

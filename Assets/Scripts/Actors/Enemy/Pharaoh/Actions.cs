@@ -30,7 +30,7 @@ namespace Enemy.Pharaoh
         {
             if (controller.m_aiCore.Agent.remainingDistance < waypointDistanceThreshold)
             {
-                m_waitTimer += Time.deltaTime;
+                m_waitTimer += TimeManager.instance.deltaTime;
                 if (m_waitTimer >= waypointWaitTime)
                 {
                     if (waypointIndex < path.m_waypoints.Count - 1)
