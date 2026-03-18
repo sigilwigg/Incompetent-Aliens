@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game/MainMenu.unity
     guid: 4309fec9d35f29a40827d7b798a21dd0
+  - enabled: 1
+    path: Assets/Scenes/Game/Levels/Egypt_1/Egypt_1.unity
+    guid: 358d42385805f964ea08156696a1f28b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 4a25ada32cb9f0c4988bc58d0fd83c9e, type: 3}
   m_UseUCBPForAssetBundles: 0

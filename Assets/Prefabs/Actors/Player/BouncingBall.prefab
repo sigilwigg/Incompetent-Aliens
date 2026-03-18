@@ -111,10 +111,10 @@ SphereCollider:
   m_Material: {fileID: 13400000, guid: 6dd981e1e5bdc404091eb7631f8c13c0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 247
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -138,10 +138,10 @@ Rigidbody:
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 247
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
