@@ -717,7 +717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7477373937013805814, guid: 83042268620ef4b409d4ba3c8f873277, type: 3}
       propertyPath: musicTracks.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7477373937013805814, guid: 83042268620ef4b409d4ba3c8f873277, type: 3}
       propertyPath: musicTracks.Array.data[0].clip
