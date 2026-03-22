@@ -202,7 +202,7 @@
                 {
                     "name": "",
                     "id": "3892466b-71da-4ac4-80db-f211953fa073",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": ";KeyboardWASD",
@@ -218,6 +218,34 @@
                     "processors": "",
                     "groups": ";KeyboardArrows",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "e4546ba9-3c2f-4d5c-b01c-7b1a302916fc",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "590b172a-6ee6-467f-bac0-faabac589d71",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "795871ff-a171-45b3-ae4d-9b8c6a8b1ee1",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

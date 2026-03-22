@@ -18,7 +18,7 @@ namespace Player
 
         void Awake()
         {
-            m_playerController = GetComponent<Controller>();
+          m_playerController = GetComponent<Player.Controller>();  
         }
 
         public void Move(InputAction.CallbackContext context)
@@ -30,6 +30,9 @@ namespace Player
         {
             if (context.phase == InputActionPhase.Performed)
             {
+
+                Debug.Log("Interact");
+
                 if (m_playerController.m_currentlyHeldItem != null)
                 {
                     m_playerController.DropItem();
@@ -45,6 +48,8 @@ namespace Player
         {
             if (context.phase == InputActionPhase.Performed)
             {
+                Debug.Log("Pause");
+
                 if (TimeManager.instance.isGamePaused)
                 {
                     TimeManager.instance.isGamePaused = false;
