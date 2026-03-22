@@ -1501,6 +1501,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 590b172a-6ee6-467f-bac0-faabac589d71
     m_ActionName: UI/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3304234894968801742}
+        m_TargetAssemblyTypeName: Player.InputManager, Assembly-CSharp
+        m_MethodName: Back
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 29827612-0a62-411d-9774-66550c77d2b6
+    m_ActionName: 'Player/Back[/DualSenseGamepadHID/buttonEast]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: KeyboardWASD
   m_DefaultActionMap: Player

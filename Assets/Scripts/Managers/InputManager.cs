@@ -1,5 +1,6 @@
 using Player;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 /*
@@ -30,9 +31,6 @@ namespace Player
         {
             if (context.phase == InputActionPhase.Performed)
             {
-
-                Debug.Log("Interact");
-
                 if (m_playerController.m_currentlyHeldItem != null)
                 {
                     m_playerController.DropItem();
@@ -48,19 +46,40 @@ namespace Player
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                Debug.Log("Pause");
-
                 if (TimeManager.instance.isGamePaused)
                 {
                     TimeManager.instance.isGamePaused = false;
-                    UIManager.instance.pauseMenu.SetActive(false);
+                    UIManager.instance.CloseMenu(UIManager.MENU.Pause);
                 }
                 else
                 {
                     TimeManager.instance.isGamePaused = true;
-                    UIManager.instance.pauseMenu.SetActive(true);
+                    UIManager.instance.OpenMenu(UIManager.MENU.Pause);
+                    UIManager.instance.OpenMenu(UIManager.MENU.PauseContent);
                 }
                 
+            }
+        }
+
+        public void Back(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                if (!TimeManager.instance.isGamePaused) return;
+                
+                if (UIManager.instance.settingsMenu.activeInHierarchy)
+                {
+                    UIManager.instance.CloseMenu(UIManager.MENU.Settings);
+                    UIManager.instance.OpenMenu(UIManager.MENU.Pause);
+                    UIManager.instance.OpenMenu(UIManager.MENU.PauseContent);
+                    EventSystem.current.SetSelectedGameObject(UIManager.instance.resumeButton);
+                }
+                if (UIManager.instance.audioMenu.activeInHierarchy)
+                {
+                    StartCoroutine(UIManager.instance.WaitThenCloseMenu(UIManager.MENU.Audio));
+                    UIManager.instance.OpenMenu(UIManager.MENU.Settings);
+                    EventSystem.current.SetSelectedGameObject(UIManager.instance.audioButton);
+                }
             }
         }
     }
