@@ -14,13 +14,16 @@ namespace UserInterface
         public void OnResumeButtonPressed()
         {
             StartCoroutine(UIManager.instance.WaitThenCloseMenu(UIManager.MENU.Pause));
+            StartCoroutine(UIManager.instance.WaitThenCloseMenu(UIManager.MENU.PauseContent));
             TimeManager.instance.isGamePaused = false;
         } 
 
         public void OnSettingsButtonPressed()
         {
             UIManager.instance.OpenMenu(UIManager.MENU.Settings);
-            UIManager.instance.pauseMenuContent.SetActive(false);
+            UIManager.instance.CloseMenu(UIManager.MENU.PauseContent);
+            UIManager.instance.CloseMenu(UIManager.MENU.Audio);
+            UIManager.instance.tabButtons.SetActive(true);
             EventSystem.current.SetSelectedGameObject(UIManager.instance.audioButton);
         }
 
@@ -52,11 +55,6 @@ namespace UserInterface
         }
 
         public void OnYesButtonPressed()
-        {
-
-        }
-
-        public void CloseSettingsMenus()
         {
 
         }

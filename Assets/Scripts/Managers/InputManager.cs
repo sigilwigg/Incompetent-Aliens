@@ -73,6 +73,7 @@ namespace Player
                     UIManager.instance.OpenMenu(UIManager.MENU.Pause);
                     UIManager.instance.OpenMenu(UIManager.MENU.PauseContent);
                     EventSystem.current.SetSelectedGameObject(UIManager.instance.resumeButton);
+                    UIManager.instance.tabButtons.SetActive(false);
                 }
                 if (UIManager.instance.audioMenu.activeInHierarchy)
                 {

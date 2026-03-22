@@ -27,6 +27,7 @@ public class UIManager : MonoBehaviour
     public GameObject audioButton;
     public GameObject restartPopupNoButton;
     public GameObject quitPopupNoButton;
+    public GameObject tabButtons;
 
    
 
@@ -50,7 +51,7 @@ public class UIManager : MonoBehaviour
         switch (menu)
         {
             case MENU.Pause:
-                pauseMenuContent.SetActive(false);
+                pauseMenu.SetActive(false);
                 break;
             case MENU.Settings:
                 settingsMenu.SetActive(false);
@@ -63,7 +64,7 @@ public class UIManager : MonoBehaviour
             case MENU.Accessibility:
                 break;
             case MENU.PauseContent:
-                pauseMenuContent.SetActive(true);
+                pauseMenuContent.SetActive(false);
                 break;
         }
     }
