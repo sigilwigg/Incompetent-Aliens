@@ -696,6 +696,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -672980429, guid: fddba4cf3f9c8854f9c2a99f27f0aea5, type: 3}
+    - target: {fileID: 3751701996407561882, guid: 7401959626075944aa79c0471b9c4915, type: 3}
+      propertyPath: m_BaseOffset
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3751701996407561882, guid: 7401959626075944aa79c0471b9c4915, type: 3}
+      propertyPath: m_Acceleration
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3793603397893712472, guid: 7401959626075944aa79c0471b9c4915, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -735,6 +743,14 @@ PrefabInstance:
     - target: {fileID: 3793603397893712472, guid: 7401959626075944aa79c0471b9c4915, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5396029426813248058, guid: 7401959626075944aa79c0471b9c4915, type: 3}
+      propertyPath: m_Height
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503504908253041320, guid: 7401959626075944aa79c0471b9c4915, type: 3}
+      propertyPath: m_chaseSpeed
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 5503504908253041320, guid: 7401959626075944aa79c0471b9c4915, type: 3}
       propertyPath: m_throwCooldown
@@ -828,6 +844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IDLE: Idle
   WALK: Walk
+  CHASE: Chase
 --- !u!1 &4403850410039395447 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5866296389067473451, guid: 7401959626075944aa79c0471b9c4915, type: 3}
