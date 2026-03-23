@@ -10,6 +10,7 @@ namespace Enemy.Pharaoh
 
         public string IDLE = "Idle";
         public string WALK = "Walk";
+        public string CHASE = "Chase";
 
         private void Start()
         {
@@ -31,7 +32,7 @@ namespace Enemy.Pharaoh
                     PlayWalkingAnimation();
                     break;
                 case AICore.State.Chase:
-                    PlayWalkingAnimation();
+                    PlayChaseAnimation();
                     break;
                 default:
                     PlayIdleAnimation();
@@ -50,6 +51,11 @@ namespace Enemy.Pharaoh
         private void PlayIdleAnimation()
         {
             m_currentAnimationState = AnimationController.ChangeAnimationState(m_animator, m_currentAnimationState, IDLE);
+        }
+
+        private void PlayChaseAnimation()
+        {
+            m_currentAnimationState = AnimationController.ChangeAnimationState(m_animator, m_currentAnimationState, CHASE);
         }
 
         private void SetRotationFromInput()
