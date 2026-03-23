@@ -291,7 +291,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 5b99d03c56a3969419aec0586d1c61d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -457,47 +457,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1 &1304157744 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1675234665579954441, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
-  m_PrefabInstance: {fileID: 1909703727}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1304157747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1304157744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42287a631c65c2e41aee1342800f613c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IDLE: Idle
-  WALK: Walk
---- !u!95 &1304157748
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1304157744}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 385a519331d15df458672f5c29fcdc9e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1693561779 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2238382031512996046, guid: da74da0173cefe44c8f5985c336487f6, type: 3}
@@ -881,10 +840,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7376387998715687480, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -1902937816, guid: 229ed3d72a60373438dd89a5c0899ca5, type: 3}
     - target: {fileID: 9199116653087202855, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
       propertyPath: m_Name
       value: Pharaoh
@@ -892,13 +847,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1675234665579954441, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1304157748}
-    - targetCorrespondingSourceObject: {fileID: 1675234665579954441, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1304157747}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
 --- !u!1 &2087387867
 GameObject:

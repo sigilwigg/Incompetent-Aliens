@@ -18,5 +18,44 @@ namespace Enemy.Pharaoh
 
             m_currentAnimationState = IDLE;
         }
+
+        private void Update()
+        {
+            // ----- movement state animations -----
+            switch(m_enemyController.m_aiCore.m_currentState)
+            {
+                case AICore.State.Idle:
+                    PlayIdleAnimation();
+                    break;
+                case AICore.State.Walk:
+                    PlayWalkingAnimation();
+                    break;
+                case AICore.State.Chase:
+                    PlayWalkingAnimation();
+                    break;
+                default:
+                    PlayIdleAnimation();
+                    break;
+            }
+
+            // ----- set rotation from input -----
+            SetRotationFromInput();
+        }
+
+        private void PlayWalkingAnimation()
+        {
+            m_currentAnimationState = AnimationController.ChangeAnimationState(m_animator, m_currentAnimationState, WALK);
+        }
+
+        private void PlayIdleAnimation()
+        {
+            m_currentAnimationState = AnimationController.ChangeAnimationState(m_animator, m_currentAnimationState, IDLE);
+        }
+
+        private void SetRotationFromInput()
+        {
+            m_animator.SetFloat("InputX", m_enemyController.m_aiCore.Agent.velocity.x);
+            m_animator.SetFloat("InputY", m_enemyController.m_aiCore.Agent.velocity.z);
+        }
     }
 }
