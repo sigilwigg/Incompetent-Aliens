@@ -44,10 +44,20 @@ public class GlyphSlots : MonoBehaviour
         {
             // modify glyph placement
             m_isGlyphInPlace[glyphIndex] = true;
-            m_glyphs[glyphIndex].transform.position = m_slots[glyphIndex].transform.position;
-            m_glyphs[glyphIndex].transform.GetChild(0).gameObject.SetActive(false);
-            m_glyphs[glyphIndex].transform.GetChild(1).gameObject.SetActive(true);
-            m_glyphs[glyphIndex].layer = 0;
+
+            /*
+             *  disable glyph interactable
+             *  enable glyph icon on slot
+             * 
+             */
+            m_glyphs[glyphIndex].SetActive(false);
+            m_slots[glyphIndex].SetActive(true);
+
+
+            //m_glyphs[glyphIndex].transform.position = m_slots[glyphIndex].transform.position;
+            //m_glyphs[glyphIndex].transform.GetChild(0).gameObject.SetActive(false);
+            //m_glyphs[glyphIndex].transform.GetChild(1).gameObject.SetActive(true);
+            //m_glyphs[glyphIndex].layer = 0;
 
             // update player
             m_playerToDrop = m_glyphs[glyphIndex].GetComponent<Pickupable>().m_playerController;
