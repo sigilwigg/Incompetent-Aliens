@@ -26,11 +26,6 @@ public class GlyphSlots : MonoBehaviour
     [Header("Alien Attributes")]
     public float m_playerReach = 1f;
 
-    private void Awake()
-    {
-        //m_playerController = GetComponent<Controller>();
-    }
-
     private void Update()
     {
         for (int idx = 0; idx < m_glyphs.Count; idx++)
@@ -50,6 +45,9 @@ public class GlyphSlots : MonoBehaviour
             // modify glyph placement
             m_isGlyphInPlace[glyphIndex] = true;
             m_glyphs[glyphIndex].transform.position = m_slots[glyphIndex].transform.position;
+            m_glyphs[glyphIndex].transform.GetChild(0).gameObject.SetActive(false);
+            m_glyphs[glyphIndex].transform.GetChild(1).gameObject.SetActive(true);
+            m_glyphs[glyphIndex].layer = 0;
 
             // update player
             m_playerToDrop = m_glyphs[glyphIndex].GetComponent<Pickupable>().m_playerController;

@@ -103,21 +103,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2706651397292108812, guid: dd8ed35b6c740894eb1570199388c5ba, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3664248453788859459, guid: dd8ed35b6c740894eb1570199388c5ba, type: 3}
       propertyPath: m_Name
       value: GlyphSlot (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5288112038262104762, guid: dd8ed35b6c740894eb1570199388c5ba, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.797
-      objectReference: {fileID: 0}
-    - target: {fileID: 5288112038262104762, guid: dd8ed35b6c740894eb1570199388c5ba, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.472
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -182,21 +170,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2706651397292108812, guid: dd8ed35b6c740894eb1570199388c5ba, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3664248453788859459, guid: dd8ed35b6c740894eb1570199388c5ba, type: 3}
       propertyPath: m_Name
       value: GlyphSlot
-      objectReference: {fileID: 0}
-    - target: {fileID: 5288112038262104762, guid: dd8ed35b6c740894eb1570199388c5ba, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.534
-      objectReference: {fileID: 0}
-    - target: {fileID: 5288112038262104762, guid: dd8ed35b6c740894eb1570199388c5ba, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.539
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
