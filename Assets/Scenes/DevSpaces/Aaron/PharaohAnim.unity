@@ -284,6 +284,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aba045cbb7344c419a83634e1a1246d, type: 3}
+--- !u!4 &393602253 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7574959257116766643, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+  m_PrefabInstance: {fileID: 1909703727}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &626359743
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +398,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &646378456 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4710725227274643411, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+  m_PrefabInstance: {fileID: 1909703727}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &886071954
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,6 +529,16 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 261928953382803513, guid: 1aba045cbb7344c419a83634e1a1246d, type: 3}
   m_PrefabInstance: {fileID: 1253493627}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1029991958 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5979970749717934877, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+  m_PrefabInstance: {fileID: 1909703727}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1221761636 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3927001602697801711, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+  m_PrefabInstance: {fileID: 1909703727}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1253493627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -576,6 +596,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aba045cbb7344c419a83634e1a1246d, type: 3}
+--- !u!4 &1304196809 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4567853046653583010, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+  m_PrefabInstance: {fileID: 1909703727}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1546989267 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8298740661622337920, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+  m_PrefabInstance: {fileID: 1909703727}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1671152747 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6023615640298217344, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+  m_PrefabInstance: {fileID: 1909703727}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1693561779 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2238382031512996046, guid: da74da0173cefe44c8f5985c336487f6, type: 3}
@@ -1053,6 +1088,62 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2682441966914505475, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.267
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682441966914505475, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.443
+      objectReference: {fileID: 0}
+    - target: {fileID: 2994072371640428564, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.698
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806122195994136021, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806122195994136021, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979970749717934877, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.768
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012855089489502388, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: 'm_waypoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 646378456}
+    - target: {fileID: 8012855089489502388, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: 'm_waypoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1029991958}
+    - target: {fileID: 8012855089489502388, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: 'm_waypoints.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1221761636}
+    - target: {fileID: 8012855089489502388, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: 'm_waypoints.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1968683064}
+    - target: {fileID: 8012855089489502388, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: 'm_waypoints.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1304196809}
+    - target: {fileID: 8012855089489502388, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: 'm_waypoints.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1546989267}
+    - target: {fileID: 8012855089489502388, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: 'm_waypoints.Array.data[6]'
+      value: 
+      objectReference: {fileID: 1671152747}
+    - target: {fileID: 8012855089489502388, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: 'm_waypoints.Array.data[7]'
+      value: 
+      objectReference: {fileID: 393602253}
     - target: {fileID: 9199116653087202855, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
       propertyPath: m_Name
       value: Pharaoh
@@ -1066,6 +1157,11 @@ PrefabInstance:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 261928953382803513, guid: 1aba045cbb7344c419a83634e1a1246d, type: 3}
   m_PrefabInstance: {fileID: 2029766164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1968683064 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5712503666557641601, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+  m_PrefabInstance: {fileID: 1909703727}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2029766164
 PrefabInstance:
