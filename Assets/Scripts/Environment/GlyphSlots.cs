@@ -35,7 +35,7 @@ public class GlyphSlots : MonoBehaviour
             HandleGlyphPlacement(idx);
         }
 
-        //check if all glyphs are true
+        //----- check if all glyphs are true -----
         m_allGlyphSlotsFull = m_isGlyphInPlace.All(b  => b);
     }
 
