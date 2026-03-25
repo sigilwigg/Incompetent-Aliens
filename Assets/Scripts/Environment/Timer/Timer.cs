@@ -10,38 +10,46 @@ using UnityEngine;
  *  RestartTimer()      =>  Public function that can be called from scripts to restart/start the timer.
  */
 
-namespace Timer
+public class Timer : MonoBehaviour
 {
-    public class Timer : MonoBehaviour
+    public TMP_Text m_TextMeshPro;
+    public float m_timeElapsed = 0.0f;
+    private bool m_isStopped = false;
+
+    private void Start()
     {
-        public TMP_Text m_TextMeshPro;
-        public float m_timeElapsed = 0.0f;
+        m_timeElapsed = 0.0f;
+    }
 
-        private void Start()
-        {
-            m_timeElapsed = 0.0f;
-        }
+    private void Update()
+    {
+        if(!m_isStopped) UpdateTimer();
+        SetTimerText();
+    }
 
-        private void Update()
-        {
-            UpdateTimer();
-            SetTimerText();
-        }
+    private void UpdateTimer()
+    {
+        m_timeElapsed += Time.deltaTime;
+    }
 
-        private void UpdateTimer()
-        {
-            m_timeElapsed += Time.deltaTime;
-        }
+    private void SetTimerText()
+    {
+        float timeForText = Mathf.Floor(m_timeElapsed);
+        m_TextMeshPro.text = timeForText.ToString();
+    }
 
-        private void SetTimerText()
-        {
-            float timeForText = Mathf.Floor(m_timeElapsed);
-            m_TextMeshPro.text = timeForText.ToString();
-        }
+    public void RestartTimer()
+    {
+        m_timeElapsed = 0.0f;
+    }
 
-        public void RestartTimer()
-        {
-            m_timeElapsed = 0.0f;
-        }
+    public void PauseTimer()
+    {
+        m_isStopped = true;
+    }
+
+    public void UnpauseTimer()
+    {
+        m_isStopped = false;
     }
 }

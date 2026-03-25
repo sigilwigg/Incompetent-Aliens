@@ -11,6 +11,8 @@ TagManager:
   - SarcophagasZone
   - MirrorZone
   - Basket
+  - AudioManager
+  - GameStateManager
   layers:
   - Default
   - TransparentFX
