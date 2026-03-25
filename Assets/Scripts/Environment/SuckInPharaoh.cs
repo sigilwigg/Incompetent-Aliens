@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SuckInPharaoh : MonoBehaviour
@@ -11,36 +12,50 @@ public class SuckInPharaoh : MonoBehaviour
     private GlyphSlots m_glyphSlots;
     private Animator m_animator;
 
+    [Header("Tornado Movement")]
+    public float m_tornadoMoveSpeed = 5f;
+    public float m_tornadoArrivalThreshold = 0.05f;
+
     private void Awake()
     {
         m_glyphSlots = GetComponent<GlyphSlots>();
-        m_animator = GetComponent<Animator>();       
+        m_animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (m_glyphSlots.m_allGlyphSlotsFull == true)
+        if(m_glyphSlots.m_allGlyphSlotsFull == true)
         {
-            m_animator.enabled = true; //TEMP!!!!!!!!
-            //HandleSuckInPharaoh();
+            HandleSuckInPharaoh();
         }
     }
 
     private void HandleSuckInPharaoh()
     {
-        if (!m_isSarcophagasClosed)
+        if(m_isSarcophagasClosed)
+            return;
+
+        // ----- Spawn tornado at the pharaohs position and hide pharaoh -----
+        GameObject tornadoGO = Instantiate(m_tornadoPrefab, m_pharaohTransform.position, Quaternion.identity);
+        m_pharaoh.SetActive(false);
+
+        StartCoroutine(MoveTornadoToSarcophagus(tornadoGO));
+    }
+
+    private IEnumerator MoveTornadoToSarcophagus(GameObject tornadoGO)
+    {
+        Transform tornadoTransform = tornadoGO.transform;
+        Vector3 target = transform.position;
+
+        // ----- Move until within arrival threshold or tornado is destroyed -----
+        while(Vector3.Distance(tornadoTransform.position, target) > m_tornadoArrivalThreshold)
         {
-            GameObject tornadoGO = Instantiate(m_tornadoPrefab, m_pharaohTransform.position, Quaternion.identity);
-            m_pharaoh.SetActive(false);
-
-            //move tornado to sarc
-
-            if (tornadoGO.transform.position == transform.position)
-            {
-                Destroy(tornadoGO);
-                m_animator.enabled = true;
-                m_isSarcophagasClosed = true;
-            }
+            tornadoTransform.position = Vector3.MoveTowards(tornadoTransform.position, target, m_tornadoMoveSpeed * Time.deltaTime);
+            yield return null;
         }
+
+        Destroy(tornadoGO);
+        m_animator.enabled = true;
+        m_isSarcophagasClosed = true;
     }
 }
