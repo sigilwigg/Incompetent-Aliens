@@ -567,7 +567,7 @@ Transform:
   m_GameObject: {fileID: 5533920141297052015}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34.81, y: 0.89, z: 20.76}
+  m_LocalPosition: {x: -0.21, y: 0.89, z: 8.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -594,37 +594,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.1777878, y: 3.390751, z: 2.40452}
   m_Center: {x: 0.20984268, y: 1.1953754, z: -0.70226}
---- !u!1 &5669366907990416890
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1227519728018658062}
-  m_Layer: 0
-  m_Name: Waypoint (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1227519728018658062
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5669366907990416890}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.2, y: 0, z: -3.2999992}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5919412454981971603}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6663536977507063177
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,7 +777,7 @@ Transform:
   m_GameObject: {fileID: 7877960272914694947}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 35.03, y: 0.43, z: 4.04}
+  m_LocalPosition: {x: 15.17, y: 0.43, z: -2.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -996,7 +965,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7135911350317997577}
-  - {fileID: 1227519728018658062}
   m_Father: {fileID: 8519224833021925902}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8371686067768682151
@@ -1012,8 +980,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_waypoints:
-  - {fileID: 871677177810109030}
   - {fileID: 8731385797110517240}
+  - {fileID: 4561595059604543125}
   m_AlwaysDrawPath: 1
   m_DrawAsLoop: 1
   m_DrawNumbers: 1
