@@ -6,11 +6,16 @@ public class SuckInPharaoh : MonoBehaviour
     public bool m_isSarcophagasClosed = false;
 
     [Header("References")]
-    public GameObject m_pharaoh; //this must be set to the pharaoh as a whole
-    public Transform m_pharaohTransform; //this must references the 'Enemy' child
+    [Tooltip("This must be set to the GameObject called 'Pharaoh'")]
+    public GameObject m_pharaoh;
+    [Tooltip("This must reference the 'Enemy' child of the GameObject 'Pharaoh'")]
+    public Transform m_pharaohTransform;
     public GameObject m_tornadoPrefab;
+    public GameObject m_trappedPharaoh;
+
     private GlyphSlots m_glyphSlots;
     private Animator m_animator;
+    private GameObject m_activeTornado; // Tracks the single active tornado
 
     [Header("Tornado Movement")]
     public float m_tornadoMoveSpeed = 5f;
@@ -35,26 +40,41 @@ public class SuckInPharaoh : MonoBehaviour
         if(m_isSarcophagasClosed)
             return;
 
-        // ----- Spawn tornado at the pharaohs position and hide pharaoh -----
-        GameObject tornadoGO = Instantiate(m_tornadoPrefab, m_pharaohTransform.position, Quaternion.identity);
+        // ----- If a tornado is already active, do not spawn another ----
+        if(m_activeTornado != null)
+            return;
+
+        // ----- Spawn single tornado at the pharaoh's position and hide pharaoh -----
+        m_activeTornado = Instantiate(m_tornadoPrefab, m_pharaohTransform.position, Quaternion.identity);
         m_pharaoh.SetActive(false);
 
-        StartCoroutine(MoveTornadoToSarcophagus(tornadoGO));
+        StartCoroutine(MoveTornadoToSarcophagus(m_activeTornado));
     }
 
     private IEnumerator MoveTornadoToSarcophagus(GameObject tornadoGO)
     {
-        Transform tornadoTransform = tornadoGO.transform;
-        Vector3 target = transform.position;
+        if(tornadoGO == null)
+            yield break;
 
-        // ----- Move until within arrival threshold or tornado is destroyed -----
-        while(Vector3.Distance(tornadoTransform.position, target) > m_tornadoArrivalThreshold)
+        Transform tornadoTransform = tornadoGO.transform;
+        Vector3 sarcophagusPosition = transform.position;
+
+        // ----- Lock Y to tornado's current Y to ensure horizontal movement only ----
+        Vector3 targetXZ = new Vector3(sarcophagusPosition.x, tornadoTransform.position.y, sarcophagusPosition.z);
+
+        // ----- Move tornado towards targetXZ until within arrival threshold ----
+        while(Vector3.Distance(new Vector3(tornadoTransform.position.x, 0f, tornadoTransform.position.z), new Vector3(targetXZ.x, 0f, targetXZ.z)) > m_tornadoArrivalThreshold)
         {
-            tornadoTransform.position = Vector3.MoveTowards(tornadoTransform.position, target, m_tornadoMoveSpeed * Time.deltaTime);
+            Vector3 next = Vector3.MoveTowards(tornadoTransform.position, targetXZ, m_tornadoMoveSpeed * Time.deltaTime);
+            next.y = tornadoTransform.position.y;
+            tornadoTransform.position = next;
             yield return null;
         }
 
+        // ---- Finalize -----
         Destroy(tornadoGO);
+        m_trappedPharaoh.SetActive(true);
+        m_activeTornado = null;
         m_animator.enabled = true;
         m_isSarcophagasClosed = true;
     }

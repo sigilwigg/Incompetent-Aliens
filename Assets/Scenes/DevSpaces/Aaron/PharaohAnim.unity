@@ -529,49 +529,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1 &925720242 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1076291480458745838, guid: a4d50dc0cdffdc646bb41140679c491f, type: 3}
-  m_PrefabInstance: {fileID: 1825869766}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &925720245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 925720242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fbe4fe0db736214da0ed595e9d60a03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_isSarcophagasClosed: 0
-  m_pharaoh: {fileID: 1085515782}
-  m_pharaohTransform: {fileID: 413433158}
-  m_tornadoPrefab: {fileID: 0}
---- !u!95 &925720246
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 925720242}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5b4c2564e24f5a54e8138b0bc02af127, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &926637602 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 261928953382803513, guid: 1aba045cbb7344c419a83634e1a1246d, type: 3}
@@ -952,6 +909,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sarcophagus
       objectReference: {fileID: 0}
+    - target: {fileID: 4045838761355475033, guid: a4d50dc0cdffdc646bb41140679c491f, type: 3}
+      propertyPath: m_pharaoh
+      value: 
+      objectReference: {fileID: 1085515782}
+    - target: {fileID: 4045838761355475033, guid: a4d50dc0cdffdc646bb41140679c491f, type: 3}
+      propertyPath: m_pharaohTransform
+      value: 
+      objectReference: {fileID: 413433158}
     - target: {fileID: 6221019998235006777, guid: a4d50dc0cdffdc646bb41140679c491f, type: 3}
       propertyPath: 'm_glyphs.Array.data[0]'
       value: 
@@ -964,22 +929,6 @@ PrefabInstance:
       propertyPath: 'm_glyphs.Array.data[2]'
       value: 
       objectReference: {fileID: 1714083974}
-    - target: {fileID: 8171562367896624133, guid: a4d50dc0cdffdc646bb41140679c491f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283852146277978613, guid: a4d50dc0cdffdc646bb41140679c491f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283852146277978613, guid: a4d50dc0cdffdc646bb41140679c491f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283852146277978613, guid: a4d50dc0cdffdc646bb41140679c491f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.75
-      objectReference: {fileID: 0}
     - target: {fileID: 8283852146277978613, guid: a4d50dc0cdffdc646bb41140679c491f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 31.95
@@ -1020,20 +969,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8283852146277978613, guid: a4d50dc0cdffdc646bb41140679c491f, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1076291480458745838, guid: a4d50dc0cdffdc646bb41140679c491f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 925720245}
-    - targetCorrespondingSourceObject: {fileID: 1076291480458745838, guid: a4d50dc0cdffdc646bb41140679c491f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 925720246}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4d50dc0cdffdc646bb41140679c491f, type: 3}
 --- !u!1 &1885789977
 GameObject:
