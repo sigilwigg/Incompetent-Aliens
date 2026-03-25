@@ -21,7 +21,7 @@ public class SuckInPharaoh : MonoBehaviour
     {
         if (m_glyphSlots.m_allGlyphSlotsFull == true)
         {
-            m_animator.enabled = true;
+            m_animator.enabled = true; //TEMP!!!!!!!!
             //HandleSuckInPharaoh();
         }
     }
