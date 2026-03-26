@@ -14,6 +14,6 @@ public class MatchHalfWobble: MonoBehaviour
     {
         Vector3 center = new Vector3(m_stackCenter.position.x, transform.position.y, m_stackCenter.position.z);
         m_targetPosition = Vector3.Lerp(center, m_targetTransform.position, m_percentageMatch);
-        transform.position = Vector3.Lerp(transform.position, m_targetPosition, Time.deltaTime * m_matchSpeed);
+        transform.position = Vector3.Lerp(transform.position, m_targetPosition, TimeManager.instance.deltaTime * m_matchSpeed);
     }
 }
