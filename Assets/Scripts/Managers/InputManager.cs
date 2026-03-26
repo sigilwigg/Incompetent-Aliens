@@ -1,5 +1,6 @@
 using Player;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 /*
@@ -18,7 +19,7 @@ namespace Player
 
         void Awake()
         {
-            m_playerController = GetComponent<Controller>();
+          m_playerController = GetComponent<Player.Controller>();  
         }
 
         public void Move(InputAction.CallbackContext context)
@@ -37,6 +38,48 @@ namespace Player
                 else
                 {
                     m_playerController.Interact(m_playerController);
+                }
+            }
+        }
+
+        public void Pause(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                if (TimeManager.instance.isGamePaused)
+                {
+                    TimeManager.instance.isGamePaused = false;
+                    UIManager.instance.CloseMenu(UIManager.MENU.Pause);
+                }
+                else
+                {
+                    TimeManager.instance.isGamePaused = true;
+                    UIManager.instance.OpenMenu(UIManager.MENU.Pause);
+                    UIManager.instance.OpenMenu(UIManager.MENU.PauseContent);
+                }
+                
+            }
+        }
+
+        public void Back(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                if (!TimeManager.instance.isGamePaused) return;
+                
+                if (UIManager.instance.settingsMenu.activeInHierarchy)
+                {
+                    UIManager.instance.CloseMenu(UIManager.MENU.Settings);
+                    UIManager.instance.OpenMenu(UIManager.MENU.Pause);
+                    UIManager.instance.OpenMenu(UIManager.MENU.PauseContent);
+                    EventSystem.current.SetSelectedGameObject(UIManager.instance.resumeButton);
+                    UIManager.instance.tabButtons.SetActive(false);
+                }
+                if (UIManager.instance.audioMenu.activeInHierarchy)
+                {
+                    StartCoroutine(UIManager.instance.WaitThenCloseMenu(UIManager.MENU.Audio));
+                    UIManager.instance.OpenMenu(UIManager.MENU.Settings);
+                    EventSystem.current.SetSelectedGameObject(UIManager.instance.audioButton);
                 }
             }
         }
