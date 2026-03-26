@@ -28,6 +28,8 @@ public class UIManager : MonoBehaviour
     public GameObject restartPopupNoButton;
     public GameObject quitPopupNoButton;
     public GameObject tabButtons;
+    public GameObject gradeCard;
+    public GameObject letterGrade;
 
    
 
@@ -65,6 +67,7 @@ public class UIManager : MonoBehaviour
                 break;
             case MENU.PauseContent:
                 pauseMenuContent.SetActive(false);
+                gradeCard.SetActive(false);
                 break;
         }
     }
@@ -88,6 +91,7 @@ public class UIManager : MonoBehaviour
                 break;
             case MENU.PauseContent:
                 pauseMenuContent.SetActive(true);
+                gradeCard.SetActive(true);
                 break;
         }
     }
