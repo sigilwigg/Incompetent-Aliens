@@ -18,5 +18,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/Levels/Egypt_1/Egypt_1.unity
     guid: 358d42385805f964ea08156696a1f28b
   m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: c7356df65fa03da48a53aeb3be7910d2, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 4a25ada32cb9f0c4988bc58d0fd83c9e, type: 3}
   m_UseUCBPForAssetBundles: 0

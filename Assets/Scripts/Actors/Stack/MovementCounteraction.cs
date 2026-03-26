@@ -64,11 +64,11 @@ public class MovementCounteraction : MonoBehaviour
                 m_positions[idx].m_percentageMatch = Mathf.Lerp(
                     m_initialPercentages[idx],
                     -m_initialPercentages[idx],
-                    Time.deltaTime * m_alignmentSpeed
+                    TimeManager.instance.deltaTime * m_alignmentSpeed
                 );
             }
 
-            timeElapsed += Time.deltaTime;
+            timeElapsed += TimeManager.instance.deltaTime;
             yield return null;
         }
 
@@ -95,11 +95,11 @@ public class MovementCounteraction : MonoBehaviour
                 m_positions[idx].m_percentageMatch = Mathf.Lerp(
                     currentPercentages[idx],
                     m_initialPercentages[idx],
-                    Time.deltaTime * m_alignmentSpeed
+                    TimeManager.instance.deltaTime * m_alignmentSpeed
                 );
             }
 
-            timeElapsed += Time.deltaTime;
+            timeElapsed += TimeManager.instance.deltaTime;
             yield return null;
         }
 

@@ -168,10 +168,10 @@ public class StackLean : MonoBehaviour
 
             if (!m_isCounteracted)
                 // fall outward
-                timeElapsed += Time.deltaTime;
+                timeElapsed += TimeManager.instance.deltaTime;
             else
                 // balance inward
-                timeElapsed -= (Time.deltaTime * m_correctionTimeMultiplier);
+                timeElapsed -= (TimeManager.instance.deltaTime * m_correctionTimeMultiplier);
 
             yield return null;
         }
@@ -210,7 +210,7 @@ public class StackLean : MonoBehaviour
 
         while (timeElapsed < m_waitTime)
         {
-            timeElapsed += Time.deltaTime;
+            timeElapsed += TimeManager.instance.deltaTime;
             yield return null;
         }
 

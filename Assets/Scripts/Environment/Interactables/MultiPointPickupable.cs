@@ -84,9 +84,9 @@ namespace Interactables
             // ----- handle move velocity -----
             float acceleration = m_pickupPoints[0].m_playerController.m_movement.m_moveSpeed;
             m_targetMoveVelocity = itemMovement * m_pickupPoints[0].m_playerController.m_movement.m_moveSpeed;
-            m_itemMoveVelocity = Vector3.Lerp(m_itemMoveVelocity, m_targetMoveVelocity, acceleration * Time.deltaTime);
+            m_itemMoveVelocity = Vector3.Lerp(m_itemMoveVelocity, m_targetMoveVelocity, acceleration * TimeManager.instance.deltaTime);
 
-            m_characterController.Move(m_itemMoveVelocity * Time.deltaTime);
+            m_characterController.Move(m_itemMoveVelocity * TimeManager.instance.deltaTime);
 
         }
 
