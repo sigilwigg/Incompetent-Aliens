@@ -35,6 +35,12 @@ public class SceneController : MonoBehaviour
         sceneLoader.TransitionToScene(sceneName);
     }
 
+    public static void ReloadScene()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        CallTransitionToScene(scene.name);
+    }
+
     public static void LoadSceneAdditive(string sceneName)
     {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);

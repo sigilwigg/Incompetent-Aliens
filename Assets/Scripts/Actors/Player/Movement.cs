@@ -101,8 +101,8 @@ namespace Player
             m_targetMoveVelocity = movementInput * moveSpeed;
             if (!m_isGrounded && m_playerController.m_stackPosition == 0) 
                 m_targetMoveVelocity.y = -m_gravityForce;
-            m_currentMoveVelocity = Vector3.Lerp(m_currentMoveVelocity, m_targetMoveVelocity, m_moveAcceleration * Time.deltaTime);
-            m_characterController.Move(m_currentMoveVelocity * Time.deltaTime);
+            m_currentMoveVelocity = Vector3.Lerp(m_currentMoveVelocity, m_targetMoveVelocity, m_moveAcceleration * TimeManager.instance.deltaTime);
+            m_characterController.Move(m_currentMoveVelocity * TimeManager.instance.deltaTime);
 
             if (movementInput == Vector3.zero)
             {

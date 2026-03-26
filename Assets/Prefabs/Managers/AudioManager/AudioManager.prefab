@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundFXObject: {fileID: 4680124870053702253, guid: b660f3afe9b49314b922f7a595e23c9b, type: 3}
-  musicTracks: []
-  defaultMusicId: 
-  musicFadeDuration: 0
+  musicTracks:
+  - musicID: MainTheme
+    clip: {fileID: 8300000, guid: be1a98f9297eef94fb13dc7cbd9ad0ca, type: 3}
+    source: {fileID: 0}
+  defaultMusicId: MainTheme
+  musicFadeDuration: 3

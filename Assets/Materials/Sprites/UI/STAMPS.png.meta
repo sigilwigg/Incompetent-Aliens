@@ -1,0 +1,466 @@
+fileFormatVersion: 2
+guid: 5ff0b0baa3e70944aa28509502099dbd
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: STAMPS_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2173
+        width: 292
+        height: 306
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07b076eb0f50f314899a378e97dd39f0
+      internalID: -552802687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: STAMPS_3
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 2069
+        width: 990
+        height: 853
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b0897b127dd40b4fbe4acf5816b2b48
+      internalID: -865058786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: STAMPS_5
+      rect:
+        serializedVersion: 2
+        x: 2154
+        y: 2066
+        width: 1039
+        height: 849
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63ef45e131acb594b9b3345218029dc0
+      internalID: 1859919147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: STAMPS_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1830
+        width: 292
+        height: 294
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04d9342769155ff4db6df6b849f95874
+      internalID: 517458963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: STAMPS_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1488
+        width: 292
+        height: 293
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1f1df01f46fdb2499fb350613df6766
+      internalID: 587681738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: STAMPS_27
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 1022
+        width: 990
+        height: 855
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2515c81555e714e42b257ee749209a94
+      internalID: 609706585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: STAMPS_28
+      rect:
+        serializedVersion: 2
+        x: 2211
+        y: 1096
+        width: 982
+        height: 848
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3de7d684d1f1b7947a04f294a245fcc6
+      internalID: 2133166443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: STAMPS_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1147
+        width: 292
+        height: 293
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f48aa6cffd84af147ae30004a0951d0e
+      internalID: 1433927173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: STAMPS_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 804
+        width: 292
+        height: 294
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 588851ef02d38494bb13ef6227c2a854
+      internalID: 562586540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: STAMPS_51
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 355
+        width: 292
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ace66045078d7e4fbcc75ba349ca58d
+      internalID: -857561592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: STAMPS_52
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 0
+        width: 996
+        height: 836
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17300e3d3d3810346a934bfa1142f6eb
+      internalID: 899312609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: STAMPS_53
+      rect:
+        serializedVersion: 2
+        x: 2230
+        y: 0
+        width: 963
+        height: 853
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 903cf0064cc8bf84cb89520761b72c08
+      internalID: 1316509915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      STAMPS_0: -552802687
+      STAMPS_1: -2088411380
+      STAMPS_10: -2037777250
+      STAMPS_11: 1210010364
+      STAMPS_12: -930022719
+      STAMPS_13: -1834590956
+      STAMPS_14: -1226147721
+      STAMPS_15: -374631985
+      STAMPS_16: -1022369
+      STAMPS_17: 1610823737
+      STAMPS_18: 1355344863
+      STAMPS_19: -66836721
+      STAMPS_2: 130215347
+      STAMPS_20: -473265182
+      STAMPS_21: -1892514470
+      STAMPS_22: 1896399552
+      STAMPS_23: 517458963
+      STAMPS_24: 318008525
+      STAMPS_25: 1870075006
+      STAMPS_26: 587681738
+      STAMPS_27: 609706585
+      STAMPS_28: 2133166443
+      STAMPS_29: 1433927173
+      STAMPS_3: -865058786
+      STAMPS_30: 1574641048
+      STAMPS_31: 120236833
+      STAMPS_32: 2103114552
+      STAMPS_33: 1306399002
+      STAMPS_34: 1917605435
+      STAMPS_35: -1820160451
+      STAMPS_36: -1575997823
+      STAMPS_37: 2078530626
+      STAMPS_38: 1680713346
+      STAMPS_39: 2124408013
+      STAMPS_4: 925654368
+      STAMPS_40: 1897946942
+      STAMPS_41: -1165253626
+      STAMPS_42: -1815709898
+      STAMPS_43: 343436352
+      STAMPS_44: -1887882164
+      STAMPS_45: 708674944
+      STAMPS_46: 137899570
+      STAMPS_47: -1520392220
+      STAMPS_48: -70813714
+      STAMPS_49: 562586540
+      STAMPS_5: 1859919147
+      STAMPS_50: 1591159981
+      STAMPS_51: -857561592
+      STAMPS_52: 899312609
+      STAMPS_53: 1316509915
+      STAMPS_54: -547226366
+      STAMPS_55: -401821648
+      STAMPS_56: -2146862462
+      STAMPS_57: 1847161297
+      STAMPS_58: 1979368504
+      STAMPS_59: -995778629
+      STAMPS_6: 1982745001
+      STAMPS_60: -897276189
+      STAMPS_61: 1780971145
+      STAMPS_62: 1829175804
+      STAMPS_63: 1349048445
+      STAMPS_64: -1407118900
+      STAMPS_65: 1902915448
+      STAMPS_66: 1111128600
+      STAMPS_67: -57824455
+      STAMPS_68: -48937315
+      STAMPS_69: 125254544
+      STAMPS_7: -1465693825
+      STAMPS_70: 822691553
+      STAMPS_71: -466076842
+      STAMPS_72: -163774577
+      STAMPS_73: 155372064
+      STAMPS_74: -290060837
+      STAMPS_75: -1015292808
+      STAMPS_76: 1575730917
+      STAMPS_77: -964754823
+      STAMPS_78: -254832656
+      STAMPS_79: 1194472079
+      STAMPS_8: -196610328
+      STAMPS_80: -1947676592
+      STAMPS_81: -370086371
+      STAMPS_82: -80605495
+      STAMPS_9: -745219082
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

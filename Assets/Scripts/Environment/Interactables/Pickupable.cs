@@ -44,7 +44,6 @@ namespace Interactables
                 playerController.m_canMove = false;
                 playerController.transform.parent = transform.parent;
             }
-
         }
 
         private void PositionItem()
