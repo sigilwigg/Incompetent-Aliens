@@ -176,7 +176,7 @@ namespace Enemy.Pharaoh
 
                 m_pharaohBlackboard.m_isDistracted = false;
 
-                m_activityStateWaypointWaitTime = 0.2f;
+                //m_activityStateWaypointWaitTime = 0.2f;
 
                 m_actions.ChangeVisionRange(m_deafultVisionRange);
                 m_actions.ChangeCatchRange(m_defaultCatchVisionRange);

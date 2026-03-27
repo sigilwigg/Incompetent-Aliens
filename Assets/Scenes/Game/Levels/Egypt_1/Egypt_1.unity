@@ -443,6 +443,10 @@ PrefabInstance:
       propertyPath: m_pharaohGlyph
       value: 
       objectReference: {fileID: 6022542590926144521}
+    - target: {fileID: 2311678596375631092, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: m_activityStateWaypointWaitTime
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2682441966914505475, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.299
@@ -1469,7 +1473,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6049840242265287512, guid: f2eca3f0e182c5e4f94fea1d87131a5e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.74
+      value: 9.17
       objectReference: {fileID: 0}
     - target: {fileID: 6049840242265287512, guid: f2eca3f0e182c5e4f94fea1d87131a5e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1477,7 +1481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6049840242265287512, guid: f2eca3f0e182c5e4f94fea1d87131a5e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 4.28
       objectReference: {fileID: 0}
     - target: {fileID: 6049840242265287512, guid: f2eca3f0e182c5e4f94fea1d87131a5e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1546,3 +1550,4 @@ SceneRoots:
   - {fileID: 5645343114444140322}
   - {fileID: 1846056119}
   - {fileID: 902689407}
+  - {fileID: 1970481970}
