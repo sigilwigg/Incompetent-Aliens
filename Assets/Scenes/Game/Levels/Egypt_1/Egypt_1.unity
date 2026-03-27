@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &35068061 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6577771647477152795, guid: c3597dd1e58b082458d36804a546d22d, type: 3}
-  m_PrefabInstance: {fileID: 714836940}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &86686775 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3874899948124026100, guid: acbd4c04255149e45b3fc54c369dfb56, type: 3}
@@ -1407,3 +1402,5 @@ SceneRoots:
   - {fileID: 1932317398}
   - {fileID: 1163352076214679225}
   - {fileID: 435455194}
+  - {fileID: 5645343114444140322}
+  - {fileID: 1846056119}
