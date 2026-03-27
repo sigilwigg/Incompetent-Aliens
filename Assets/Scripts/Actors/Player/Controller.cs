@@ -91,6 +91,7 @@ namespace Player
 
         public void DropItem() 
         {
+            if (m_currentlyHeldItem == null) return;
             Pickupable itemToDrop = m_currentlyHeldItem.GetComponent<Interactables.Pickupable>();
 
             itemToDrop.m_isPickedUp = false;
@@ -108,6 +109,7 @@ namespace Player
 
         public void SetBeingThrown(Transform bouncyTransform)
         {
+            DropItem();
             GetComponentInChildren<Player.Movement>().enabled = false;
             GetComponentInChildren<CharacterController>().enabled = false;
             m_particleTrailVFX.SetActive(false);
