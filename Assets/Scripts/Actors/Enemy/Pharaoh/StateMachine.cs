@@ -44,6 +44,7 @@ namespace Enemy.Pharaoh
 
         //----- references -----
         private Blackboard m_pharaohBlackboard;
+        public GameObject m_pharaohGlyph;
 
         protected override void Start()
         {
@@ -158,6 +159,8 @@ namespace Enemy.Pharaoh
 
             if (m_pharaohBlackboard.m_isMirrorHeldByPlayers)
             {
+                m_pharaohGlyph.layer = 6;
+
                 m_pharaohBlackboard.m_isDistracted = true;
 
                 m_activityStateWaypointWaitTime = Mathf.Infinity;
@@ -169,6 +172,8 @@ namespace Enemy.Pharaoh
             }
             else
             {
+                m_pharaohGlyph.layer = 0;
+
                 m_pharaohBlackboard.m_isDistracted = false;
 
                 m_activityStateWaypointWaitTime = 0.2f;
