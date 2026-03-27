@@ -1,4 +1,5 @@
 using Enemy;
+using Interactables;
 using UnityEngine;
 
 namespace Enemy.Pharaoh
@@ -11,7 +12,8 @@ namespace Enemy.Pharaoh
         public float m_catchRange;
 
         public Player.Controller m_closestEnemyInCatchView;
-        
+
+
 
         protected override void Start()
         {
@@ -23,7 +25,8 @@ namespace Enemy.Pharaoh
         override public void Observe()
         {
             base.Observe();
-            canCatchPlayer();
+            CanCatchPlayer();
+            CanSeeHeldMirror();
         }
 
         private void OnTriggerEnter(Collider other)
@@ -52,7 +55,7 @@ namespace Enemy.Pharaoh
             }
         }
 
-        private void canCatchPlayer()
+        private void CanCatchPlayer()
         {
             Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, m_catchRange, m_targetMask);
 
@@ -82,5 +85,36 @@ namespace Enemy.Pharaoh
             }
         }
 
+        private void CanSeeHeldMirror()
+        {
+            Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, m_catchRange, m_targetMask);
+
+            m_pharaohBlackboard.m_isMirrorHeldByPlayers = false;
+            Player.Controller playerControllerInView = null;
+
+            float minSqrDistance = Mathf.Infinity;
+
+            for (int i = 0; i < targetsInViewRadius.Length; i++)
+            {
+                Transform target = targetsInViewRadius[i].transform;
+                Vector3 dirToTarget = (target.position - transform.position).normalized;
+                float sqrDistToTarget = (target.position - transform.position).sqrMagnitude;
+
+                if (sqrDistToTarget < minSqrDistance)
+                {
+                    playerControllerInView = target.gameObject.GetComponentInParent<Player.Controller>();
+                    minSqrDistance = sqrDistToTarget;
+                }
+            }
+
+            if (playerControllerInView != null && playerControllerInView.m_currentlyHeldItem != null)
+            {
+                StackPickupable mirror = playerControllerInView.m_currentlyHeldItem.GetComponent<StackPickupable>();
+                if (mirror != null)
+                {
+                    m_pharaohBlackboard.m_isMirrorHeldByPlayers = true;
+                }
+            }
+        }
     }
 }
