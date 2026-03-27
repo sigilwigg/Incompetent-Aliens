@@ -2,6 +2,7 @@ using UnityEngine;
 using Player;
 using System.Collections.Generic;
 using Interactables;
+using System.Linq;
 
 /*
 * This script is to let the player place the glyph inside the slot
@@ -19,6 +20,7 @@ public class GlyphSlots : MonoBehaviour
 
     // ----- These will allow the developers to add a specific item of their request to each of the variables -----
     [Header("Glyph Attributes")]
+    public bool m_allGlyphSlotsFull = false;
     public List<GameObject> m_glyphs = new List<GameObject>();
     public List<GameObject> m_slots = new List<GameObject>();
     public List<bool> m_isGlyphInPlace = new List<bool>();
@@ -32,6 +34,9 @@ public class GlyphSlots : MonoBehaviour
         {
             HandleGlyphPlacement(idx);
         }
+
+        //----- check if all glyphs are true -----
+        m_allGlyphSlotsFull = m_isGlyphInPlace.All(b  => b);
     }
 
     // ----- Get the distance to the slot -----
@@ -44,14 +49,14 @@ public class GlyphSlots : MonoBehaviour
         {
             // modify glyph placement
             m_isGlyphInPlace[glyphIndex] = true;
-            m_glyphs[glyphIndex].transform.position = m_slots[glyphIndex].transform.position;
-            m_glyphs[glyphIndex].transform.GetChild(0).gameObject.SetActive(false);
-            m_glyphs[glyphIndex].transform.GetChild(1).gameObject.SetActive(true);
-            m_glyphs[glyphIndex].layer = 0;
+            m_glyphs[glyphIndex].SetActive(false);
+            m_slots[glyphIndex].SetActive(true);
 
             // update player
             m_playerToDrop = m_glyphs[glyphIndex].GetComponent<Pickupable>().m_playerController;
             m_playerToDrop.DropItem();
         }
     }
+
+
 }
