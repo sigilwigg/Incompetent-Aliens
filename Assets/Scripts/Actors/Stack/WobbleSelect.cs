@@ -19,7 +19,7 @@ public class WobbleSelect : MonoBehaviour
             Invoke(nameof(ResetSelectNewWobble), UnityEngine.Random.Range(0.0f, m_cooldown));
         }
 
-        transform.position = Vector3.Lerp(transform.position, m_targetPosition, Time.deltaTime * m_matchSpeed);
+        transform.position = Vector3.Lerp(transform.position, m_targetPosition, TimeManager.instance.deltaTime * m_matchSpeed);
     }
 
     private void SelectNewWobble()

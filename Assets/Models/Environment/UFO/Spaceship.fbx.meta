@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: f4c726d10c5b9cb48b81d0bce2edb327
+guid: 3301fa39cab51ab499fabe4b54c8e64d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DeskLights
+    second: {fileID: 2100000, guid: c7e4a3707c2b25d4ba4f4e4bfa997c08, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
