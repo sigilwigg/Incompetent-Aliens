@@ -1037,6 +1037,10 @@ PrefabInstance:
       propertyPath: m_pharaohTransform
       value: 
       objectReference: {fileID: 798893786}
+    - target: {fileID: 3411629451988547318, guid: 7832fc9656705924abb9a02ffb834f0b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4009522987391446144, guid: 7832fc9656705924abb9a02ffb834f0b, type: 3}
       propertyPath: m_IsActive
       value: 1
