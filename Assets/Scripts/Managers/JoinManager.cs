@@ -26,6 +26,7 @@ public class JoinManager : MonoBehaviour
     private Player.Controller m_playerQuedForColorAssignment = null;
     [Header("Player Colors")]
     public List<Color> m_playerColors = new List<Color>();
+    public List<PlayerInput> m_playerInputsJoined = new List<PlayerInput>();
 
     private void Update()
     {
@@ -96,6 +97,11 @@ public class JoinManager : MonoBehaviour
         {
             if (gamepad.buttonSouth.wasPressedThisFrame && !MaxPlayerCountReached())
             {
+                foreach (PlayerInput playerInput in m_playerInputsJoined)
+                {
+                    if (gamepad.deviceId == playerInput.devices[0].deviceId) return;
+                }
+
                 // ----- create player -----
                 var player = PlayerInput.Instantiate(
                     m_playerPrefab,
@@ -106,8 +112,10 @@ public class JoinManager : MonoBehaviour
                 // ----- set player to spawn point -----
                 player.transform.position = m_spawnPoint.position;
 
+                m_playerInputsJoined.Add(player);
+
                 // ----- handle camera retargeting -----
-                if(m_cinemachineTargetGroup != null)
+                if (m_cinemachineTargetGroup != null)
                     m_cinemachineTargetGroup.AddMember(player.GetComponent<Player.Controller>().m_movement.transform, 1.0f, 0.0f);
                 m_playerQuedForColorAssignment = player.GetComponent<Player.Controller>();
                 m_numberPlayersJoined++;
