@@ -156,8 +156,9 @@ public class StackLean : MonoBehaviour
             targetPositions.Add(targetPosition);
         }
 
-        while (timeElapsed < m_fallTimeTotal && timeElapsed >= 0.0f)
+        while (timeElapsed >= 0.0f)
         {
+            timeElapsed = timeElapsed > m_fallTimeTotal ? m_fallTimeTotal : timeElapsed;
             float sample = timeElapsed / m_fallTimeTotal;
             sample = m_moveCurve.Evaluate(sample);
 
@@ -176,8 +177,7 @@ public class StackLean : MonoBehaviour
             yield return null;
         }
 
-        if (timeElapsed < 0.0f) ChangeState(State.Idle);
-        else ChangeState(State.FallApart);
+        ChangeState(State.Idle);
         yield return null;
     }
 
