@@ -28,6 +28,11 @@ namespace SceneManagement
             StartCoroutine(Transition(sceneName, m_transitionTime));
         }
 
+        public void ReloadScene()
+        {
+            SceneController.ReloadScene();
+        }
+
         IEnumerator Transition(
             string sceneName, 
             float secondsToWait
