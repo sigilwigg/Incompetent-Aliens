@@ -73,7 +73,7 @@ MonoBehaviour:
   m_isSarcophagasClosed: 0
   m_pharaoh: {fileID: 0}
   m_pharaohTransform: {fileID: 0}
-  m_tornadoPrefab: {fileID: 5600273582570056570, guid: f505c872e60b779479fbf7182b9620ec, type: 3}
+  m_tornadoPrefab: {fileID: 1026896150325718262, guid: 2de4a0e37b900f94883cc1236b4abb01, type: 3}
   m_trappedPharaoh: {fileID: 3153221526300328148}
   m_tornadoMoveSpeed: 5
   m_tornadoArrivalThreshold: 0.05
