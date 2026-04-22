@@ -724,6 +724,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -11.77
       objectReference: {fileID: 0}
+    - target: {fileID: 965468518914061816, guid: bc3cf9ad01b3d5e4697f02b2dab06638, type: 3}
+      propertyPath: m_Size.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 965468518914061816, guid: bc3cf9ad01b3d5e4697f02b2dab06638, type: 3}
+      propertyPath: m_Center.y
+      value: -2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1124184552629825997, guid: bc3cf9ad01b3d5e4697f02b2dab06638, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -1832,8 +1840,8 @@ Rigidbody:
   m_GameObject: {fileID: 1638014823}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 1
+  m_AngularDamping: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
