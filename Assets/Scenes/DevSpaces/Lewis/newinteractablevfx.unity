@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 329943680}
+  - component: {fileID: 329943681}
   m_Layer: 0
   m_Name: Mirror Particles
   m_TagString: Untagged
@@ -151,6 +152,20 @@ Transform:
   - {fileID: 1643158667}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &329943681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329943679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd4a2cff8f72e764299e5b38e7f9ab29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystem: {fileID: 1643158669}
+  mirror: {fileID: 1827215932}
 --- !u!1001 &687159793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5085,7 +5100,7 @@ GameObject:
   - component: {fileID: 1643158669}
   - component: {fileID: 1643158668}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Particle Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9906,6 +9921,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &1827215932 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8607228660137620415, guid: f2eca3f0e182c5e4f94fea1d87131a5e, type: 3}
+  m_PrefabInstance: {fileID: 687159793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1940969011
 GameObject:
   m_ObjectHideFlags: 0
