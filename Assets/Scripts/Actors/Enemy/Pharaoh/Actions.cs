@@ -30,6 +30,7 @@ namespace Enemy.Pharaoh
         {
             m_observation = GetComponent<Observation>();
             m_stateMachine = GetComponent<StateMachine>();
+            m_timeManager= FindFirstObjectByType<TimeManager>();
         }
 
         private void Update()
