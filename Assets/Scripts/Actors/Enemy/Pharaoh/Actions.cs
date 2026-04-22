@@ -78,7 +78,7 @@ namespace Enemy.Pharaoh
                 playerController.m_canMove = true;
                 playerModel.SetActive(true);
                 m_pharaohModel.SetActive(true);
-                m_stateMachine.Agent.speed = m_stateMachine.m_walkSpeed;
+                m_stateMachine.Agent.speed = m_stateMachine.m_chaseSpeed;
 
 
                 //----- throw player -----
