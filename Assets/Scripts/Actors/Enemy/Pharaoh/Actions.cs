@@ -32,8 +32,6 @@ namespace Enemy.Pharaoh
             m_stateMachine = GetComponent<StateMachine>();
         }
 
-        #region Chase state functions
-
         private void Update()
         {
             if (m_throwCoolDownTimer > 0)
@@ -41,6 +39,8 @@ namespace Enemy.Pharaoh
                 m_throwCoolDownTimer -= m_timeManager.deltaTime;
             }
         }
+
+        #region Chase state functions
 
         public void ChasePlayer()
         {
