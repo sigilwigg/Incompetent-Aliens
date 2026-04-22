@@ -1,4 +1,5 @@
 using Player;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -16,15 +17,50 @@ namespace Player
     public class InputManager : MonoBehaviour
     {
         private Player.Controller m_playerController;
+        private List<Vector2> m_directions;
 
         void Awake()
         {
-          m_playerController = GetComponent<Player.Controller>();  
+            m_playerController = GetComponent<Player.Controller>();
+
+            // 0.0, 1.0, 0.707107
+            // 0.0, 0.0
+            // 1.0, 0.0
+            // -1.0, 0.0
+            // 0.0, 1.0
+            // 0.0, -1.0
+            // 0.707107, 0.707107
+            m_directions = new List<Vector2>();
+            m_directions.Add(new Vector2(0.0f, 0.0f));
+
+            m_directions.Add(new Vector2(1.0f, 0.0f));
+            m_directions.Add(new Vector2(-1.0f,0.0f));
+            m_directions.Add(new Vector2(0.0f, 1.0f));
+            m_directions.Add(new Vector2(0.0f, -1.0f));
+
+            m_directions.Add(new Vector2(0.707107f, 0.707107f));
+            m_directions.Add(new Vector2(-0.707107f, -0.707107f));
+            m_directions.Add(new Vector2(-0.707107f, 0.707107f));
+            m_directions.Add(new Vector2(0.707107f, -0.707107f));
         }
 
         public void Move(InputAction.CallbackContext context)
         {
             m_playerController.m_moveInput = context.ReadValue<Vector2>();
+
+            Vector2 closestDirection = m_directions[0];
+            float closestDistance = Vector2.Distance(m_playerController.m_moveInput, m_directions[0]);
+            foreach(Vector2 dir in m_directions)
+            {
+                float dist = Vector2.Distance(m_playerController.m_moveInput, dir);
+                if(dist < closestDistance)
+                {
+                    closestDistance = dist;
+                    closestDirection = dir;
+                }
+            }
+
+            m_playerController.m_moveInput = closestDirection;
         }
 
         public void Interact(InputAction.CallbackContext context)
