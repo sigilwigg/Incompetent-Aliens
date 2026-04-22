@@ -23,6 +23,9 @@ namespace Enemy.Pharaoh
         public GameObject m_bouncingBallPrefab;
         public GameObject m_dustUpParticle;
 
+        //----- time manager ref -----
+        public TimeManager m_timeManager;
+
         private void Start()
         {
             m_observation = GetComponent<Observation>();
@@ -35,7 +38,7 @@ namespace Enemy.Pharaoh
         {
             if (m_throwCoolDownTimer > 0)
             {
-                m_throwCoolDownTimer -= Time.deltaTime;
+                m_throwCoolDownTimer -= m_timeManager.deltaTime;
             }
         }
 
@@ -102,7 +105,7 @@ namespace Enemy.Pharaoh
         {
             if (m_stateMachine.Agent.remainingDistance < waypointDistanceThreshold)
             {
-                m_pathingWaitTimer += Time.deltaTime;
+                m_pathingWaitTimer += m_timeManager.deltaTime;
                 if (m_pathingWaitTimer >= waypointWaitTime)
                 {
                     if (waypointIndex < path.m_waypoints.Count - 1)
