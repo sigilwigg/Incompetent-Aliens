@@ -5892,7 +5892,7 @@ ParticleSystem:
     alignToDirection: 0
     m_Texture: {fileID: 2800000, guid: b4fde3a067f797f4591d99828a17b80f, type: 3}
     m_TextureClipChannel: 3
-    m_TextureClipThreshold: 0
+    m_TextureClipThreshold: 0.8
     m_TextureUVChannel: 0
     m_TextureColorAffectsParticles: 1
     m_TextureAlphaAffectsParticles: 1
