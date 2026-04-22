@@ -141,6 +141,17 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""58694050-5449-4137-8414-0ca6c23f472e"",
+                    ""path"": ""<Joystick>/stick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""WASD Keyboard"",
                     ""id"": ""baf96464-ed15-4256-b58d-89f827f2a6c9"",
                     ""path"": ""2DVector"",
