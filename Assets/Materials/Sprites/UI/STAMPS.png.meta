@@ -93,15 +93,67 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: STAMPS_0
+      name: stmp_a
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2173
+        x: 4
+        y: 2169
         width: 292
         height: 306
       alignment: 0
@@ -119,7 +171,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: STAMPS_3
+      name: stmp_a_txt
       rect:
         serializedVersion: 2
         x: 684
@@ -141,7 +193,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: STAMPS_5
+      name: stmp_c_txt
       rect:
         serializedVersion: 2
         x: 2154
@@ -163,11 +215,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: STAMPS_23
+      name: stmp_b
       rect:
         serializedVersion: 2
         x: 0
-        y: 1830
+        y: 1835
         width: 292
         height: 294
       alignment: 0
@@ -185,7 +237,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: STAMPS_26
+      name: stmp_c
       rect:
         serializedVersion: 2
         x: 0
@@ -207,7 +259,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: STAMPS_27
+      name: stmp_b_txt
       rect:
         serializedVersion: 2
         x: 684
@@ -229,7 +281,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: STAMPS_28
+      name: stmp_d_txt
       rect:
         serializedVersion: 2
         x: 2211
@@ -251,7 +303,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: STAMPS_29
+      name: stmp_d
       rect:
         serializedVersion: 2
         x: 0
@@ -273,7 +325,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: STAMPS_49
+      name: stmp_e
       rect:
         serializedVersion: 2
         x: 0
@@ -295,13 +347,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: STAMPS_51
+      name: stmp_f
       rect:
         serializedVersion: 2
-        x: 0
-        y: 355
-        width: 292
-        height: 400
+        x: 9
+        y: 464
+        width: 283
+        height: 291
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -317,7 +369,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: STAMPS_52
+      name: stmp_e_txt
       rect:
         serializedVersion: 2
         x: 678
@@ -339,7 +391,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: STAMPS_53
+      name: stmp_f_txt
       rect:
         serializedVersion: 2
         x: 2230
@@ -376,7 +428,6 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      STAMPS_0: -552802687
       STAMPS_1: -2088411380
       STAMPS_10: -2037777250
       STAMPS_11: 1210010364
@@ -392,14 +443,8 @@ TextureImporter:
       STAMPS_20: -473265182
       STAMPS_21: -1892514470
       STAMPS_22: 1896399552
-      STAMPS_23: 517458963
       STAMPS_24: 318008525
       STAMPS_25: 1870075006
-      STAMPS_26: 587681738
-      STAMPS_27: 609706585
-      STAMPS_28: 2133166443
-      STAMPS_29: 1433927173
-      STAMPS_3: -865058786
       STAMPS_30: 1574641048
       STAMPS_31: 120236833
       STAMPS_32: 2103114552
@@ -420,12 +465,7 @@ TextureImporter:
       STAMPS_46: 137899570
       STAMPS_47: -1520392220
       STAMPS_48: -70813714
-      STAMPS_49: 562586540
-      STAMPS_5: 1859919147
       STAMPS_50: 1591159981
-      STAMPS_51: -857561592
-      STAMPS_52: 899312609
-      STAMPS_53: 1316509915
       STAMPS_54: -547226366
       STAMPS_55: -401821648
       STAMPS_56: -2146862462
@@ -459,6 +499,18 @@ TextureImporter:
       STAMPS_81: -370086371
       STAMPS_82: -80605495
       STAMPS_9: -745219082
+      stmp_a: -552802687
+      stmp_a_txt: -865058786
+      stmp_b: 517458963
+      stmp_b_txt: 609706585
+      stmp_c: 587681738
+      stmp_c_txt: 1859919147
+      stmp_d: 1433927173
+      stmp_d_txt: 2133166443
+      stmp_e: 562586540
+      stmp_e_txt: 899312609
+      stmp_f: -857561592
+      stmp_f_txt: 1316509915
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
