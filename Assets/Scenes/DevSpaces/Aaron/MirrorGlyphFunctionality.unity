@@ -412,6 +412,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1294646492255866469, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498740251009304502, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
     - target: {fileID: 9199116653087202855, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
       propertyPath: m_Name
       value: Pharaoh

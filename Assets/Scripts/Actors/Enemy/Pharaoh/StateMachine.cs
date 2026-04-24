@@ -1,3 +1,4 @@
+using Interactables;
 using UnityEngine;
 
 namespace Enemy.Pharaoh
@@ -51,7 +52,7 @@ namespace Enemy.Pharaoh
             base.Start();
             m_actions = GetComponent<Actions>();
             m_pharaohBlackboard = GetComponent<Blackboard>();
-            
+
 
         }
 
@@ -157,8 +158,10 @@ namespace Enemy.Pharaoh
         {
             m_activityStateWaypointIndex = m_actions.PathNavigationCycle
                 (m_activityStatePath, m_activityStateWaypointWaitTime, m_waypointDistanceTheshold, m_activityStateWaypointIndex);
-                
+
             Collider pharaohGlyphCollider = m_pharaohGlyph.GetComponent<Collider>();
+            Pickupable pharaohGlyphPickupable = m_pharaohGlyph.GetComponent<Pickupable>();
+            Rigidbody pharaphGlyphRidgidBody = m_pharaohGlyph.GetComponent<Rigidbody>();
 
             if (m_pharaohBlackboard.m_isMirrorInMirrorZone)
             {
@@ -171,6 +174,13 @@ namespace Enemy.Pharaoh
 
                 m_actions.ChangeVisionRange(0f);
                 m_actions.ChangeCatchRange(0f);
+
+                if (pharaohGlyphPickupable.m_isPickedUp)
+                {
+                    m_pharaohGlyph.transform.SetParent(null);
+                    pharaphGlyphRidgidBody.constraints &= ~RigidbodyConstraints.FreezePositionY;
+
+                }
 
                 //play distracted animation
             }
