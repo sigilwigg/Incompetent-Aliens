@@ -9,6 +9,7 @@ namespace Interactables
     public class StackOfPlayers : Interactable
     {
         Stack.Controller m_stackController;
+        Player.Controller m_playerController;
 
         private void Start()
         {
@@ -17,7 +18,11 @@ namespace Interactables
 
         public override void Interact(Player.Controller playerController)
         {
-            m_stackController.AddToStack(playerController);
+            if (!m_playerController.m_isStacked)
+            {
+                m_stackController.AddToStack(playerController);
+            }
+            
         }
     }
 }
