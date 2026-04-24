@@ -51,6 +51,7 @@ namespace Enemy.Pharaoh
             base.Start();
             m_actions = GetComponent<Actions>();
             m_pharaohBlackboard = GetComponent<Blackboard>();
+            
 
         }
 
@@ -156,10 +157,13 @@ namespace Enemy.Pharaoh
         {
             m_activityStateWaypointIndex = m_actions.PathNavigationCycle
                 (m_activityStatePath, m_activityStateWaypointWaitTime, m_waypointDistanceTheshold, m_activityStateWaypointIndex);
+                
+            Collider pharaohGlyphCollider = m_pharaohGlyph.GetComponent<Collider>();
 
-            if (m_pharaohBlackboard.m_isMirrorHeldByPlayers)
+            if (m_pharaohBlackboard.m_isMirrorInMirrorZone)
             {
-                m_pharaohGlyph.layer = 6;
+
+                pharaohGlyphCollider.enabled = true; //make glyph interactable
 
                 m_pharaohBlackboard.m_isDistracted = true;
 
@@ -172,7 +176,7 @@ namespace Enemy.Pharaoh
             }
             else
             {
-                m_pharaohGlyph.layer = 0;
+                pharaohGlyphCollider.enabled = false; //make glyph un-interactable
 
                 m_pharaohBlackboard.m_isDistracted = false;
 
