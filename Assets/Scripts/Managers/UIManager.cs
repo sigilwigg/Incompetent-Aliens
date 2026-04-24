@@ -1,37 +1,16 @@
-using System.Collections;
 using UnityEngine;
-using UserInterface;
+using UnityEngine.EventSystems;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
+    public UserInterface.PauseMenu m_pauseMenu;
+    //public UserInterface.LevelCompleteMenu m_levelCompleteMenu;
 
-    public enum MENU
-    {
-        Pause,
-        Settings,
-        Audio,
-        Controls,
-        Accessibility,
-        PauseContent
-    }
+    public bool m_isPauseMenuEnabled;
+    public bool m_isLevelCompleteMenuEnabled;
 
-    public GameObject pauseMenu;
-    public GameObject pauseMenuContent;
-    public GameObject settingsMenu;
-    public GameObject audioMenu;
-    public GameObject masterVolumeSlider;
-    public GameObject restartPopup;
-    public GameObject quitPopup;
-    public GameObject resumeButton;
-    public GameObject audioButton;
-    public GameObject restartPopupNoButton;
-    public GameObject quitPopupNoButton;
-    public GameObject tabButtons;
-    public GameObject gradeCard;
-    public GameObject letterGrade;
-
-   
+    private bool m_isPaused;
 
     private void Awake()
     {
@@ -48,58 +27,47 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void CloseMenu(MENU menu)
+    public void PauseGame()
     {
-        switch (menu)
-        {
-            case MENU.Pause:
-                pauseMenu.SetActive(false);
-                break;
-            case MENU.Settings:
-                settingsMenu.SetActive(false);
-                break;
-            case MENU.Audio:
-                audioMenu.SetActive(false);
-                break;
-            case MENU.Controls:
-                break;
-            case MENU.Accessibility:
-                break;
-            case MENU.PauseContent:
-                pauseMenuContent.SetActive(false);
-                gradeCard.SetActive(false);
-                break;
-        }
+        if (!m_isPauseMenuEnabled) return;
+        if (m_isPaused) return;
+        Debug.Log("pause");
+        m_pauseMenu.OpenMenu(UserInterface.PauseMenu.MENU.Pause);
+        m_pauseMenu.OpenMenu(UserInterface.PauseMenu.MENU.PauseContent);
+        TimeManager.instance.isGamePaused = true;
+
+        m_isPaused = true;
     }
 
-    public void OpenMenu(MENU menu)
+    public void UnPauseGame()
     {
-        switch (menu)
-        {
-            case MENU.Pause:
-                pauseMenu.SetActive(true);
-                break;
-            case MENU.Settings:
-                settingsMenu.SetActive(true);
-                break;
-            case MENU.Audio:
-                audioMenu.SetActive(true);
-                break;
-            case MENU.Controls:
-                break;
-            case MENU.Accessibility:
-                break;
-            case MENU.PauseContent:
-                pauseMenuContent.SetActive(true);
-                gradeCard.SetActive(true);
-                break;
-        }
+        if (!m_isPauseMenuEnabled) return;
+        if(!m_isPaused) return;
+        Debug.Log("unpause");
+        m_pauseMenu.CloseMenu(UserInterface.PauseMenu.MENU.Pause);
+        TimeManager.instance.isGamePaused = false;
+
+        m_isPaused = false;
     }
 
-    public IEnumerator WaitThenCloseMenu(MENU menu)
+    public void PauseMenuBack()
     {
-        yield return new WaitForFixedUpdate();
+        if (!m_isPauseMenuEnabled) return;
+        if (!m_isPaused) return;
 
-        CloseMenu(menu);
+        if (m_pauseMenu.m_settingsMenu.activeInHierarchy)
+        {
+            m_pauseMenu.CloseMenu(UserInterface.PauseMenu.MENU.Settings);
+            m_pauseMenu.OpenMenu(UserInterface.PauseMenu.MENU.Pause);
+            m_pauseMenu.OpenMenu(UserInterface.PauseMenu.MENU.PauseContent);
+            EventSystem.current.SetSelectedGameObject(m_pauseMenu.m_resumeButton);
+            m_pauseMenu.m_tabButtons.SetActive(false);
+        }
+        if (m_pauseMenu.m_audioMenu.activeInHierarchy)
+        {
+            StartCoroutine(m_pauseMenu.WaitThenCloseMenu(UserInterface.PauseMenu.MENU.Audio));
+            m_pauseMenu.OpenMenu(UserInterface.PauseMenu.MENU.Settings);
+            EventSystem.current.SetSelectedGameObject(m_pauseMenu.m_audioButton);
+        }
     }
 }

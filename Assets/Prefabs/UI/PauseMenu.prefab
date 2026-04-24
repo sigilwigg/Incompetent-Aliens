@@ -357,7 +357,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2011213342153371639}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
         m_MethodName: OnAudioButtonPressed
         m_Mode: 1
@@ -491,7 +491,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8447132981295320390}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UserInterface.PauseMenu, Assembly-CSharp
         m_MethodName: OnResumeButtonPressed
         m_Mode: 1
@@ -536,7 +536,6 @@ GameObject:
   - component: {fileID: 2013445110759785507}
   - component: {fileID: 7677509417537428060}
   - component: {fileID: 5397234907651499374}
-  - component: {fileID: 2011213342153371639}
   m_Layer: 5
   m_Name: SettingsMenu
   m_TagString: Untagged
@@ -603,18 +602,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2011213342153371639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1318468539022321846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 965d78f292f6fb44dbc6d3f443d2e7a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1342787353200097581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,7 +1491,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8447132981295320390}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UserInterface.PauseMenu, Assembly-CSharp
         m_MethodName: OnSettingsButtonPressed
         m_Mode: 1
@@ -1638,7 +1625,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8447132981295320390}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UserInterface.PauseMenu, Assembly-CSharp
         m_MethodName: OnSettingsButtonPressed
         m_Mode: 1
@@ -2483,7 +2470,7 @@ GameObject:
   - component: {fileID: 8310804186584261109}
   - component: {fileID: 6301498616402961682}
   - component: {fileID: 800094206030264687}
-  - component: {fileID: 8447132981295320390}
+  - component: {fileID: 7014188713138167802}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -2581,7 +2568,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8447132981295320390
+--- !u!114 &7014188713138167802
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2590,9 +2577,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 3805907231953585578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33245ec9cfccb0a4b8ccf8423aea40dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 83f4f48e8002c894e8a24d65f80156f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_pauseMenu: {fileID: 0}
+  m_pauseMenuContent: {fileID: 0}
+  m_settingsMenu: {fileID: 0}
+  m_audioMenu: {fileID: 0}
+  m_masterVolumeSlider: {fileID: 0}
+  m_restartPopup: {fileID: 0}
+  m_quitPopup: {fileID: 0}
+  m_resumeButton: {fileID: 0}
+  m_audioButton: {fileID: 0}
+  m_restartPopupNoButton: {fileID: 0}
+  m_quitPopupNoButton: {fileID: 0}
+  m_tabButtons: {fileID: 0}
+  m_gradeCard: {fileID: 0}
+  m_letterGrade: {fileID: 0}
 --- !u!1 &3831352067235457317
 GameObject:
   m_ObjectHideFlags: 0
@@ -3217,7 +3218,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8447132981295320390}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UserInterface.PauseMenu, Assembly-CSharp
         m_MethodName: OnQuitButtonPressed
         m_Mode: 1
@@ -3373,7 +3374,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8447132981295320390}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UserInterface.PauseMenu, Assembly-CSharp
         m_MethodName: OnRestartButtonPressed
         m_Mode: 1
@@ -4582,7 +4583,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2011213342153371639}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
         m_MethodName: OnAudioButtonPressed
         m_Mode: 1
@@ -4850,7 +4851,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2011213342153371639}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
         m_MethodName: OnBackButtonPressed
         m_Mode: 1
@@ -4983,7 +4984,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8447132981295320390}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UserInterface.PauseMenu, Assembly-CSharp
         m_MethodName: OnNoButtonPressed
         m_Mode: 1
@@ -5116,7 +5117,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8447132981295320390}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UserInterface.PauseMenu, Assembly-CSharp
         m_MethodName: OnNoButtonPressed
         m_Mode: 1

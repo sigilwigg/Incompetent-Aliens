@@ -1,0 +1,109 @@
+//using System.Collections;
+//using UnityEngine;
+//using UserInterface;
+
+//namespace old
+//{
+//    public class UIManager : MonoBehaviour
+//    {
+//        public static UIManager instance;
+//        public bool m_isPauseMenuAllowed = false;
+
+//        public enum MENU
+//        {
+//            Pause,
+//            Settings,
+//            Audio,
+//            Controls,
+//            Accessibility,
+//            PauseContent
+//        }
+
+//        public GameObject pauseMenu;
+//        public GameObject pauseMenuContent;
+//        public GameObject settingsMenu;
+//        public GameObject audioMenu;
+//        public GameObject masterVolumeSlider;
+//        public GameObject restartPopup;
+//        public GameObject quitPopup;
+//        public GameObject resumeButton;
+//        public GameObject audioButton;
+//        public GameObject restartPopupNoButton;
+//        public GameObject quitPopupNoButton;
+//        public GameObject tabButtons;
+//        public GameObject gradeCard;
+//        public GameObject letterGrade;
+
+
+
+//        private void Awake()
+//        {
+//            if (instance == null)
+//            {
+//                instance = this;
+//            }
+
+//            else
+//            {
+//                Destroy(gameObject);
+//            }
+
+//            DontDestroyOnLoad(gameObject);
+//        }
+
+//        public void CloseMenu(MENU menu)
+//        {
+//            switch (menu)
+//            {
+//                case MENU.Pause:
+//                    pauseMenu.SetActive(false);
+//                    break;
+//                case MENU.Settings:
+//                    settingsMenu.SetActive(false);
+//                    break;
+//                case MENU.Audio:
+//                    audioMenu.SetActive(false);
+//                    break;
+//                case MENU.Controls:
+//                    break;
+//                case MENU.Accessibility:
+//                    break;
+//                case MENU.PauseContent:
+//                    pauseMenuContent.SetActive(false);
+//                    gradeCard.SetActive(false);
+//                    break;
+//            }
+//        }
+
+//        public void OpenMenu(MENU menu)
+//        {
+//            switch (menu)
+//            {
+//                case MENU.Pause:
+//                    pauseMenu.SetActive(true);
+//                    break;
+//                case MENU.Settings:
+//                    settingsMenu.SetActive(true);
+//                    break;
+//                case MENU.Audio:
+//                    audioMenu.SetActive(true);
+//                    break;
+//                case MENU.Controls:
+//                    break;
+//                case MENU.Accessibility:
+//                    break;
+//                case MENU.PauseContent:
+//                    pauseMenuContent.SetActive(true);
+//                    gradeCard.SetActive(true);
+//                    break;
+//            }
+//        }
+
+//        public IEnumerator WaitThenCloseMenu(MENU menu)
+//        {
+//            yield return new WaitForFixedUpdate();
+
+//            CloseMenu(menu);
+//        }
+//    }
+//}

@@ -23,13 +23,6 @@ namespace Player
         {
             m_playerController = GetComponent<Player.Controller>();
 
-            // 0.0, 1.0, 0.707107
-            // 0.0, 0.0
-            // 1.0, 0.0
-            // -1.0, 0.0
-            // 0.0, 1.0
-            // 0.0, -1.0
-            // 0.707107, 0.707107
             m_directions = new List<Vector2>();
             m_directions.Add(new Vector2(0.0f, 0.0f));
 
@@ -80,18 +73,17 @@ namespace Player
 
         public void Pause(InputAction.CallbackContext context)
         {
+            Debug.Log("pause");
             if (context.phase == InputActionPhase.Performed)
             {
                 if (TimeManager.instance.isGamePaused)
                 {
-                    TimeManager.instance.isGamePaused = false;
-                    UIManager.instance.CloseMenu(UIManager.MENU.Pause);
+                    UIManager.instance.UnPauseGame();
                 }
                 else
                 {
-                    TimeManager.instance.isGamePaused = true;
-                    UIManager.instance.OpenMenu(UIManager.MENU.Pause);
-                    UIManager.instance.OpenMenu(UIManager.MENU.PauseContent);
+                    
+                    UIManager.instance.PauseGame();
                 }
                 
             }
@@ -102,21 +94,8 @@ namespace Player
             if (context.phase == InputActionPhase.Performed)
             {
                 if (!TimeManager.instance.isGamePaused) return;
-                
-                if (UIManager.instance.settingsMenu.activeInHierarchy)
-                {
-                    UIManager.instance.CloseMenu(UIManager.MENU.Settings);
-                    UIManager.instance.OpenMenu(UIManager.MENU.Pause);
-                    UIManager.instance.OpenMenu(UIManager.MENU.PauseContent);
-                    EventSystem.current.SetSelectedGameObject(UIManager.instance.resumeButton);
-                    UIManager.instance.tabButtons.SetActive(false);
-                }
-                if (UIManager.instance.audioMenu.activeInHierarchy)
-                {
-                    StartCoroutine(UIManager.instance.WaitThenCloseMenu(UIManager.MENU.Audio));
-                    UIManager.instance.OpenMenu(UIManager.MENU.Settings);
-                    EventSystem.current.SetSelectedGameObject(UIManager.instance.audioButton);
-                }
+
+                UIManager.instance.PauseMenuBack();
             }
         }
     }
