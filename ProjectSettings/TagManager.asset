@@ -13,6 +13,7 @@ TagManager:
   - Basket
   - AudioManager
   - GameStateManager
+  - LevelData
   layers:
   - Default
   - TransparentFX

@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameState : MonoBehaviour
 {
     public static GameState instance;
+    private LevelData m_levelData;
 
     public enum SceneType
     {
@@ -15,7 +16,8 @@ public class GameState : MonoBehaviour
     public bool m_isLevelComplete = false;
     public bool m_shouldReset = false;
 
-    public float m_recordedLevelTime;
+    public string m_recordedLevelGrade;
+    private Timer m_timer;
 
     private void Awake()
     {
@@ -32,6 +34,11 @@ public class GameState : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        m_timer = GameObject.FindWithTag("GameTimer").GetComponent<Timer>();
+    }
+
     public void RestartLevel()
     {
         SceneController.ReloadScene();
@@ -45,8 +52,9 @@ public class GameState : MonoBehaviour
 
     private void ToLevelCompleteScreen()
     {
+        m_levelData = GameObject.FindWithTag("LevelData").GetComponent<LevelData>();
+        m_recordedLevelGrade = m_levelData.EvaluateGrade(m_timer.GetMS());
         m_currentSceneType = SceneType.LevelComplete;
-        //m_recordedLevelTime = TimeManager.instance.m
         SceneController.CallTransitionToScene("LevelComplete");
         m_isLevelComplete = false;
     }

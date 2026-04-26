@@ -34,7 +34,7 @@ public class Timer : MonoBehaviour
 
     private void SetTimerText()
     {
-        float ms = m_timeElapsed * 10000;
+        float ms = m_timeElapsed * 1000;
         int hours = Mathf.FloorToInt(ms / 3600000);
         ms %= 3600000;
 
@@ -44,7 +44,12 @@ public class Timer : MonoBehaviour
         int seconds = Mathf.FloorToInt(ms / 1000);
 
         float timeForText = Mathf.Floor(m_timeElapsed);
-        m_TextMeshPro.text = minutes.ToString() + ":" + seconds.ToString();
+        m_TextMeshPro.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    public int GetMS()
+    {
+        return Mathf.FloorToInt((m_timeElapsed * 1000));
     }
 
     public void RestartTimer()
