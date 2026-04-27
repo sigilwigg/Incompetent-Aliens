@@ -5,8 +5,6 @@ using System.Linq;
 
 public class LevelData : MonoBehaviour
 {
-    public List<Tuple<string, int>> m_gradingTiers = new List<Tuple<string, int>>();
-
     public int m_tierA;
     public int m_tierB;
     public int m_tierC;
@@ -14,16 +12,16 @@ public class LevelData : MonoBehaviour
     public int m_tierE;
     public int m_tierF;
 
-    //public string EvaluateGrade(int _ms)
-    //{
-    //    string result = m_gradingTiers.ElementAt(m_tierF).Key;
+    public string EvaluateGrade(int _ms)
+    {
+        string result = "F";
 
-    //    if (_ms <= m_gradingTiers.ElementAt(m_tierE).Value) result = m_gradingTiers.ElementAt(m_tierE).Key;
-    //    if (_ms <= m_gradingTiers.ElementAt(m_tierD).Value) result = m_gradingTiers.ElementAt(m_tierD).Key;
-    //    if (_ms <= m_gradingTiers.ElementAt(m_tierC).Value) result = m_gradingTiers.ElementAt(m_tierC).Key;
-    //    if (_ms <= m_gradingTiers.ElementAt(m_tierB).Value) result = m_gradingTiers.ElementAt(m_tierB).Key;
-    //    if (_ms <= m_gradingTiers.ElementAt(m_tierA).Value) result = m_gradingTiers.ElementAt(m_tierA).Key;
+        if (_ms <= m_tierE) result = "E";
+        if (_ms <= m_tierD) result = "D";
+        if (_ms <= m_tierC) result = "C";
+        if (_ms <= m_tierB) result = "B";
+        if (_ms <= m_tierA) result = "A";
 
-    //    return result;
-    //}
+        return result;
+    }
 }

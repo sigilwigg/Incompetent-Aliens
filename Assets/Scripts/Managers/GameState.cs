@@ -16,7 +16,7 @@ public class GameState : MonoBehaviour
     public bool m_isLevelComplete = false;
     public bool m_shouldReset = false;
 
-    public string m_recordedLevelGrade;
+    public string m_recordedLevelGrade = "F";
     private Timer m_timer;
 
     private void Awake()
