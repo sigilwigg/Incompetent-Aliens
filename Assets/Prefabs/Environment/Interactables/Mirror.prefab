@@ -85,11 +85,12 @@ GameObject:
   - component: {fileID: 8335953916963670442}
   - component: {fileID: 964930211577101109}
   - component: {fileID: 356827337017896597}
+  - component: {fileID: 1551401862609815102}
   - component: {fileID: 5410100280971640036}
   - component: {fileID: 4729519925659204637}
   m_Layer: 0
   m_Name: Mirror
-  m_TagString: Untagged
+  m_TagString: Mirror
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,7 +105,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5932099699013816784}
@@ -187,6 +188,18 @@ CapsuleCollider:
   m_Height: 3.5827389
   m_Direction: 1
   m_Center: {x: 0, y: 0.000000059604645, z: 0.000000014901161}
+--- !u!114 &1551401862609815102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8607228660137620415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eda7c5bdfd4e294a908004bc953494f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5410100280971640036
 MonoBehaviour:
   m_ObjectHideFlags: 0
