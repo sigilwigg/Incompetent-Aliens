@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TimeManager : MonoBehaviour
 {
@@ -25,6 +28,7 @@ public class TimeManager : MonoBehaviour
         if (!isGamePaused)
         {
             deltaTime = Time.deltaTime;
+            
         }
         else
         {

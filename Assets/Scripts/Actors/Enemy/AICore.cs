@@ -8,6 +8,7 @@ namespace Enemy
         private Enemy.Controller m_controller;
         private NavMeshAgent m_agent;      
         private AIBlackboard m_blackboard;
+        private TimeManager m_timeManager;
 
         public State m_currentState;
 
@@ -30,6 +31,19 @@ namespace Enemy
             m_controller = GetComponentInParent<Enemy.Controller>();
             m_agent = GetComponent<NavMeshAgent>();
             m_blackboard = GetComponent<AIBlackboard>();
+            m_timeManager = FindFirstObjectByType<TimeManager>();
+        }
+
+        private void FixedUpdate()
+        {
+            if (!m_timeManager.isGamePaused)
+            {
+                Agent.isStopped = false;
+            }
+            else
+            {
+                Agent.isStopped = true;
+            }
         }
 
         public void Act()
