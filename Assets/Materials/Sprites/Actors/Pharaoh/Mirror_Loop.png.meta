@@ -152,10 +152,10 @@ TextureImporter:
       name: Mirror_Loop_0
       rect:
         serializedVersion: 2
-        x: 145
-        y: 304
-        width: 599
-        height: 1168
+        x: 0
+        y: 0
+        width: 892
+        height: 1544
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,10 +174,10 @@ TextureImporter:
       name: Mirror_Loop_4
       rect:
         serializedVersion: 2
-        x: 1038
-        y: 304
-        width: 549
-        height: 1170
+        x: 3568
+        y: 0
+        width: 892
+        height: 1544
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,13 +193,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mirror_Loop_8
+      name: Mirror_Loop_1
       rect:
         serializedVersion: 2
-        x: 1929
-        y: 304
-        width: 536
-        height: 1170
+        x: 892
+        y: 0
+        width: 892
+        height: 1544
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d625b33c797de04f9212ada472ed1cb
-      internalID: -925236986
+      spriteID: 4ddf5fa7877381842bc49c43ccbccfd5
+      internalID: 635142183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mirror_Loop_12
+      name: Mirror_Loop_2
       rect:
         serializedVersion: 2
-        x: 2822
-        y: 304
-        width: 536
-        height: 1170
+        x: 1784
+        y: 0
+        width: 892
+        height: 1544
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,20 +230,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d0b36917354beb4caf4163d1f8c47e7
-      internalID: -568604821
+      spriteID: a9c070225c557034eaf6a0ed06272745
+      internalID: 313113786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mirror_Loop_16
+      name: Mirror_Loop_3
       rect:
         serializedVersion: 2
-        x: 3712
-        y: 304
-        width: 622
-        height: 1170
+        x: 2676
+        y: 0
+        width: 892
+        height: 1544
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,20 +252,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c3cea5917ad0f649a127edab3bb9a10
-      internalID: -286632023
+      spriteID: b686b59fbd58a214abb41cf3a28cafbd
+      internalID: 1862060979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mirror_Loop_20
+      name: Mirror_Loop_5
       rect:
         serializedVersion: 2
-        x: 4605
-        y: 304
-        width: 630
-        height: 1170
+        x: 4460
+        y: 0
+        width: 892
+        height: 1544
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -274,20 +274,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccf3c561d1709834faa39ef859eec229
-      internalID: 1852332911
+      spriteID: 48587a3ccdff585419b42f9ca0fffe81
+      internalID: -1413098947
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mirror_Loop_23
+      name: Mirror_Loop_6
       rect:
         serializedVersion: 2
-        x: 5481
-        y: 304
-        width: 700
-        height: 1171
+        x: 5352
+        y: 0
+        width: 892
+        height: 1544
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -296,8 +296,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13b0daf5773feec40970fef3e241bb16
-      internalID: 1129630276
+      spriteID: 873ccb152ae96e84aa7a104381192973
+      internalID: -1007806521
       vertices: []
       indices: 
       edges: []
@@ -316,34 +316,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":7.0,"y":1.0},"gridSpriteSize":{"x":892.0,"y":1544.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Mirror_Loop_0: 194861696
       Mirror_Loop_1: 635142183
-      Mirror_Loop_10: -350098401
-      Mirror_Loop_11: 689188737
-      Mirror_Loop_12: -568604821
-      Mirror_Loop_13: 639729105
-      Mirror_Loop_14: 76369100
-      Mirror_Loop_15: 1240164801
-      Mirror_Loop_16: -286632023
-      Mirror_Loop_17: -1290910524
-      Mirror_Loop_18: -1645415679
-      Mirror_Loop_19: -447789100
       Mirror_Loop_2: 313113786
-      Mirror_Loop_20: 1852332911
-      Mirror_Loop_21: 71335765
-      Mirror_Loop_22: 1392269889
-      Mirror_Loop_23: 1129630276
-      Mirror_Loop_24: -205391366
-      Mirror_Loop_25: -433706899
       Mirror_Loop_3: 1862060979
       Mirror_Loop_4: -8856890
       Mirror_Loop_5: -1413098947
       Mirror_Loop_6: -1007806521
-      Mirror_Loop_7: -927361338
-      Mirror_Loop_8: -925236986
-      Mirror_Loop_9: 385595772
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

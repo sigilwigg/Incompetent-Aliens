@@ -152,12 +152,12 @@ TextureImporter:
       name: Stomp_SpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 117
-        y: 1849
-        width: 658
-        height: 1170
+        x: 0
+        y: 1544
+        width: 892
+        height: 1544
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -174,12 +174,12 @@ TextureImporter:
       name: Stomp_SpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 997
-        y: 1858
-        width: 683
-        height: 1149
+        x: 892
+        y: 1544
+        width: 892
+        height: 1544
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -196,12 +196,12 @@ TextureImporter:
       name: Stomp_SpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 1887
-        y: 1868
-        width: 636
-        height: 1209
+        x: 1784
+        y: 1544
+        width: 892
+        height: 1544
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: Stomp_SpriteSheet_5
       rect:
         serializedVersion: 2
-        x: 2799
-        y: 1863
-        width: 646
-        height: 1186
+        x: 4460
+        y: 1544
+        width: 892
+        height: 1544
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -240,12 +240,12 @@ TextureImporter:
       name: Stomp_SpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 3810
-        y: 1849
-        width: 547
-        height: 1142
+        x: 5352
+        y: 1544
+        width: 892
+        height: 1544
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -262,12 +262,12 @@ TextureImporter:
       name: Stomp_SpriteSheet_7
       rect:
         serializedVersion: 2
-        x: 4531
-        y: 1849
-        width: 749
-        height: 1158
+        x: 0
+        y: 0
+        width: 892
+        height: 1544
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -284,12 +284,12 @@ TextureImporter:
       name: Stomp_SpriteSheet_8
       rect:
         serializedVersion: 2
-        x: 5544
-        y: 1849
-        width: 639
-        height: 1170
+        x: 892
+        y: 0
+        width: 892
+        height: 1544
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -306,12 +306,12 @@ TextureImporter:
       name: Stomp_SpriteSheet_12
       rect:
         serializedVersion: 2
-        x: 52
-        y: 304
-        width: 902
-        height: 1173
+        x: 4460
+        y: 0
+        width: 892
+        height: 1544
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -325,111 +325,111 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stomp_SpriteSheet_13
+      name: Stomp_SpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 1084
-        y: 304
-        width: 509
-        height: 1173
+        x: 2676
+        y: 1544
+        width: 892
+        height: 1544
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cc876fde51d47943a1a9520db7c51d7
-      internalID: 1027879004
+      spriteID: b7d43e4d4800abb47916ed5a5999ec15
+      internalID: 415761535
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stomp_SpriteSheet_14
+      name: Stomp_SpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 1720
-        y: 304
-        width: 1009
-        height: 1173
+        x: 3568
+        y: 1544
+        width: 892
+        height: 1544
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fed95903e7531624db1e6b56e31d50a6
-      internalID: -1989865974
+      spriteID: 827b9ab48d47ab747a52d6ec200c435b
+      internalID: 1942487864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stomp_SpriteSheet_15
+      name: Stomp_SpriteSheet_9
       rect:
         serializedVersion: 2
-        x: 2855
-        y: 304
-        width: 534
-        height: 1173
+        x: 1784
+        y: 0
+        width: 892
+        height: 1544
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 893cb45fec28f4041b3ebdeb293b9a50
-      internalID: 938928145
+      spriteID: 7699dc4a16f1ad74daf85c1fabc547f7
+      internalID: 538402211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stomp_SpriteSheet_16
+      name: Stomp_SpriteSheet_10
       rect:
         serializedVersion: 2
-        x: 3515
-        y: 304
-        width: 997
-        height: 1173
+        x: 2676
+        y: 0
+        width: 892
+        height: 1544
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6317bb4efa5334a40a485d73e92a9f5b
-      internalID: 705092039
+      spriteID: 9c7b1c63b934fea4d81fe5cc223948c7
+      internalID: -410934551
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stomp_SpriteSheet_17
+      name: Stomp_SpriteSheet_11
       rect:
         serializedVersion: 2
-        x: 4636
-        y: 304
-        width: 669
-        height: 1173
+        x: 3568
+        y: 0
+        width: 892
+        height: 1544
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9be7710a84c557438f56db3be271dbf
-      internalID: 1754069605
+      spriteID: 2f5fbe42b5e23c446a956d27ecda30e7
+      internalID: 679259297
       vertices: []
       indices: 
       edges: []
@@ -448,18 +448,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":2,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":7.0,"y":2.0},"gridSpriteSize":{"x":892.0,"y":1544.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Stomp_SpriteSheet_0: -950602932
       Stomp_SpriteSheet_1: -1055936681
       Stomp_SpriteSheet_10: -410934551
       Stomp_SpriteSheet_11: 679259297
       Stomp_SpriteSheet_12: 1297155901
-      Stomp_SpriteSheet_13: 1027879004
-      Stomp_SpriteSheet_14: -1989865974
-      Stomp_SpriteSheet_15: 938928145
-      Stomp_SpriteSheet_16: 705092039
-      Stomp_SpriteSheet_17: 1754069605
       Stomp_SpriteSheet_2: 1522341766
       Stomp_SpriteSheet_3: 415761535
       Stomp_SpriteSheet_4: 1942487864
