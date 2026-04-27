@@ -95,7 +95,7 @@ public class JoinManager : MonoBehaviour
         if (UIManager.instance != null && UIManager.instance.m_pauseMenu.activeInHierarchy) return;
         foreach (Gamepad gamepad in Gamepad.all)
         {
-            if (gamepad.buttonSouth.wasPressedThisFrame && !MaxPlayerCountReached())
+            if (gamepad.startButton.wasPressedThisFrame && !MaxPlayerCountReached())
             {
                 foreach (PlayerInput playerInput in m_playerInputsJoined)
                 {
