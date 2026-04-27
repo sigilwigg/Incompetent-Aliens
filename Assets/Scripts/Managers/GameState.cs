@@ -4,6 +4,7 @@ public class GameState : MonoBehaviour
 {
     public static GameState instance;
     private LevelData m_levelData;
+    public string m_levelNameCompleted;
 
     public enum SceneType
     {
@@ -54,6 +55,7 @@ public class GameState : MonoBehaviour
     {
         m_levelData = GameObject.FindWithTag("LevelData").GetComponent<LevelData>();
         m_recordedLevelGrade = m_levelData.EvaluateGrade(m_timer.GetMS());
+        m_levelNameCompleted = m_levelData.m_levelName;
         m_currentSceneType = SceneType.LevelComplete;
         SceneController.CallTransitionToScene("LevelComplete");
         m_isLevelComplete = false;

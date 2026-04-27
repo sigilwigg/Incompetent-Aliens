@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class LevelData : MonoBehaviour
 {
@@ -11,6 +12,13 @@ public class LevelData : MonoBehaviour
     public int m_tierD;
     public int m_tierE;
     public int m_tierF;
+
+    public string m_levelName;
+
+    private void Start()
+    {
+        if(m_levelName == null || m_levelName == "") m_levelName = SceneManager.GetActiveScene().name;
+    }
 
     public string EvaluateGrade(int _ms)
     {

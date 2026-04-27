@@ -17,19 +17,24 @@ public class UIManager : MonoBehaviour
     }
 
     public GameObject m_pauseMenu;
-    public GameObject m_pauseMenuContent;
-    public GameObject m_settingsMenu;
-    public GameObject m_audioMenu;
-    public GameObject m_masterVolumeSlider;
-    public GameObject m_restartPopup;
-    public GameObject m_quitPopup;
-    public GameObject m_resumeButton;
-    public GameObject m_audioButton;
-    public GameObject m_restartPopupNoButton;
-    public GameObject m_quitPopupNoButton;
-    public GameObject m_tabButtons;
-    public GameObject m_gradeCard;
-    public GameObject m_letterGrade;
+    [HideInInspector] public GameObject m_pauseMenuContent;
+    [HideInInspector] public GameObject m_settingsMenu;
+    [HideInInspector] public GameObject m_audioMenu;
+    [HideInInspector] public GameObject m_masterVolumeSlider;
+    [HideInInspector] public GameObject m_restartPopup;
+    [HideInInspector] public GameObject m_quitPopup;
+    [HideInInspector] public GameObject m_resumeButton;
+    [HideInInspector] public GameObject m_audioButton;
+    [HideInInspector] public GameObject m_restartPopupNoButton;
+    [HideInInspector] public GameObject m_quitPopupNoButton;
+    [HideInInspector] public GameObject m_tabButtons;
+    [HideInInspector] public GameObject m_gradeCard;
+    [HideInInspector] public GameObject m_letterGrade;
+
+    public GameObject m_lvlCompMenu;
+    public GameObject m_lvlCompRestartPopup;
+    public GameObject m_lvlCompQuitPopup;
+    public GameObject m_lvlCompQuitPopupNoButton;
 
     private void Awake()
     {
@@ -48,6 +53,12 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        SetUpComponents();
+    }
+
+    public void SetUpComponents()
+    {
+        // ----- pause menu components -----
         Transform pTransform = m_pauseMenu.transform;
         m_pauseMenuContent = FindTransform.FindChildNamed(pTransform, "PauseMenuContent").gameObject;
         m_settingsMenu = FindTransform.FindChildNamed(pTransform, "SettingsMenu").gameObject;
@@ -62,6 +73,14 @@ public class UIManager : MonoBehaviour
         m_tabButtons = FindTransform.FindChildNamed(pTransform, "TabButtons").gameObject;
         m_gradeCard = FindTransform.FindChildNamed(pTransform, "GradeCard").gameObject;
         m_letterGrade = FindTransform.FindChildNamed(pTransform, "LetterGrade").gameObject;
+
+        // ----- lvl complete menu components -----
+        m_lvlCompMenu = GameObject.FindWithTag("LvlCompMenu");
+        if (m_lvlCompMenu == null) return;
+        Transform lvlCompTransform = m_lvlCompMenu.transform;
+        m_lvlCompRestartPopup = FindTransform.FindChildNamed(lvlCompTransform, "RestartPopup").gameObject;
+        m_lvlCompQuitPopup = FindTransform.FindChildNamed(lvlCompTransform, "QuitPopup").gameObject;
+        m_lvlCompQuitPopupNoButton = FindTransform.FindChildNamed(lvlCompTransform, "QuitPopupNoButton").gameObject;
     }
 
     public void CloseMenu(MENU menu)

@@ -7,9 +7,15 @@ public class LevelCompleteGrade : MonoBehaviour
 
     void Start()
     {
-        foreach(GameObject grade in m_grades)
+        foreach (GameObject grade in m_grades)
         {
             grade.SetActive(false);
+        }
+
+        if (GameState.instance == null)
+        {
+            m_grades[0].SetActive(true);
+            return;
         }
 
         if (GameState.instance.m_recordedLevelGrade == "A") m_grades[0].SetActive(true);
