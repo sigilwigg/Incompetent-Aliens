@@ -182,7 +182,7 @@ namespace Enemy.Pharaoh
 
                 }
 
-                //play distracted animation
+                //play distracted animation              
             }
             else
             {
