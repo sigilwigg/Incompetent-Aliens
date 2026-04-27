@@ -103,19 +103,19 @@ namespace Player
             {
                 if (!TimeManager.instance.isGamePaused) return;
                 
-                if (UIManager.instance.settingsMenu.activeInHierarchy)
+                if (UIManager.instance.m_settingsMenu.activeInHierarchy)
                 {
                     UIManager.instance.CloseMenu(UIManager.MENU.Settings);
                     UIManager.instance.OpenMenu(UIManager.MENU.Pause);
                     UIManager.instance.OpenMenu(UIManager.MENU.PauseContent);
-                    EventSystem.current.SetSelectedGameObject(UIManager.instance.resumeButton);
-                    UIManager.instance.tabButtons.SetActive(false);
+                    EventSystem.current.SetSelectedGameObject(UIManager.instance.m_resumeButton);
+                    UIManager.instance.m_tabButtons.SetActive(false);
                 }
-                if (UIManager.instance.audioMenu.activeInHierarchy)
+                if (UIManager.instance.m_audioMenu.activeInHierarchy)
                 {
                     StartCoroutine(UIManager.instance.WaitThenCloseMenu(UIManager.MENU.Audio));
                     UIManager.instance.OpenMenu(UIManager.MENU.Settings);
-                    EventSystem.current.SetSelectedGameObject(UIManager.instance.audioButton);
+                    EventSystem.current.SetSelectedGameObject(UIManager.instance.m_audioButton);
                 }
             }
         }

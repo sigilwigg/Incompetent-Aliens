@@ -13,6 +13,8 @@ TagManager:
   - Basket
   - AudioManager
   - GameStateManager
+  - LevelData
+  - LvlCompMenu
   layers:
   - Default
   - TransparentFX

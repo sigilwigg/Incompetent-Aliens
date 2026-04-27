@@ -38,7 +38,7 @@ public class JoinManager : MonoBehaviour
 
     private void HandleNewConnectionsKeyboardWASD()
     {
-        if (UIManager.instance != null && UIManager.instance.pauseMenu.activeInHierarchy) return;
+        if (UIManager.instance != null && UIManager.instance.m_pauseMenu.activeInHierarchy) return;
         if (Keyboard.current == null) return;
         if(!m_isJoinedKeyboardWASD && Keyboard.current.spaceKey.wasPressedThisFrame && !MaxPlayerCountReached())
         {
@@ -65,7 +65,7 @@ public class JoinManager : MonoBehaviour
 
     private void HandleNewConnectionsKeyboardArrows()
     {
-        if (UIManager.instance != null && UIManager.instance.pauseMenu.activeInHierarchy) return;
+        if (UIManager.instance != null && UIManager.instance.m_pauseMenu.activeInHierarchy) return;
         if (Keyboard.current == null) return;
         if (!m_isJoinedKeyboardArrows && Keyboard.current.rightShiftKey.wasPressedThisFrame && !MaxPlayerCountReached())
         {
@@ -92,7 +92,7 @@ public class JoinManager : MonoBehaviour
 
     private void HandleNewConnectionsGamepads()
     {
-        if (UIManager.instance != null && UIManager.instance.pauseMenu.activeInHierarchy) return;
+        if (UIManager.instance != null && UIManager.instance.m_pauseMenu.activeInHierarchy) return;
         foreach (Gamepad gamepad in Gamepad.all)
         {
             if (gamepad.buttonSouth.wasPressedThisFrame && !MaxPlayerCountReached())

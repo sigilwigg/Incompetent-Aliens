@@ -1050,7 +1050,7 @@ GameObject:
   - component: {fileID: 1289766642287798010}
   - component: {fileID: 3702828748414313208}
   m_Layer: 5
-  m_Name: YesButton
+  m_Name: QuitPopupYesButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3621,7 +3621,7 @@ GameObject:
   - component: {fileID: 8248559633390640908}
   - component: {fileID: 3200635753904153223}
   m_Layer: 5
-  m_Name: YesButton
+  m_Name: RestartPopupYesButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3728,7 +3728,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8248559633390640908}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameState, Assembly-CSharp
+        m_MethodName: RestartLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7653222199614741934
 GameObject:
   m_ObjectHideFlags: 0
@@ -4875,7 +4887,7 @@ GameObject:
   - component: {fileID: 8142019517439302880}
   - component: {fileID: 6600275479815942697}
   m_Layer: 5
-  m_Name: NoButton
+  m_Name: RestartPopupNoButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5008,7 +5020,7 @@ GameObject:
   - component: {fileID: 4676167066480536221}
   - component: {fileID: 7401112510101992994}
   m_Layer: 5
-  m_Name: NoButton
+  m_Name: QuitPopupNoButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
