@@ -61,7 +61,7 @@ namespace Enemy.Pharaoh
             //----- check if player is caught -----
             if (m_pharaohBlackboard.m_canCatchPlayer && !m_actions.m_isThrowing)
             {
-                m_actions.ThrowPlayers(m_throwCooldown, m_throwForce);
+                StartCoroutine(m_actions.ThrowPlayerCoroutine(m_throwCooldown, m_throwForce));
             }
 
             //----- decide state -----
