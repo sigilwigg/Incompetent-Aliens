@@ -8,15 +8,15 @@ public class SettingsMenu : MonoBehaviour
     {
         UIManager.instance.OpenMenu(UIManager.MENU.Audio);
         UIManager.instance.CloseMenu(UIManager.MENU.Settings);
-        EventSystem.current.SetSelectedGameObject(UIManager.instance.masterVolumeSlider);
+        EventSystem.current.SetSelectedGameObject(UIManager.instance.m_masterVolumeSlider);
     }
 
     public void OnBackButtonPressed()
     {
         UIManager.instance.CloseMenu(UIManager.MENU.Settings);
         UIManager.instance.OpenMenu(UIManager.MENU.PauseContent);
-        UIManager.instance.tabButtons.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(UIManager.instance.resumeButton);
+        UIManager.instance.m_tabButtons.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(UIManager.instance.m_resumeButton);
     }
 
     public void OnControlsButtonPressed()
