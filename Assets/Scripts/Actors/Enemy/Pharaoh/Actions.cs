@@ -30,7 +30,7 @@ namespace Enemy.Pharaoh
         {
             m_observation = GetComponent<Observation>();
             m_stateMachine = GetComponent<StateMachine>();
-            m_timeManager= FindFirstObjectByType<TimeManager>();
+            m_timeManager = FindFirstObjectByType<TimeManager>();
         }
 
         private void Update()
@@ -48,11 +48,32 @@ namespace Enemy.Pharaoh
             m_stateMachine.Agent.SetDestination(m_observation.m_closestEnemyInView.position);
         }
 
-        public IEnumerator ThrowPlayerCoroutine(float waitTimer, float bounceForce = 0.5f)
+        public void ThrowPlayers(float waitTimer, float bounceForce = 0.5f)
+        {
+            Player.Controller playerController = m_observation.m_closestEnemyInCatchView;
+            if (playerController.m_myStackController.m_playersInStack > 1)
+            {
+                for (int idx = 0; idx < playerController.m_myStackController.m_playersInStack; idx++)
+                {
+                    StartCoroutine(ThrowPlayerCoroutine(playerController.m_myStackController.m_playerControllers[idx], waitTimer, bounceForce));
+                    playerController.m_myStackController.RemoveFromStack(idx);
+                }
+            }
+            else
+            {
+                StartCoroutine(ThrowPlayerCoroutine(playerController, waitTimer, bounceForce));
+            }
+        }
+
+        public IEnumerator ThrowPlayerCoroutine(Player.Controller playerController, float waitTimer, float bounceForce = 0.5f)
         {
             if (m_throwCoolDownTimer <= 0)
             {
                 m_isThrowing = true;
+
+                //----- get references player model -----
+                GameObject playerModel = playerController.m_playerModel;
+
 
                 //----- spawn dust up particle ----
                 GameObject dustUpGO = Instantiate(m_dustUpParticle, transform.position, Quaternion.identity);
@@ -62,13 +83,9 @@ namespace Enemy.Pharaoh
 
                 Destroy(dustUpGO, waitTime);
 
-                //----- get references to player caught and player model -----
-                Player.Controller playerController = m_observation.m_closestEnemyInCatchView;
-                GameObject playerModel = playerController.m_playerModel;
-
                 //----- disable models and movement -----
                 playerController.m_canMove = false;
-                playerModel.SetActive(false);         
+                playerModel.SetActive(false);
                 m_pharaohModel.SetActive(false);
                 m_stateMachine.Agent.speed = 0f;
 
