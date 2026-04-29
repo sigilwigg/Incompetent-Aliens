@@ -18,6 +18,7 @@ public class SoloPickupVFX : MonoBehaviour
         if (!interactableObject.GetComponent<Pickupable>().m_isPickedUp)
         {
             baseParticles.Play();
+            sparks.Play();
         }
         else
         {
