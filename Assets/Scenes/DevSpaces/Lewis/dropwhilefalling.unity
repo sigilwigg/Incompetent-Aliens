@@ -384,6 +384,7 @@ MonoBehaviour:
   m_collider: {fileID: 0}
   m_isPickedUp: 0
   m_isMultipointPickupPoint: 0
+  m_originalPosition: {x: 0, y: 0, z: 0}
   m_itemName: 
 --- !u!1001 &306806188
 PrefabInstance:
@@ -788,6 +789,10 @@ PrefabInstance:
     - target: {fileID: 9199116653087202855, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
       propertyPath: m_Name
       value: Pharaoh
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199116653087202855, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1222,10 +1227,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4231583961126885685, guid: 424377277fd31e8429e9e88f42b1f09d, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 34f3473bacf63d84fa9d2ec21ad38fc1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1239,6 +1240,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 15957563483863402, guid: 1aba045cbb7344c419a83634e1a1246d, type: 3}
+      propertyPath: InitialModule.startSize.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 15957563483863402, guid: 1aba045cbb7344c419a83634e1a1246d, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 15957563483863402, guid: 1aba045cbb7344c419a83634e1a1246d, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 261928953382803513, guid: 1aba045cbb7344c419a83634e1a1246d, type: 3}
       propertyPath: m_Name
       value: Glyph_2
@@ -1302,7 +1315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6049840242265287512, guid: f2eca3f0e182c5e4f94fea1d87131a5e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6049840242265287512, guid: f2eca3f0e182c5e4f94fea1d87131a5e, type: 3}
       propertyPath: m_LocalPosition.z
