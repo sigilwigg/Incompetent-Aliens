@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using Player;
 using System.Collections;
+using System.Linq;
+using UnityEngine.InputSystem.Users;
 
 /*
  *  Handles checking for new gamepad or keyboard connections.
@@ -32,8 +34,8 @@ public class JoinManager : MonoBehaviour
     [Header("Player Colors")]
     public List<Color> m_playerColors = new List<Color>();
     public List<PlayerInput> m_playerInputsJoined = new List<PlayerInput>();
-
-    [SerializeField] bool respawnPlayers;
+    public List<InputDevice> m_playerGamepads = new List<InputDevice>();
+    public List<InputUser> m_playerUsers = new List<InputUser>();
 
     public GameObject m_bouncingBallPrefab;
 
@@ -64,12 +66,6 @@ public class JoinManager : MonoBehaviour
         HandleNewConnectionsKeyboardArrows();
         HandleNewConnectionsGamepads();
         HandleNewColorAssignments();
-
-        if (respawnPlayers)
-        {
-            RespawnPlayers();
-            respawnPlayers = false;
-        }
     }
 
     private void HandleNewConnectionsKeyboardWASD()
@@ -148,6 +144,11 @@ public class JoinManager : MonoBehaviour
                     pairWithDevice: gamepad
                 );
 
+                m_playerGamepads.Add(gamepad);
+                m_playerUsers.Add(player.user);
+
+                Debug.Log(player.devices[0].deviceId);
+
                 // ----- set player to spawn point -----
                 player.transform.position = m_spawnPoint.position;
 
@@ -176,11 +177,12 @@ public class JoinManager : MonoBehaviour
 
     public void RespawnPlayers()
     {
-        foreach (PlayerInput player in m_playerInputsJoined)
+        for (int i = 0; i < m_playerInputsJoined.Count; i++)
         {
+            PlayerInput player = m_playerInputsJoined[i];
             Controller playerController = player.gameObject.GetComponent<Controller>();
 
-            player.gameObject.SetActive(true);
+            InputUser.PerformPairingWithDevice(m_playerGamepads[i], m_playerUsers[i]);
 
             ThrowPlayers(playerController);
 
