@@ -892,6 +892,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -3.98
       objectReference: {fileID: 0}
+    - target: {fileID: 7376387998715687480, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: m_Size.x
+      value: 2.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376387998715687480, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+      propertyPath: m_Size.y
+      value: 3.8605783
+      objectReference: {fileID: 0}
     - target: {fileID: 8012855089489502388, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
       propertyPath: 'm_waypoints.Array.data[0]'
       value: 
@@ -933,9 +941,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
---- !u!4 &798893786 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3806122195994136021, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+--- !u!1 &798893785 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1675234665579954441, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
   m_PrefabInstance: {fileID: 798893784}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &803467538 stripped

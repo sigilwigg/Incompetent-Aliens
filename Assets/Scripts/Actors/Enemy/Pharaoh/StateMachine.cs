@@ -44,7 +44,7 @@ namespace Enemy.Pharaoh
         private int m_activityStateWaypointIndex = 0;
 
         //----- references -----
-        private Blackboard m_pharaohBlackboard;
+        public Blackboard m_pharaohBlackboard;
         public GameObject m_pharaohGlyph;
 
         protected override void Start()
@@ -61,7 +61,7 @@ namespace Enemy.Pharaoh
             //----- check if player is caught -----
             if (m_pharaohBlackboard.m_canCatchPlayer && !m_actions.m_isThrowing)
             {
-                m_actions.ThrowPlayers(m_throwCooldown, m_throwForce);
+                StartCoroutine(m_actions.ThrowPlayerCoroutine(m_throwCooldown, m_throwForce));
             }
 
             //----- decide state -----
@@ -182,7 +182,7 @@ namespace Enemy.Pharaoh
 
                 }
 
-                //play distracted animation
+                //play distracted animation              
             }
             else
             {
