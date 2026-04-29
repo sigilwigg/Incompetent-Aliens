@@ -46,7 +46,7 @@ namespace Stack
                 m_playerControllers[0].m_movement.m_influencingStrength = m_baseInfluencingStrength;
             }
 
-            if(m_stackLean.m_isCounteracted)
+            if(m_playersInStack > 1 && m_stackLean.m_isCounteracted)
             {
                 m_playerControllers[0].m_movement.m_influencingStrength = 0.0f;
             }
@@ -80,7 +80,7 @@ namespace Stack
         {
             // ----- can only unstack if is top player in stack -----
             if(m_playersInStack != stackPosition + 1) return;
-
+            Debug.Log("remove :)");
             // ----- get controller, enable movement -----
             Player.Controller playerController = m_playerControllers[stackPosition];
             playerController.m_canMove = true;

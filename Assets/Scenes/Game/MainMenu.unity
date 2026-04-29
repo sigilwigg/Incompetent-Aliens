@@ -592,6 +592,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1519682582830544862, guid: ac56190bf2c11fe4eb9deb2f047b219f, type: 3}
+      propertyPath: m_bouncingBallPrefab
+      value: 
+      objectReference: {fileID: 1491885154261573631, guid: 1c97e7f2fd75a84489401d8ef7c6112d, type: 3}
     - target: {fileID: 3574836428311310081, guid: ac56190bf2c11fe4eb9deb2f047b219f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.5
