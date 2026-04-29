@@ -55,7 +55,7 @@ namespace Stack
         public void AddToStack(Player.Controller playerController)
         {
             // ----- can only run if stack isn't full -----
-            if (m_playersInStack == 4) return;
+            if (m_playersInStack == 4 || playerController.m_isStacked) return;
 
             // ----- get controller, disable movement -----
             m_playerControllers[m_playersInStack] = playerController;
