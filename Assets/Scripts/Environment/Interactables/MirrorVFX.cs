@@ -7,7 +7,6 @@ public class MirrorVFX : MonoBehaviour
     // ----- Drag the mirror object from the hierarchy into the mirror slot on the inspector -----
     public ParticleSystem particleSystem;
     public GameObject mirror;
-    public ParticleSystem sparks;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     // Update is called once per frame
@@ -20,12 +19,10 @@ public class MirrorVFX : MonoBehaviour
         if (!mirror.GetComponent<Pickupable>().m_isPickedUp && !mirror.GetComponent<MirrorInMirrorZone>().m_isMirrorInPlace)
         {
             particleSystem.Play();
-            sparks.Play();
         }
         else
         {
             particleSystem.Stop();
-            sparks.Stop();
         }
     }
 }
