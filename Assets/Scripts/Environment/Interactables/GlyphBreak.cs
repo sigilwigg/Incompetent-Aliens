@@ -7,6 +7,7 @@ public class GlyphBreak : MonoBehaviour
     public Vector3 originalLocation;
     public bool hasBeenCaught;
     private Rigidbody rb;
+
     
     void Start()
     {
@@ -20,7 +21,7 @@ public class GlyphBreak : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         // ----- Detect a collision with layer 3 (ground) -----
-        if (collision.gameObject.layer == 3)
+        if (collision.gameObject.tag == "Ground")
         {
             // ----- Ends the if statement if the glyph has already been caught in the basket -----
             if (hasBeenCaught) return;
