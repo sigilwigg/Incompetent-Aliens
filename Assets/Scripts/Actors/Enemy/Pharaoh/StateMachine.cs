@@ -44,7 +44,7 @@ namespace Enemy.Pharaoh
         private int m_activityStateWaypointIndex = 0;
 
         //----- references -----
-        private Blackboard m_pharaohBlackboard;
+        public Blackboard m_pharaohBlackboard;
         public GameObject m_pharaohGlyph;
 
         protected override void Start()
