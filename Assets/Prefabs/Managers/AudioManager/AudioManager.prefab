@@ -55,5 +55,8 @@ MonoBehaviour:
   - musicID: Victory
     clip: {fileID: 8300000, guid: 184573606ad876e44aae76f32d330cbe, type: 3}
     source: {fileID: 0}
+  - musicID: EndCredits
+    clip: {fileID: 8300000, guid: 25a3fcd133469cf4e9cf5b5a9d11fdde, type: 3}
+    source: {fileID: 0}
   defaultMusicId: MainTheme
-  musicFadeDuration: 3
+  musicFadeDuration: 1.25
