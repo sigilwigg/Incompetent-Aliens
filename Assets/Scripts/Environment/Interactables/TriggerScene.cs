@@ -14,6 +14,7 @@ namespace Interactables
     public class TriggerScene : Interactable
     {
         public string m_sceneName;
+        public JoinManager m_joinManager;
 
         private void Start()
         {
@@ -23,15 +24,12 @@ namespace Interactables
         {
             base.Interact(playerController);
 
-            Debug.Log(JoinManager.instance.m_playerInputsJoined);
-
-            foreach (PlayerInput player in JoinManager.instance.m_playerInputsJoined)
+            foreach (PlayerInput player in m_joinManager.m_playerInputsJoined)
             {
                 Player.Controller pController = player.GetComponent<Player.Controller>();
                 Debug.Log(pController.m_myStackController.m_playersInStack);
                 if (pController.m_myStackController.m_playersInStack > 1)
                 {
-                    Debug.Log("Found Stacked Players");
                     for(int pIdx = pController.m_myStackController.m_playersInStack - 1; pIdx > 0; pIdx--)
                     {
                         pController.m_myStackController.RemoveFromStack(pIdx);
@@ -39,7 +37,6 @@ namespace Interactables
 
                 }
             }
-
 
             SceneController.CallTransitionToScene(m_sceneName);
         }

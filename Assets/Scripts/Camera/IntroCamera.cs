@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class IntroCamera : MonoBehaviour
 {
+    public PlayerInputManager m_playerInputManager;
     public CinemachineVirtualCamera[] m_cameras;
 
     public CinemachineVirtualCamera m_GlyphCamera;
@@ -34,13 +35,6 @@ public class IntroCamera : MonoBehaviour
             }
         }
 
-        foreach (PlayerInput player in JoinManager.instance.m_playerInputsJoined)
-        {
-            player.gameObject.SetActive(false);
-        }
-
-        JoinManager.instance.m_spawnPoint.position = newSpawn;
-
         StartCoroutine(PlayIntro());
     }
 
@@ -61,6 +55,8 @@ public class IntroCamera : MonoBehaviour
 
     public IEnumerator PlayIntro()
     {
+        m_playerInputManager.enabled = false;
+
         yield return new WaitForSeconds(3);
 
         SwitchCamera(m_sarcophagusCamera);
@@ -72,15 +68,12 @@ public class IntroCamera : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         m_ufo.SetActive(true);
+        m_playerInputManager.enabled = true;
 
-        yield return new WaitForSeconds(0.5f);
-
-        JoinManager.instance.RespawnPlayers();
-
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
 
         m_ufo.SetActive(false);
-
+        
     }
 
 }

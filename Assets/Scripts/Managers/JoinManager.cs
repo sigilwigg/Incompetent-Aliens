@@ -19,8 +19,6 @@ using UnityEngine.InputSystem.Users;
 
 public class JoinManager : MonoBehaviour
 {
-    public static JoinManager instance;
-
     [SerializeField] private GameObject m_playerPrefab;
     public Transform m_spawnPoint;
 
@@ -34,23 +32,12 @@ public class JoinManager : MonoBehaviour
     [Header("Player Colors")]
     public List<Color> m_playerColors = new List<Color>();
     public List<PlayerInput> m_playerInputsJoined = new List<PlayerInput>();
-    public List<InputDevice> m_playerGamepads = new List<InputDevice>();
-    public List<InputUser> m_playerUsers = new List<InputUser>();
+    public List<GameObject> m_playerGameObjects = new List<GameObject>();
 
     public GameObject m_bouncingBallPrefab;
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-        DontDestroyOnLoad(this);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -144,11 +131,6 @@ public class JoinManager : MonoBehaviour
                     pairWithDevice: gamepad
                 );
 
-                m_playerGamepads.Add(gamepad);
-                m_playerUsers.Add(player.user);
-
-                Debug.Log(player.devices[0].deviceId);
-
                 // ----- set player to spawn point -----
                 player.transform.position = m_spawnPoint.position;
 
@@ -173,24 +155,6 @@ public class JoinManager : MonoBehaviour
     private bool MaxPlayerCountReached()
     {
         return m_numberPlayersJoined >= 4 ? true : false;
-    }
-
-    public void RespawnPlayers()
-    {
-        for (int i = 0; i < m_playerInputsJoined.Count; i++)
-        {
-            PlayerInput player = m_playerInputsJoined[i];
-            Controller playerController = player.gameObject.GetComponent<Controller>();
-
-            InputUser.PerformPairingWithDevice(m_playerGamepads[i], m_playerUsers[i]);
-
-            ThrowPlayers(playerController);
-
-            player.transform.position = m_spawnPoint.position;
-
-            if (m_cinemachineTargetGroup != null)
-                m_cinemachineTargetGroup.AddMember(player.GetComponent<Player.Controller>().m_movement.transform, 1.0f, 0.0f);
-        }
     }
 
     public void ThrowPlayers(Player.Controller playerController, float bounceForce = 0.1f)

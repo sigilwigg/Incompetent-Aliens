@@ -53,8 +53,6 @@ namespace Player
         {
             m_movement = GetComponentInChildren<Player.Movement>();
             m_animations = GetComponent<Player.Animations>();
-
-            DontDestroyOnLoad(this);
         }
 
         private void Start()
