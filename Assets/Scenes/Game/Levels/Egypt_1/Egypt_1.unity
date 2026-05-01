@@ -230,8 +230,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8113872897464453141, guid: 7832fc9656705924abb9a02ffb834f0b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 46460289}
   m_SourcePrefab: {fileID: 100100000, guid: 7832fc9656705924abb9a02ffb834f0b, type: 3}
+--- !u!1 &46460288 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8113872897464453141, guid: 7832fc9656705924abb9a02ffb834f0b, type: 3}
+  m_PrefabInstance: {fileID: 46460287}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &46460289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46460288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb61c12a635230441a09f40a7a0950ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_areaSoundtrackName: 
 --- !u!1001 &47101069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1590,6 +1611,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2034933245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2034933246}
+  - component: {fileID: 2034933247}
+  m_Layer: 0
+  m_Name: SoundtrackTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2034933246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034933245}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.24096, y: 1, z: -7.07473}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2034933247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034933245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb61c12a635230441a09f40a7a0950ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_areaSoundtrackName: EgyptLevel
 --- !u!4 &2035822586 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6023615640298217344, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
@@ -1860,3 +1926,4 @@ SceneRoots:
   - {fileID: 46460287}
   - {fileID: 243344493}
   - {fileID: 619908304}
+  - {fileID: 2034933246}

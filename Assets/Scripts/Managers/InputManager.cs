@@ -23,13 +23,6 @@ namespace Player
         {
             m_playerController = GetComponent<Player.Controller>();
 
-            // 0.0, 1.0, 0.707107
-            // 0.0, 0.0
-            // 1.0, 0.0
-            // -1.0, 0.0
-            // 0.0, 1.0
-            // 0.0, -1.0
-            // 0.707107, 0.707107
             m_directions = new List<Vector2>();
             m_directions.Add(new Vector2(0.0f, 0.0f));
 

@@ -62,6 +62,8 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeMusic(string newMusicId)
     {
+        if (newMusicId == currentMusicId) return;
+
         // ------ stop current music -----
         foreach (Music track in musicTracks)
         {
