@@ -707,6 +707,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7477373937013805814, guid: 83042268620ef4b409d4ba3c8f873277, type: 3}
+      propertyPath: defaultMusicId
+      value: MainTheme
+      objectReference: {fileID: 0}
     - target: {fileID: 8952514093127541264, guid: 83042268620ef4b409d4ba3c8f873277, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.4766
@@ -797,6 +801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_duration: 10.75
+  m_nextScene: Intro
 --- !u!1 &1180391040
 GameObject:
   m_ObjectHideFlags: 0
