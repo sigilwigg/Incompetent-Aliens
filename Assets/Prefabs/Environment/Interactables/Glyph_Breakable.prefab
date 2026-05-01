@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3443066942565364213}
   - component: {fileID: 2217499349643700608}
   - component: {fileID: 1140325063791204236}
+  - component: {fileID: 7938302147272806566}
   m_Layer: 6
   m_Name: Glyph_Breakable
   m_TagString: Untagged
@@ -36,6 +37,7 @@ Transform:
   - {fileID: 6322718548407366347}
   - {fileID: 3160715045356628399}
   - {fileID: 3590178348063802276}
+  - {fileID: 6427796329179811467}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8287055331649154108
@@ -56,6 +58,7 @@ MonoBehaviour:
   m_collider: {fileID: 0}
   m_isPickedUp: 0
   m_isMultipointPickupPoint: 0
+  m_originalPosition: {x: 0, y: 0, z: 0}
   m_itemName: Glyph
 --- !u!65 &3443066942565364213
 BoxCollider:
@@ -121,6 +124,20 @@ MonoBehaviour:
   glyphsprite: {fileID: 6698294835220605041}
   originalLocation: {x: 0, y: 0, z: 0}
   hasBeenCaught: 0
+--- !u!114 &7938302147272806566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4841466334357131414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a05fb90c8e5e8d6499810390f255a5ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseParticles: {fileID: 8883494538247891186}
+  interactableObject: {fileID: 4841466334357131414}
 --- !u!1 &7558691249764438014
 GameObject:
   m_ObjectHideFlags: 0
@@ -3742,7 +3759,7 @@ ParticleSystem:
   CollisionModule:
     enabled: 1
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -3914,7 +3931,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 8
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -4955,6 +4972,97 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1001 &118474648602709092
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7643500845808457422}
+    m_Modifications:
+    - target: {fileID: 4856276162727211088, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: m_Name
+      value: Interactable Glow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866046156493379287, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866046156493379287, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866046156493379287, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381871856915841775, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381871856915841775, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381871856915841775, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381871856915841775, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381871856915841775, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381871856915841775, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381871856915841775, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381871856915841775, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381871856915841775, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381871856915841775, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381871856915841775, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381871856915841775, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381871856915841775, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+--- !u!4 &6427796329179811467 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6381871856915841775, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+  m_PrefabInstance: {fileID: 118474648602709092}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8883494538247891186 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8857572384739812502, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+  m_PrefabInstance: {fileID: 118474648602709092}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3195203790203227716
 PrefabInstance:
   m_ObjectHideFlags: 0

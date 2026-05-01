@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource soundFXObject;
 
     public Music[] musicTracks;
-    private string currentMusicId;
+    public string currentMusicId;
 
     private AudioSource musicSource;
     public string defaultMusicId;
