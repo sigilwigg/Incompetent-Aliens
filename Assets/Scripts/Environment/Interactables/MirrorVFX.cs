@@ -1,28 +1,26 @@
 using UnityEngine;
-using Interactables;
 
 public class MirrorVFX : MonoBehaviour
 {
-    // ----- Drag the mirror particles from the hierarchy into the particle system on the inspector -----
-    // ----- Drag the mirror object from the hierarchy into the mirror slot on the inspector -----
-    public ParticleSystem particleSystem;
+    // ----- This script is added to the Mirror prefab -----
+    // ----- You will need to add the Empty Mirror Glow prefab to the level, and place it where the "MirrorZone" is within the Pharoah prefab -----
+    // ----- Drag the Mirror Outline from the Empty Mirror Glow prefab into the Mirror Outline in the inspector -----
+    public ParticleSystem mirrorOutline;
     public GameObject mirror;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    // Update is called once per frame
     void Update()
     {
         CheckPickup();
     }
     private void CheckPickup()
     {
-        if (!mirror.GetComponent<Pickupable>().m_isPickedUp && !mirror.GetComponent<MirrorInMirrorZone>().m_isMirrorInPlace)
+        if (!mirror.GetComponent<MirrorInMirrorZone>().m_isMirrorInPlace)
         {
-            particleSystem.Play();
+            mirrorOutline.Play();
         }
         else
         {
-            particleSystem.Stop();
+            mirrorOutline.Stop();
         }
     }
 }

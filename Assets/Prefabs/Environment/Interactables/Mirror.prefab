@@ -51,6 +51,7 @@ MonoBehaviour:
   m_collider: {fileID: 0}
   m_isPickedUp: 0
   m_isMultipointPickupPoint: 1
+  m_originalPosition: {x: 0, y: 0, z: 0}
   m_itemName: 
 --- !u!135 &7798749525160117504
 SphereCollider:
@@ -221,6 +222,7 @@ MonoBehaviour:
   m_collider: {fileID: 0}
   m_isPickedUp: 0
   m_isMultipointPickupPoint: 0
+  m_originalPosition: {x: 0, y: 0, z: 0}
   m_itemName: Mirror
   m_pickupPoints:
   - {fileID: 749207140036387093}
@@ -265,9 +267,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd4a2cff8f72e764299e5b38e7f9ab29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 940915181662848516}
+  particleSystem: {fileID: 0}
   mirror: {fileID: 8607228660137620415}
-  sparks: {fileID: 1999444774876442179}
 --- !u!1 &9210069655416320297
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,6 +320,7 @@ MonoBehaviour:
   m_collider: {fileID: 0}
   m_isPickedUp: 0
   m_isMultipointPickupPoint: 1
+  m_originalPosition: {x: 0, y: 0, z: 0}
   m_itemName: 
 --- !u!135 &2964441829856687228
 SphereCollider:
@@ -398,16 +400,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
---- !u!198 &940915181662848516 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8857572384739812502, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
-  m_PrefabInstance: {fileID: 8638650073106915986}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1999444774876442179 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7808628317387869393, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
-  m_PrefabInstance: {fileID: 8638650073106915986}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3418883977178030205 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6381871856915841775, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
