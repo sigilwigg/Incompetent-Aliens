@@ -55,7 +55,7 @@ public class IntroCamera : MonoBehaviour
 
     public IEnumerator PlayIntro()
     {
-        m_playerInputManager.enabled = false;
+        m_playerInputManager.enabled = true;
 
         yield return new WaitForSeconds(3);
 
@@ -68,7 +68,6 @@ public class IntroCamera : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         m_ufo.SetActive(true);
-        m_playerInputManager.enabled = true;
 
         yield return new WaitForSeconds(1.5f);
 
