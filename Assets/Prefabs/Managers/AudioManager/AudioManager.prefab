@@ -49,5 +49,14 @@ MonoBehaviour:
   - musicID: MainTheme
     clip: {fileID: 8300000, guid: be1a98f9297eef94fb13dc7cbd9ad0ca, type: 3}
     source: {fileID: 0}
+  - musicID: EgyptLevel
+    clip: {fileID: 8300000, guid: d741198927459534aa857c247cfcae65, type: 3}
+    source: {fileID: 0}
+  - musicID: Victory
+    clip: {fileID: 8300000, guid: 184573606ad876e44aae76f32d330cbe, type: 3}
+    source: {fileID: 0}
+  - musicID: EndCredits
+    clip: {fileID: 8300000, guid: 25a3fcd133469cf4e9cf5b5a9d11fdde, type: 3}
+    source: {fileID: 0}
   defaultMusicId: MainTheme
-  musicFadeDuration: 3
+  musicFadeDuration: 1.25

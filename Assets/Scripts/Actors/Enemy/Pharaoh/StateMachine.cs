@@ -44,7 +44,7 @@ namespace Enemy.Pharaoh
         private int m_activityStateWaypointIndex = 0;
 
         //----- references -----
-        private Blackboard m_pharaohBlackboard;
+        public Blackboard m_pharaohBlackboard;
         public GameObject m_pharaohGlyph;
 
         protected override void Start()
@@ -61,7 +61,7 @@ namespace Enemy.Pharaoh
             //----- check if player is caught -----
             if (m_pharaohBlackboard.m_canCatchPlayer && !m_actions.m_isThrowing)
             {
-                m_actions.ThrowPlayers(m_throwCooldown, m_throwForce);
+                StartCoroutine(m_actions.ThrowPlayerCoroutine(m_throwCooldown, m_throwForce));
             }
 
             //----- decide state -----
@@ -156,21 +156,20 @@ namespace Enemy.Pharaoh
         #region Activity State
         protected override void RunActivity(Enemy.Controller controller)
         {
-            m_activityStateWaypointIndex = m_actions.PathNavigationCycle
-                (m_activityStatePath, m_activityStateWaypointWaitTime, m_waypointDistanceTheshold, m_activityStateWaypointIndex);
+            float waitTime = m_activityStateWaypointWaitTime;
 
             Collider pharaohGlyphCollider = m_pharaohGlyph.GetComponent<Collider>();
             Pickupable pharaohGlyphPickupable = m_pharaohGlyph.GetComponent<Pickupable>();
             Rigidbody pharaphGlyphRidgidBody = m_pharaohGlyph.GetComponent<Rigidbody>();
 
+
             if (m_pharaohBlackboard.m_isMirrorInMirrorZone)
             {
-
                 pharaohGlyphCollider.enabled = true; //make glyph interactable
 
                 m_pharaohBlackboard.m_isDistracted = true;
 
-                m_activityStateWaypointWaitTime = Mathf.Infinity;
+                waitTime = Mathf.Infinity;
 
                 m_actions.ChangeVisionRange(0f);
                 m_actions.ChangeCatchRange(0f);
@@ -180,9 +179,7 @@ namespace Enemy.Pharaoh
                     m_pharaohGlyph.transform.SetParent(null);
                     pharaphGlyphRidgidBody.constraints &= ~RigidbodyConstraints.FreezePositionY;
 
-                }
-
-                //play distracted animation
+                }              
             }
             else
             {
@@ -190,13 +187,15 @@ namespace Enemy.Pharaoh
 
                 m_pharaohBlackboard.m_isDistracted = false;
 
-                //m_activityStateWaypointWaitTime = 0.2f;
+                waitTime = m_activityStateWaypointWaitTime;
 
                 m_actions.ChangeVisionRange(m_deafultVisionRange);
                 m_actions.ChangeCatchRange(m_defaultCatchVisionRange);
 
-                // play mad at mirror animation
             }
+
+            m_activityStateWaypointIndex = m_actions.PathNavigationCycle
+                (m_activityStatePath, waitTime, m_waypointDistanceTheshold, m_activityStateWaypointIndex);
         }
         protected override void EnterActivity(Enemy.Controller controller)
         {

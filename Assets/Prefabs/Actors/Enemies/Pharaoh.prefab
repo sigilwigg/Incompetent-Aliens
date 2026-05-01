@@ -428,6 +428,8 @@ MonoBehaviour:
   IDLE: Idle
   WALK: Walk
   CHASE: Chase
+  MIRROR: Mirror_In
+  STOMP: Stomp
 --- !u!1 &2371021813794354937
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,6 +779,7 @@ MonoBehaviour:
   m_sleepStateWaypointWaitTime: 5
   m_walkStateWaypointWaitTime: 0.2
   m_activityStateWaypointWaitTime: 6
+  m_pharaohBlackboard: {fileID: 0}
   m_pharaohGlyph: {fileID: 1294646492255866469}
 --- !u!114 &6329088978532395946
 MonoBehaviour:
@@ -819,6 +822,7 @@ MonoBehaviour:
   m_pharaohModel: {fileID: 4403850410039395447}
   m_bouncingBallPrefab: {fileID: 1491885154261573631, guid: 1c97e7f2fd75a84489401d8ef7c6112d, type: 3}
   m_dustUpParticle: {fileID: 5600273582570056570, guid: 2401ff2bb1b90ab4490955b2997818ab, type: 3}
+  m_timeManager: {fileID: 0}
 --- !u!143 &2780506358886130790
 CharacterController:
   m_ObjectHideFlags: 0
