@@ -62,7 +62,10 @@ namespace Player
                 // ----- prevent edge case detections -----
                 if (IsOwnCollider(interactable)) continue;
                 if (IsStackColliderInCurrentStack(interactable)) continue;
-                if (interactable.gameObject.GetComponent<Stack.Controller>() != null && interactable.gameObject.GetComponent<Stack.Controller>().m_playerController.m_stackPosition != 0) return;
+                if (
+                    interactable.gameObject.GetComponent<Stack.Controller>() != null
+                    && interactable.gameObject.GetComponent<Stack.Controller>().m_playerController.m_stackPosition != 0
+                ) return;
 
                 // ----- continue filtering by nearest distance -----
                 // Get the distance between each interactable and the player
@@ -124,8 +127,7 @@ namespace Player
             foreach (Player.Controller playerController in theStackImInStackController.m_playerControllers)
             {
                 if (playerController == null) continue;
-                if (playerController.m_stackController == null) return true;
-                if (interactable.gameObject == playerController.m_stackController.gameObject) return true;
+                if (playerController.m_stackController != null && interactable.gameObject == playerController.m_stackController.gameObject) return true;
             }
 
             return false;
