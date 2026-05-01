@@ -21,7 +21,8 @@ public class SettingsMenu : MonoBehaviour
 
     public void OnControlsButtonPressed()
     {
-
+        UIManager.instance.OpenMenu(UIManager.MENU.Controls);
+        UIManager.instance.CloseMenu(UIManager.MENU.Settings);
     }
 
     public void OnAccessibilityButtonPressed()
