@@ -16,6 +16,7 @@ TagManager:
   - Mirror
   - LevelData
   - LvlCompMenu
+  - Ground
   layers:
   - Default
   - TransparentFX
