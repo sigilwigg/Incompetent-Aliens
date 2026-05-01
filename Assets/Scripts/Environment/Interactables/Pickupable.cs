@@ -16,6 +16,7 @@ namespace Interactables
         public Collider m_collider;
         public bool m_isPickedUp = false;
         public bool m_isMultipointPickupPoint = false;
+        public Vector3 m_originalPosition;
 
         [SerializeField]
         private string m_itemName;
@@ -23,6 +24,14 @@ namespace Interactables
         private void Start()
         {
             m_collider = GetComponent<Collider>();
+            if(m_isMultipointPickupPoint)
+            m_originalPosition = transform.localPosition;
+        }
+
+        public void Update()
+        {
+            if (m_isMultipointPickupPoint)
+            transform.localPosition = m_originalPosition;
         }
 
         public override void Interact(Player.Controller playerController)
