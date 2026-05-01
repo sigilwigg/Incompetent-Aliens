@@ -56,6 +56,7 @@ MonoBehaviour:
   m_collider: {fileID: 0}
   m_isPickedUp: 0
   m_isMultipointPickupPoint: 0
+  m_originalPosition: {x: 0, y: 0, z: 0}
   m_itemName: Glyph
 --- !u!65 &5392244744376489811
 BoxCollider:
@@ -118,7 +119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseParticles: {fileID: 1623838363996098861}
-  sparks: {fileID: 15957563483863402}
   interactableObject: {fileID: 261928953382803513}
 --- !u!1001 &4230939112018224618
 PrefabInstance:
@@ -300,16 +300,67 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7808628317387869393, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: SizeModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808628317387869393, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].time
+      value: 0.417511
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808628317387869393, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808628317387869393, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808628317387869393, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
+      value: -6.2303104
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808628317387869393, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808628317387869393, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808628317387869393, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inWeight
+      value: 0.14194505
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808628317387869393, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
+      value: -6.2303104
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808628317387869393, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808628317387869393, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857572384739812502, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857572384739812502, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857572384739812502, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
---- !u!198 &15957563483863402 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7808628317387869393, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
-  m_PrefabInstance: {fileID: 7810758276581848507}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &1623838363996098861 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 8857572384739812502, guid: 0a2324e51ef28834691f4a3e92cfca1d, type: 3}
