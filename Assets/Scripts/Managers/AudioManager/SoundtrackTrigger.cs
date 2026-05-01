@@ -6,6 +6,11 @@ public class SoundtrackTrigger : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.instance.ChangeMusic(m_areaSoundtrackName);
+        if (m_areaSoundtrackName != AudioManager.instance.currentMusicId)
+        {
+            Debug.Log("change music");
+            AudioManager.instance.ChangeMusic(m_areaSoundtrackName);
+        }
+           
     }
 }
