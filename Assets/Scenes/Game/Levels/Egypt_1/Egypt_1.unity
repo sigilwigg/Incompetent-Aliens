@@ -138,7 +138,7 @@ PrefabInstance:
     - target: {fileID: 103259969551745847, guid: 7832fc9656705924abb9a02ffb834f0b, type: 3}
       propertyPath: m_pharaohTransform
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 223624500}
     - target: {fileID: 267118014540586502, guid: 7832fc9656705924abb9a02ffb834f0b, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -514,6 +514,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdd46a5957c5feb4ba6122007521e11c, type: 3}
+--- !u!4 &223624500 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3806122195994136021, guid: cdb01301214cb2c45aefaae283b274d8, type: 3}
+  m_PrefabInstance: {fileID: 798893784}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &243344493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -953,12 +958,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70740b306953eeb4684983a36ff0df6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_tierA: 30000
-  m_tierB: 60000
-  m_tierC: 90000
-  m_tierD: 120000
-  m_tierE: 150000
-  m_tierF: 180000
+  m_tierA: 150000
+  m_tierB: 200000
+  m_tierC: 250000
+  m_tierD: 300000
+  m_tierE: 350000
+  m_tierF: 400000
   m_levelName: 
 --- !u!4 &697072081 stripped
 Transform:

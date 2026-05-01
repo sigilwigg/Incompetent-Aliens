@@ -33,6 +33,11 @@ public class SuckInPharaoh : MonoBehaviour
         {
             HandleSuckInPharaoh();
         }
+
+        if(m_isSarcophagasClosed)
+        {
+            GameState.instance.m_isLevelComplete = true;
+        }
     }
 
     private void HandleSuckInPharaoh()
