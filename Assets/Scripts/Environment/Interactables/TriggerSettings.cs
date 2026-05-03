@@ -16,7 +16,6 @@ namespace Interactables
 
         public override void Interact(Player.Controller playerController)
         {
-            Debug.Log("Interact");
             if (TimeManager.instance.isGamePaused)
             {
                 TimeManager.instance.isGamePaused = false;
