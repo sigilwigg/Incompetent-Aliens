@@ -29,7 +29,7 @@ public class Timer : MonoBehaviour
 
     private void UpdateTimer()
     {
-        m_timeElapsed += Time.deltaTime;
+        m_timeElapsed += TimeManager.instance.deltaTime;
     }
 
     private void SetTimerText()
