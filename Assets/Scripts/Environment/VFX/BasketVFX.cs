@@ -1,12 +1,11 @@
-using UnityEngine;
 using Interactables;
+using UnityEngine;
 
-public class SoloPickupVFX : MonoBehaviour
+public class BasketVFX : MonoBehaviour
 {
     public ParticleSystem baseParticles;
     public GameObject interactableObject;
 
-    // Update is called once per frame
     void Update()
     {
         CheckPickup();
@@ -14,7 +13,7 @@ public class SoloPickupVFX : MonoBehaviour
 
     private void CheckPickup()
     {
-        if (!interactableObject.GetComponent<Pickupable>().m_isPickedUp)
+        if (!interactableObject.GetComponent<MultiPointPickupable>().isAllPickupPointsGrabbed)
         {
             baseParticles.Play();
         }

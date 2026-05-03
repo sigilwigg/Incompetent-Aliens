@@ -12,13 +12,10 @@ using System.Linq;
 * Do the same with Glyph 2 and Slot 2
 */
 
-
-
 public class GlyphSlots : MonoBehaviour
 {
     private Controller m_playerToDrop;
 
-    // ----- These will allow the developers to add a specific item of their request to each of the variables -----
     [Header("Glyph Attributes")]
     public bool m_allGlyphSlotsFull = false;
     public List<GameObject> m_glyphs = new List<GameObject>();
@@ -35,11 +32,10 @@ public class GlyphSlots : MonoBehaviour
             HandleGlyphPlacement(idx);
         }
 
-        //----- check if all glyphs are true -----
+        //----- check if all glyphs in place -----
         m_allGlyphSlotsFull = m_isGlyphInPlace.All(b  => b);
     }
 
-    // ----- Get the distance to the slot -----
     private void HandleGlyphPlacement(int glyphIndex)
     {
         // ----- This calculates the currentPlayerDistanceFromGlyph between the glyph and slot, and outputs it as a float -----

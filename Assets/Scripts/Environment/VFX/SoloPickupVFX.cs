@@ -1,13 +1,15 @@
-using Interactables;
 using UnityEngine;
+using Interactables;
 
-public class BasketVFX : MonoBehaviour
+/*
+ *  Plays VFX effect when a pickupable item is picked up.
+ */
+
+public class SoloPickupVFX : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public ParticleSystem baseParticles;
     public GameObject interactableObject;
 
-    // Update is called once per frame
     void Update()
     {
         CheckPickup();
@@ -15,7 +17,7 @@ public class BasketVFX : MonoBehaviour
 
     private void CheckPickup()
     {
-        if (!interactableObject.GetComponent<MultiPointPickupable>().isAllPickupPointsGrabbed)
+        if (!interactableObject.GetComponent<Pickupable>().m_isPickedUp)
         {
             baseParticles.Play();
         }

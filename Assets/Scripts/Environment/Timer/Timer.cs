@@ -34,6 +34,7 @@ public class Timer : MonoBehaviour
 
     private void SetTimerText()
     {
+        // ----- format recorded time into { Minutes : Seconds } -----
         float ms = m_timeElapsed * 1000;
         int hours = Mathf.FloorToInt(ms / 3600000);
         ms %= 3600000;

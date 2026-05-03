@@ -42,12 +42,10 @@ public class SuckInPharaoh : MonoBehaviour
 
     private void HandleSuckInPharaoh()
     {
-        if(m_isSarcophagasClosed)
-            return;
+        if(m_isSarcophagasClosed) return;
 
         // ----- If a tornado is already active, do not spawn another ----
-        if(m_activeTornado != null)
-            return;
+        if(m_activeTornado != null) return;
 
         // ----- Spawn single tornado at the pharaoh's position and hide pharaoh -----
         m_activeTornado = Instantiate(m_tornadoPrefab, m_pharaohTransform.position, Quaternion.identity);
@@ -58,8 +56,7 @@ public class SuckInPharaoh : MonoBehaviour
 
     private IEnumerator MoveTornadoToSarcophagus(GameObject tornadoGO)
     {
-        if(tornadoGO == null)
-            yield break;
+        if(tornadoGO == null) yield break;
 
         Transform tornadoTransform = tornadoGO.transform;
         Vector3 sarcophagusPosition = transform.position;

@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/*
+ *  Simple script for decting i f the mirror was put in place for distracting the Pharoh
+ */
 
 public class MirrorInMirrorZone : MonoBehaviour
 {

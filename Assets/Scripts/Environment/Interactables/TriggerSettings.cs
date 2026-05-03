@@ -1,6 +1,11 @@
 using Player;
 using UnityEngine;
 
+/*
+ *  An interactable that specifically prompts the settings menu.
+ *  Used in main menu scene only.
+ */
+
 namespace Interactables
 {
     public class TriggerSettings : Interactable

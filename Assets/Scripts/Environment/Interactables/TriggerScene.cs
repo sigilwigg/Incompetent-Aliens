@@ -2,10 +2,7 @@ using Player;
 using UnityEngine;
 
 /*
- * Interactables that can be picked up by the player.
- * 
- * Interact()       => standard interact override method, handles what to do for interact.
- * PositionItem()   => positions item in player hold position initially.
+ *  An interactable that calls a transition to named scene wasn interacted with.
  */
 
 namespace Interactables

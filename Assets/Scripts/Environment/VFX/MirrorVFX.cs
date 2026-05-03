@@ -1,10 +1,13 @@
 using UnityEngine;
 
+/* 
+ * This script is added to the Mirror prefab.
+ * You will need to add the Empty Mirror Glow prefab to the level, and place it where the "MirrorZone" is within the Pharoah prefab.
+ * Drag the Mirror Outline from the Empty Mirror Glow prefab into the Mirror Outline in the inspector
+*/
+
 public class MirrorVFX : MonoBehaviour
 {
-    // ----- This script is added to the Mirror prefab -----
-    // ----- You will need to add the Empty Mirror Glow prefab to the level, and place it where the "MirrorZone" is within the Pharoah prefab -----
-    // ----- Drag the Mirror Outline from the Empty Mirror Glow prefab into the Mirror Outline in the inspector -----
     public ParticleSystem mirrorOutline;
     public GameObject mirror;
 

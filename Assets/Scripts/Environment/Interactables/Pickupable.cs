@@ -24,39 +24,40 @@ namespace Interactables
         private void Start()
         {
             m_collider = GetComponent<Collider>();
-            if(m_isMultipointPickupPoint)
-            m_originalPosition = transform.localPosition;
+            if (m_isMultipointPickupPoint) m_originalPosition = transform.localPosition;
         }
 
         public void Update()
         {
-            if (m_isMultipointPickupPoint)
-            transform.localPosition = m_originalPosition;
+            if (m_isMultipointPickupPoint) transform.localPosition = m_originalPosition;
         }
 
         public override void Interact(Player.Controller playerController)
         {
             base.Interact(playerController);
+
+            // ----- member variable assignements -----
             m_playerController = playerController;
-
-            m_isPickedUp = true; 
-
             m_playerController.m_currentlyHeldItem = gameObject;
+            m_isPickedUp = true;
             m_collider.enabled = false;
 
-            if (!m_isMultipointPickupPoint)
-            {
-                PositionItem();
-            }
-            else
+            // ---- handle multipoint pickup restrictions -----
+            if (m_isMultipointPickupPoint)
             {
                 playerController.m_canMove = false;
                 playerController.transform.parent = transform.parent;
+            }
+            else
+            {
+                
+                PositionItem();
             }
         }
 
         private void PositionItem()
         {
+            // ----- move item along with player hold positioner -----
             transform.position = m_playerController.m_heldItemsPosition.transform.position;
         }
     }

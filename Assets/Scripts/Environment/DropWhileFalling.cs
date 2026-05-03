@@ -1,6 +1,12 @@
 using UnityEngine;
 using Player;
 
+/*
+ *  Ensures glyph is dropped on the ground when the player is falling / not grounded.
+ *  
+ *      DetectFall() => is the player grounded.
+ */
+
 public class DropWhileFalling : MonoBehaviour
 {
     private Controller m_player;
@@ -8,7 +14,7 @@ public class DropWhileFalling : MonoBehaviour
     {
         m_player = GetComponentInParent<Controller>();
     }
-    // Update is called once per frame
+
     void Update()
     {
         DetectFall();

@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/*
+ *  Base class for all Interactables
+ */
+
 namespace Interactables
 {
     public class Interactable : MonoBehaviour
