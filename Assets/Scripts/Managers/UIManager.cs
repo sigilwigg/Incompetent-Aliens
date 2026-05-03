@@ -1,6 +1,10 @@
 using System.Collections;
 using UnityEngine;
 using UserInterface;
+using SceneManagement;
+using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -20,6 +24,7 @@ public class UIManager : MonoBehaviour
     [HideInInspector] public GameObject m_pauseMenuContent;
     [HideInInspector] public GameObject m_settingsMenu;
     [HideInInspector] public GameObject m_audioMenu;
+    [HideInInspector] public GameObject m_controlsMenu;
     [HideInInspector] public GameObject m_masterVolumeSlider;
     [HideInInspector] public GameObject m_restartPopup;
     [HideInInspector] public GameObject m_quitPopup;
@@ -30,6 +35,8 @@ public class UIManager : MonoBehaviour
     [HideInInspector] public GameObject m_tabButtons;
     [HideInInspector] public GameObject m_gradeCard;
     [HideInInspector] public GameObject m_letterGrade;
+    [HideInInspector] public Button m_restartButton;
+    [HideInInspector] public Button m_settingsButton;
 
     public GameObject m_lvlCompMenu;
     public GameObject m_lvlCompRestartPopup;
@@ -63,6 +70,7 @@ public class UIManager : MonoBehaviour
         m_pauseMenuContent = FindTransform.FindChildNamed(pTransform, "PauseMenuContent").gameObject;
         m_settingsMenu = FindTransform.FindChildNamed(pTransform, "SettingsMenu").gameObject;
         m_audioMenu = FindTransform.FindChildNamed(pTransform, "AudioMenu").gameObject;
+        m_controlsMenu = FindTransform.FindChildNamed(pTransform, "ControlsMenu").gameObject;
         m_masterVolumeSlider = FindTransform.FindChildNamed(pTransform, "MasterVolumeSlider").gameObject;
         m_restartPopup = FindTransform.FindChildNamed(pTransform, "RestartPopup").gameObject;
         m_quitPopup = FindTransform.FindChildNamed(pTransform, "QuitPopup").gameObject;
@@ -71,8 +79,20 @@ public class UIManager : MonoBehaviour
         m_restartPopupNoButton = FindTransform.FindChildNamed(pTransform, "RestartPopupNoButton").gameObject;
         m_quitPopupNoButton = FindTransform.FindChildNamed(pTransform, "QuitPopupNoButton").gameObject;
         m_tabButtons = FindTransform.FindChildNamed(pTransform, "TabButtons").gameObject;
-        m_gradeCard = FindTransform.FindChildNamed(pTransform, "GradeCard").gameObject;
-        m_letterGrade = FindTransform.FindChildNamed(pTransform, "LetterGrade").gameObject;
+        m_restartButton = FindTransform.FindChildNamed(pTransform, "RestartButton").gameObject.GetComponent<Button>();
+        m_settingsButton = FindTransform.FindChildNamed(pTransform, "SettingsButton").gameObject.GetComponent<Button>();
+
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            m_letterGrade = FindTransform.FindChildNamed(pTransform, "LetterGrade").gameObject;
+            m_gradeCard = FindTransform.FindChildNamed(pTransform, "GradeCard").gameObject;
+            m_restartButton.interactable = true;
+
+        }
+        else
+        {
+            m_restartButton.interactable = false;
+        }
 
         // ----- lvl complete menu components -----
         m_lvlCompMenu = GameObject.FindWithTag("LvlCompMenu");
@@ -89,6 +109,7 @@ public class UIManager : MonoBehaviour
         {
             case MENU.Pause:
                 if(m_pauseMenu) m_pauseMenu.SetActive(false);
+                CloseAllPopUps();
                 break;
             case MENU.Settings:
                 if (m_settingsMenu) m_settingsMenu.SetActive(false);
@@ -97,6 +118,7 @@ public class UIManager : MonoBehaviour
                 if (m_audioMenu) m_audioMenu.SetActive(false);
                 break;
             case MENU.Controls:
+                if (m_controlsMenu) m_controlsMenu.SetActive(false);
                 break;
             case MENU.Accessibility:
                 break;
@@ -112,7 +134,11 @@ public class UIManager : MonoBehaviour
         switch (menu)
         {
             case MENU.Pause:
-                if (m_pauseMenu) m_pauseMenu.SetActive(true);
+                if (m_pauseMenu)
+                {
+                    m_pauseMenu.SetActive(true);
+                    EventSystem.current.SetSelectedGameObject(m_resumeButton);
+                }
                 break;
             case MENU.Settings:
                 if (m_settingsMenu) m_settingsMenu.SetActive(true);
@@ -121,6 +147,7 @@ public class UIManager : MonoBehaviour
                 if (m_audioMenu) m_audioMenu.SetActive(true);
                 break;
             case MENU.Controls:
+                if (m_controlsMenu) m_controlsMenu.SetActive(true);
                 break;
             case MENU.Accessibility:
                 break;
@@ -136,5 +163,11 @@ public class UIManager : MonoBehaviour
         yield return new WaitForFixedUpdate();
 
         CloseMenu(menu);
+    }
+
+    public void CloseAllPopUps()
+    {
+        m_restartPopup.SetActive(false);
+        m_quitPopup.SetActive(false);
     }
 }

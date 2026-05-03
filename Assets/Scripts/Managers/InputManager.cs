@@ -110,6 +110,12 @@ namespace Player
                     UIManager.instance.OpenMenu(UIManager.MENU.Settings);
                     EventSystem.current.SetSelectedGameObject(UIManager.instance.m_audioButton);
                 }
+                if (UIManager.instance.m_controlsMenu.activeInHierarchy)
+                {
+                    StartCoroutine(UIManager.instance.WaitThenCloseMenu(UIManager.MENU.Controls));
+                    UIManager.instance.OpenMenu(UIManager.MENU.Settings);
+                    EventSystem.current.SetSelectedGameObject(UIManager.instance.m_audioButton);
+                }
             }
         }
     }
