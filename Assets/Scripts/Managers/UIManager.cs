@@ -165,6 +165,13 @@ public class UIManager : MonoBehaviour
         CloseMenu(menu);
     }
 
+    public IEnumerator WaitThenOpenMenu(MENU menu)
+    {
+        yield return new WaitForFixedUpdate();
+
+        OpenMenu(menu);
+    }
+
     public void CloseAllPopUps()
     {
         m_restartPopup.SetActive(false);

@@ -46,7 +46,7 @@ namespace Player
             m_playerController.m_availableInteractableObject = null;
 
             // ----- Used to determine the closest interactable Game Object -----
-            Collider nearestInteractable = null;
+            GameObject nearestInteractable = null;
             float nearestDistance = float.MaxValue;
             float distance;
 
@@ -62,10 +62,36 @@ namespace Player
                 // ----- prevent edge case detections -----
                 if (IsOwnCollider(interactable)) continue;
                 if (IsStackColliderInCurrentStack(interactable)) continue;
+
+                if (
+                    interactable.gameObject.GetComponent<Stack.Controller>() != null
+                    && m_playerController.m_stackController != null
+                ) continue;
+
                 if (
                     interactable.gameObject.GetComponent<Stack.Controller>() != null
                     && interactable.gameObject.GetComponent<Stack.Controller>().m_playerController.m_stackPosition != 0
-                ) return;
+                )
+                {
+                    Stack.Controller stackInteractablePlayerIsIn = interactable.gameObject.GetComponent<Stack.Controller>().m_playerController.m_stackController;
+
+                    if (
+                        m_playerController.m_stackController != null
+                        && stackInteractablePlayerIsIn.gameObject == m_playerController.m_stackController.gameObject
+                    ) continue;
+
+                    
+
+                    distance = Vector3.Distance(gameObject.transform.position, interactable.gameObject.transform.position);
+
+                    if (distance < nearestDistance)
+                    {
+                        nearestDistance = distance;
+                        nearestInteractable = stackInteractablePlayerIsIn.gameObject;
+                    }
+
+                    continue;
+                }
 
                 // ----- continue filtering by nearest distance -----
                 // Get the distance between each interactable and the player
@@ -75,14 +101,14 @@ namespace Player
                 if (distance < nearestDistance)
                 {
                     nearestDistance = distance;
-                    nearestInteractable = interactable;
+                    nearestInteractable = interactable.gameObject;
                 }
             }
 
             // ----- nearest interactable set to available interactable -----
             if (nearestInteractable != null && m_playerController.m_currentlyHeldItem == null)
             {
-                m_playerController.m_availableInteractableObject = nearestInteractable.gameObject.GetComponent<Interactables.Interactable>();
+                m_playerController.m_availableInteractableObject = nearestInteractable.GetComponent<Interactables.Interactable>();
                 m_playerController.m_isInteractableObjectAvailable = true;
                 m_interactPrompt.enabled = true;
                 m_promptText.text = m_playerController.m_availableInteractableObject.m_interactableText;
