@@ -11,9 +11,7 @@ public class MatchPosition : MonoBehaviour
     private void Update()
     {
         m_targetPosition = m_targetTransform.position;
-
         m_currentPosition = Vector3.Lerp(transform.position, m_targetPosition, TimeManager.instance.deltaTime * m_matchSpeed);
-
         transform.position = m_currentPosition;
     }
 }

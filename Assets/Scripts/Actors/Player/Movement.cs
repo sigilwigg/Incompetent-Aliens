@@ -85,23 +85,35 @@ namespace Player
             // ----- handle influencing transform -----
             if (m_influencingTransform != null && m_influencingStrength > 0.0f)
             {
-                Vector3 influencingDistanceFromCenter = new Vector3(m_influencingTransform.localPosition.x, 0, m_influencingTransform.localPosition.z);
+                Vector3 influencingDistanceFromCenter = new Vector3(
+                    m_influencingTransform.localPosition.x,
+                    0,
+                    m_influencingTransform.localPosition.z
+                );
   
                 influencingDistanceFromCenter *= m_influencingStrength;
                 movementInput += influencingDistanceFromCenter;
-
                 movementInput /= 2.0f;
             }
 
             m_playerController.m_influencedMoveInput = movementInput;
 
             // ----- handle move velocity -----
-            float moveSpeed = m_playerController.m_isStacked && m_playerController.m_myStackController.m_stackLean.m_isCounteracted
-                ? m_moveSpeedStacked : m_moveSpeed;
+            float moveSpeed = 
+                m_playerController.m_isStacked
+                && m_playerController.m_myStackController.m_stackLean.m_isCounteracted
+                    ? m_moveSpeedStacked : m_moveSpeed;
+
             m_targetMoveVelocity = movementInput * moveSpeed;
+
             if (!m_isGrounded && m_playerController.m_stackPosition == 0) 
                 m_targetMoveVelocity.y = -m_gravityForce;
-            m_currentMoveVelocity = Vector3.Lerp(m_currentMoveVelocity, m_targetMoveVelocity, m_moveAcceleration * TimeManager.instance.deltaTime);
+
+            m_currentMoveVelocity = Vector3.Lerp(
+                m_currentMoveVelocity, m_targetMoveVelocity,
+                m_moveAcceleration * TimeManager.instance.deltaTime
+            );
+
             m_characterController.Move(m_currentMoveVelocity * TimeManager.instance.deltaTime);
 
             if (movementInput == Vector3.zero)
