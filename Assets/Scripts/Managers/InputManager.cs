@@ -4,14 +4,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-/*
- *  Streamlines input control through one class that either passes information onto the PlayerController
- *  Or is called by the PlayerController to access streamed input values.
- * 
- *      public GetMovementInput()           => vector2 of wasd input between 0 and 1. Called from other scripts as needed.
- *      void InteractPerformed()            => calls appropriate method in player controller.
- */
-
 namespace Player
 {
     public class InputManager : MonoBehaviour

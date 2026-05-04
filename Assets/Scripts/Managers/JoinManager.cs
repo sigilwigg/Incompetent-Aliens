@@ -92,7 +92,9 @@ public class JoinManager : MonoBehaviour
 
     private void HandleNewConnectionsGamepads()
     {
+        // ----- don't process if paused -----
         if (UIManager.instance != null && UIManager.instance.m_pauseMenu.activeInHierarchy) return;
+
         foreach (Gamepad gamepad in Gamepad.all)
         {
             if (gamepad.startButton.wasPressedThisFrame && !MaxPlayerCountReached())
@@ -116,7 +118,11 @@ public class JoinManager : MonoBehaviour
 
                 // ----- handle camera retargeting -----
                 if (m_cinemachineTargetGroup != null)
-                    m_cinemachineTargetGroup.AddMember(player.GetComponent<Player.Controller>().m_movement.transform, 1.0f, 0.0f);
+                    m_cinemachineTargetGroup.AddMember(
+                        player.GetComponent<Player.Controller>().m_movement.transform,
+                        1.0f,
+                        0.0f
+                );
                 m_playerQuedForColorAssignment = player.GetComponent<Player.Controller>();
                 m_numberPlayersJoined++;
             }
