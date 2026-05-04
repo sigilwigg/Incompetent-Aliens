@@ -82,7 +82,7 @@ public class UIManager : MonoBehaviour
         m_restartButton = FindTransform.FindChildNamed(pTransform, "RestartButton").gameObject.GetComponent<Button>();
         m_settingsButton = FindTransform.FindChildNamed(pTransform, "SettingsButton").gameObject.GetComponent<Button>();
 
-        if (SceneManager.GetActiveScene().buildIndex == 2)
+        if (SceneManager.GetActiveScene().name == "Egypt_1")
         {
             m_letterGrade = FindTransform.FindChildNamed(pTransform, "LetterGrade").gameObject;
             m_gradeCard = FindTransform.FindChildNamed(pTransform, "GradeCard").gameObject;

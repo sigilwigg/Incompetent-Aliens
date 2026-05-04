@@ -656,7 +656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5122816438439903801, guid: 14f42032d2d23d14482f7dafc7f28ddd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3275,7 +3275,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7138614283694006542}
         m_TargetAssemblyTypeName: UserInterface.LevelCompleteMenu, Assembly-CSharp
-        m_MethodName: OnYesButtonPressed
+        m_MethodName: OnQuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

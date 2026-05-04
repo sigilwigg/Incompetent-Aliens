@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/OpeningCredits.unity
     guid: 2a2f47068f4137945abab7cdcc7c7e8e
   - enabled: 1
+    path: Assets/Scenes/Game/Intro.unity
+    guid: b2e1046dded27d645a0f54c789b2cecb
+  - enabled: 1
     path: Assets/Scenes/Game/MainMenu.unity
     guid: 4309fec9d35f29a40827d7b798a21dd0
   - enabled: 1
@@ -23,9 +26,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game/EndCredits.unity
     guid: 52f070386c14f524198cff7dd9e0f3f0
-  - enabled: 1
-    path: Assets/Scenes/Game/Intro.unity
-    guid: b2e1046dded27d645a0f54c789b2cecb
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c7356df65fa03da48a53aeb3be7910d2, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 4a25ada32cb9f0c4988bc58d0fd83c9e, type: 3}

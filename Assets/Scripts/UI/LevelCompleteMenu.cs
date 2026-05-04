@@ -47,6 +47,12 @@ namespace UserInterface
         {
 
         }
+
+        public void OnQuitGame()
+        {
+            Debug.Log("Quit");
+            Application.Quit();
+        }
     }
 
 }
